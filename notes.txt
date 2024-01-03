@@ -1,0 +1,8 @@
+
+
+installation 
+-- https://vitejs.dev/guide/
+-- vite 
+-- npm 
+-- npm install 
+-- npm run dev 
