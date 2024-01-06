@@ -6,3 +6,48 @@ installation
 -- npm 
 -- npm install 
 -- npm run dev 
+
+https://mui.com/material-ui/react-tabs/
+
+pages 
+-- Resume Template 
+-- MyResume 
+
+-- About
+-- Contact  
+-- Privacy 
+-- Developer 
+
+
+Components 
+-- Navbar
+-- Footer 
+
+
+
+Structure 
+-- Navbar 
+-- Home 
+-- Footer
+
+
+problems 
+-- react-router vs react-router-dom 
+
+
+
+
+
+color 
+-- black = #000000
+
+-- gray-900 = #111827
+-- gray-950 = #030712
+-- gray-200 = #f3f4f6
+
+-- lime-600 = #65a30d
+-- lime-400 = #a3e635
+
+-- amber-500 = #f59e0b
+
+
