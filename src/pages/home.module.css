@@ -1,0 +1,19 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.templatesImg {
+    background-color: #030712;
+    padding: 16px;
+    margin: 16px;
+    border-radius: 3%;
+}
+
+.templatesImg:hover {
+    cursor: pointer;
+}
+

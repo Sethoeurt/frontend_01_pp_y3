@@ -1,21 +1,30 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { templates } from '../data/templates.js'
+import Styles from './home.module.css'
 
 function Home() {
   return (
     <>
-      Home
-      <nav>
-        <ul>
+      <div className={Styles.container}>
+        {
+          templates.map((template) => {
+            return (
 
-          <li>
-            <Link to="/blogs">Blogs</Link>
-          </li>
+              <div key={template.id} className={Styles.templatesImg}>
+                <img
+                  src={template.template_img}
+                  alt={template.template_name}
+                  height={'380px'}
+                  width={'auto'}
+                />
+           
+              </div>
 
-        </ul>
-      </nav>
+            )
+          })
+        }
+      </div>
 
-      
     </>
   )
 }
