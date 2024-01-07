@@ -1,5 +1,5 @@
 import React from 'react'
-import Styles from './blackScreen.module.css'
+import Styles from '../styles/blackScreen.module.css'
 
 function BlackScreen() {
   return (

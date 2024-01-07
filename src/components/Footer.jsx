@@ -1,7 +1,7 @@
 import React from 'react'
 import {GitHub,  LinkedIn, YouTube, Twitter, Facebook, Instagram} from '@mui/icons-material';
 import { Social } from '../data/social'
-import styles from './footer.module.css'
+import styles from '../styles/footer.module.css'
 
 function Footer() {
   return (

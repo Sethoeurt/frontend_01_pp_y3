@@ -1,7 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import resume_builder from '../assets/resume_builder.jpg'
-import styles from './navbar.module.css'
+import styles from '../styles/navbar.module.css'
 
 function Navbar() {
   return (
