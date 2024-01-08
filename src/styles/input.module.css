@@ -66,6 +66,6 @@
     border: none;
 }
 
-.sendButton:hover {
+.button:hover {
     background-color: #a3e635;
 }

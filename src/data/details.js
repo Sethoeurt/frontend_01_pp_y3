@@ -2,12 +2,11 @@ import anuragaffection from '../assets/anuragaffection.jpg'
 
 export const Details = {
     bio: {
-        profile_image : anuragaffection,
+        profile_image: anuragaffection,
         first_name: "Steve",
         last_name: "Rogers",
-        role : "Software Developer",
-        description:
-            "As Captain America, I aim to leverage my leadership skills and dedication to serve, transitioning into a Full Stack Developer role to contribute to technological advancements.",
+        role: "Software Developer",
+        description: "As Captain America, I aim to leverage my leadership skills and dedication to serve, transitioning into a Full Stack Developer role to contribute to technological advancements.",
     },
     address: {
         postal_code: "101010",
@@ -33,12 +32,25 @@ export const Details = {
             end_year: "2023",
         },
     ],
-    education: {
-        type: "Post Graduation",
-        university: "Stark Industries",
-        degree: "B.Tech in Superhero Technology",
-        start_year: "1941",
-        end_year: "1945",
-    },
+    projects: [
+        {
+            id: 1,
+            project_name: "Resume Builder",
+            tech_stack: "MERN & Tailwind",
+            github_link: "https://github.com/anuragaffection/resume_builder",
+            live_link: "https://resume-builder-anurag.vercel.app",
+            description: "An application to build resume."
+        }
+    ],
+    education: [
+        {
+            id: 1,
+            degree: "B.Tech",
+            domain: "SuperHero Technology",
+            university: "Stark Industries",
+            start_year: "1941",
+            end_year: "1945",
+        },
+    ],
     key_skills: ["Leadership", "Combat Skills", "Technology", "Strategy", "Teamwork"],
 };
