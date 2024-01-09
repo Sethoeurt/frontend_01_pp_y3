@@ -1,15 +1,18 @@
 import React from 'react'
 import Styles from '../../styles/input.module.css'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { Details } from '../../data/details'
 import { scrollToTop } from '../../utils/controls.js'
 import { previousComponents, nextComponents } from '../../redux/slices/sliceFillDetails.js'
-
+import {
+  setProjectName, setTechStack, setGithubLink, setLiveLink, setDescription
+} from '../../redux/slices/projectsSlice.js'
 
 
 function Projects() {
 
   const dispatch = useDispatch();
+  const projects = useSelector(state => state.projects);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -43,6 +46,8 @@ function Projects() {
                 type="text"
                 id='project_name'
                 placeholder={Details.projects[0].project_name}
+                value={projects.project_name}
+                onChange={ (e) => dispatch(setProjectName(e.target.value))}
               />
             </div>
 
@@ -57,6 +62,8 @@ function Projects() {
                 type="text"
                 id='tech_stack'
                 placeholder={Details.projects[0].tech_stack}
+                value={projects.tech_stack}
+                onChange={ (e) => dispatch(setTechStack(e.target.value))}
               />
             </div>
 
@@ -71,6 +78,8 @@ function Projects() {
                 type="text"
                 id='github_link'
                 placeholder={Details.projects[0].github_link}
+                value={projects.github_link}
+                onChange={ (e) => dispatch(setGithubLink(e.target.value))}
               />
             </div>
 
@@ -85,6 +94,8 @@ function Projects() {
                 type="text"
                 id='live_link'
                 placeholder={Details.projects[0].live_link}
+                value={projects.live_link}
+                onChange={ (e) => dispatch(setLiveLink(e.target.value))}
               />
             </div>
 
@@ -99,6 +110,8 @@ function Projects() {
                 type="text"
                 id='description'
                 placeholder={Details.projects[0].description}
+                value={projects.description}
+                onChange={ (e) => dispatch(setDescription(e.target.value))}
               />
             </div>
 

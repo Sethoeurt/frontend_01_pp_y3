@@ -2,11 +2,18 @@ import React from 'react'
 import Styles from '../../styles/input.module.css'
 import { useDispatch } from 'react-redux'
 import { Details } from '../../data/details'
-import {scrollToTop} from '../../utils/controls.js'
-import {previousComponents} from '../../redux/slices/sliceFillDetails.js'
+import { scrollToTop } from '../../utils/controls.js'
+import { previousComponents, nextComponents } from '../../redux/slices/sliceFillDetails.js'
 
 function KeySkills() {
   const dispatch = useDispatch();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(nextComponents(1));
+    scrollToTop();
+
+  }
 
   const goToPreviousComponents = () => {
     dispatch(previousComponents(1));
@@ -18,7 +25,10 @@ function KeySkills() {
       <div className={Styles.container}>
         <div className={Styles.wrapper}>
           <div className={Styles.title}> Key Skills  </div>
-          <div className={Styles.inputForm}>
+          <form
+            className={Styles.inputForm}
+            onSubmit={ (e) => handleSubmit(e)}
+          >
             <input
               className={Styles.inputStyle}
               type="text"
@@ -52,7 +62,8 @@ function KeySkills() {
               </div>
               <button type='submit' className={Styles.button}>Next </button>
             </div>
-          </div>
+
+          </form>
         </div>
       </div>
     </>

@@ -38,8 +38,10 @@ problems
 
 
 
-color 
+
+color code 
 -- black = #000000
+-- white = #ffffff
 
 -- gray-950 = #030712
 -- gray-900 = #111827
@@ -50,16 +52,21 @@ color
 -- lime-400 = #a3e635
 
 -- amber-500 = #f59e0b
+-- blue-700 = #1d4ed8
 
 
 
 
-  <Bio />
-      <Address />
-      <Experience />
-      <Projects />
-      <Education />
-      <KeySkills />
+
+
+bio color notes 
+-- black = #000000 (subheading)
+
+-- gray-950 = #030712 ( h3 )
+
+-- gray-900 = #111827 (smaller text)
+-- gray-200 = #f3f4f6 (background color )
+-- blue-700 = #1d4ed8 (heading )
 
 
 

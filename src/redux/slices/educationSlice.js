@@ -32,11 +32,7 @@ const educationSlice = createSlice({
 
 
 export const {
-    setDegree,
-    setDomain,
-    setUniversity,
-    setStartYear, 
-    setEndYear
+    setDegree,setDomain, setUniversity, setStartYear, setEndYear
 } = educationSlice.actions
 
 

@@ -36,12 +36,7 @@ const addressSlice = createSlice({
 
 
 export const {
-  setPostalcode,
-  setCity,
-  setState,
-  setCountry,
-  setPhone,
-  setEmail
+  setPostalcode,setCity,setState,setCountry,setPhone,setEmail
 } = addressSlice.actions;
 
 

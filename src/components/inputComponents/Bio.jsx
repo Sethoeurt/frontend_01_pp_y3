@@ -1,20 +1,19 @@
 import React from 'react'
 import Styles from '../../styles/input.module.css'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { Details } from '../../data/details.js'
 import { scrollToTop } from '../../utils/controls.js'
-
+import { nextComponents } from '../../redux/slices/sliceFillDetails.js'
 import {
   setProfileImage, setFirstName, setLastName, setRole, setDescription
 } from '../../redux/slices/bioSlice.js'
-import { nextComponents } from '../../redux/slices/sliceFillDetails.js'
-
 
 
 function Bio() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const bio = useSelector( (state) => state.bio);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -49,6 +48,7 @@ function Bio() {
                 accept="image/*"
                 id='profileImage'
                 placeholder={"Upload Profile Image"}
+                // value={bio.profile_image}
                 onChange={(e) => dispatch(setProfileImage(e.target.value))}
               />
             </div>
@@ -63,6 +63,7 @@ function Bio() {
                 className={Styles.inputStyle}
                 type="text"
                 id='first_name'
+                value={bio.first_name}
                 placeholder={Details.bio.first_name}
                 onChange={(e) => dispatch(setFirstName(e.target.value))}
               />
@@ -79,6 +80,7 @@ function Bio() {
                 type="text"
                 id='last_name'
                 placeholder={Details.bio.last_name}
+                value={bio.last_name}
                 onChange={(e) => dispatch(setLastName(e.target.value))}
               />
             </div>
@@ -94,6 +96,7 @@ function Bio() {
                 type="text"
                 id='role'
                 placeholder={Details.bio.role}
+                value={bio.role}
                 onChange={(e) => dispatch(setRole(e.target.value))}
               />
             </div>
@@ -110,6 +113,7 @@ function Bio() {
                 type='tel'
                 id='description'
                 placeholder={Details.bio.description}
+                value={bio.description}
                 onChange={(e) => dispatch(setDescription(e.target.value))}
               ></textarea>
             </div>

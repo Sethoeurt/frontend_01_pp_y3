@@ -1,6 +1,6 @@
 import React from 'react'
 import Styles from '../../styles/input.module.css'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { Details } from '../../data/details'
 import {scrollToTop} from '../../utils/controls.js'
 
@@ -16,6 +16,7 @@ import {
 
 function Address() {
   const dispatch = useDispatch();
+  const address = useSelector(state => state.address);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -50,6 +51,7 @@ function Address() {
                 type="text"
                 id='postalCode'
                 placeholder={Details.address.postal_code}
+                value={address.postal_code}
                 onChange={(e) => dispatch(setPostalcode(e.target.value))}
               />
             </div>
@@ -65,6 +67,7 @@ function Address() {
                 type="text"
                 id='city'
                 placeholder={Details.address.city}
+                value={address.city}
                 onChange={(e) => dispatch(setCity(e.target.value))}
               />
             </div>
@@ -80,6 +83,7 @@ function Address() {
                 type="text"
                 id='state'
                 placeholder={Details.address.state}
+                value={address.state}
                 onChange={(e) => dispatch(setState(e.target.value))}
               />
             </div>
@@ -95,6 +99,7 @@ function Address() {
                 type="text"
                 id='country'
                 placeholder={Details.address.country}
+                value={address.country}
                 onChange={(e) => dispatch(setCountry(e.target.value))}
               />
             </div>
@@ -110,6 +115,7 @@ function Address() {
                 type='tel'
                 id='phone'
                 placeholder={Details.address.phone}
+                value={address.phone}
                 onChange={(e) => dispatch(setPhone(e.target.value))}
               />
             </div>
@@ -124,6 +130,7 @@ function Address() {
                 className={Styles.inputStyle}
                 type="email"
                 placeholder={Details.address.email}
+                value={address.email}
                 onChange={(e) => dispatch(setEmail(e.target.value))}
               />
             </div>

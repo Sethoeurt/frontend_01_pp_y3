@@ -31,11 +31,7 @@ const bioSlice = createSlice({
 })
 
 export const {
-    setProfileImage,
-    setFirstName,
-    setLastName,
-    setRole,
-    setDescription
+    setProfileImage, setFirstName, setLastName, setRole, setDescription
 } = bioSlice.actions
 
 export default bioSlice.reducer;

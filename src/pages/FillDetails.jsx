@@ -6,7 +6,7 @@ import Experience from '../components/inputComponents/Experience'
 import Projects from '../components/inputComponents/Projects'
 import Education from '../components/inputComponents/Education'
 import KeySkills from '../components/inputComponents/KeySkills'
-
+import Download from '../components/Download'
 
 
 function FillDetails() {
@@ -16,20 +16,14 @@ function FillDetails() {
 
   const renderComponent = () => {
     switch (value) {
-      case 1:
-        return <Bio />;
-      case 2:
-        return <Address  />;
-      case 3:
-        return <Experience  />;
-      case 4:
-        return <Projects  />;
-      case 5:
-        return <Education />;
-      case 6:
-        return <KeySkills  />;
-      default:
-        return null;
+      case 1: return <Bio />;
+      case 2: return <Address />;
+      case 3: return <Experience />;
+      case 4: return <Projects />;
+      case 5: return <Education />;
+      case 6: return <KeySkills />;
+      case 7: return <Download />;
+      default: return null;
     }
   };
 

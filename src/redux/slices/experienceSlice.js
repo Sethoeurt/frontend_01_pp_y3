@@ -27,10 +27,7 @@ const experienceSlice = createSlice({
 })
 
 export const {
-    setJobTitle,
-    setOrganizationName,
-    setStartYear,
-    setEndYear
+    setJobTitle,setOrganizationName, setStartYear, setEndYear
 } = experienceSlice.actions;
 
 

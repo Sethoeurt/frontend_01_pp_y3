@@ -1,20 +1,16 @@
 import React from 'react'
 import Styles from '../../styles/input.module.css'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { Details } from '../../data/details'
 import {scrollToTop} from '../../utils/controls.js'
+import {setJobTitle, setOrganizationName, setStartYear, setEndYear} from '../../redux/slices/experienceSlice.js'
+import {previousComponents, nextComponents} from '../../redux/slices/sliceFillDetails.js'
 
-import {
-  setJobTitle, setOrganizationName, setStartYear, setEndYear
-} from '../../redux/slices/experienceSlice.js'
-
-import {
-  previousComponents, nextComponents
-} from '../../redux/slices/sliceFillDetails.js'
 
 function Experience() {
-
   const dispatch = useDispatch();
+  const experience = useSelector (state => state.experience)
+
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(nextComponents(1));
@@ -47,6 +43,7 @@ function Experience() {
                 type="text"
                 id='job_title'
                 placeholder={Details.experience[0].job_title}
+                value={experience.job_title}
                 onChange={(e) => dispatch(setJobTitle(e.target.value))}
               />
             </div>
@@ -62,6 +59,7 @@ function Experience() {
                 type="text"
                 id='organization_name'
                 placeholder={Details.experience[0].organization_name}
+                value={experience.organization_name}
                 onChange={(e) => dispatch(setOrganizationName(e.target.value))}
               />
             </div>
@@ -77,6 +75,7 @@ function Experience() {
                 type="text"
                 id='start_year'
                 placeholder={Details.experience[0].start_year}
+                value={experience.start_year}
                 onChange={(e) => dispatch(setStartYear(e.target.value))}
               />
             </div>
@@ -92,6 +91,7 @@ function Experience() {
                 type="text"
                 id='end_year'
                 placeholder={Details.experience[0].end_year}
+                value={experience.end_year}
                 onChange={(e) => dispatch(setEndYear(e.target.value))}
               />
             </div>

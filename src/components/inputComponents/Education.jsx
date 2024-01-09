@@ -1,18 +1,15 @@
 import React from 'react'
 import Styles from '../../styles/input.module.css'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { Details } from '../../data/details'
 import { scrollToTop } from '../../utils/controls.js'
-import {
-  setDegree, setDomain, setUniversity, setStartYear, setEndYear
-} from "../../redux/slices/educationSlice.js"
-import { 
-  previousComponents, nextComponents 
-} from '../../redux/slices/sliceFillDetails.js'
+import { setDegree, setDomain, setUniversity, setStartYear, setEndYear } from "../../redux/slices/educationSlice.js"
+import { previousComponents, nextComponents } from '../../redux/slices/sliceFillDetails.js'
 
 
 function Education() {
   const dispatch = useDispatch();
+  const education = useSelector(state => state.education);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -47,6 +44,7 @@ function Education() {
                 type="text"
                 id='degree'
                 placeholder={Details.education[0].degree}
+                value={education.degree}
                 onChange={(e) => dispatch(setDegree(e.target.value))}
               />
             </div>
@@ -62,6 +60,7 @@ function Education() {
                 type="text"
                 id='domain'
                 placeholder={Details.education[0].domain}
+                value={education.domain}
                 onChange={(e) => dispatch(setDomain(e.target.value))}
               />
             </div>
@@ -77,6 +76,7 @@ function Education() {
                 type="text"
                 id='univesity'
                 placeholder={Details.education[0].university}
+                value={education.university}
                 onChange={(e) => dispatch(setUniversity(e.target.value))}
               />
             </div>
@@ -92,6 +92,7 @@ function Education() {
                 type="text"
                 id='start_year'
                 placeholder={Details.education[0].start_year}
+                value={education.start_year}
                 onChange={(e) => dispatch(setStartYear(e.target.value))}
               />
             </div>
@@ -107,6 +108,7 @@ function Education() {
                 type="text"
                 id='end_year'
                 placeholder={Details.education[0].end_year}
+                value={education.end_year}
                 onChange={(e) => dispatch(setEndYear(e.target.value))}
               />
             </div>
