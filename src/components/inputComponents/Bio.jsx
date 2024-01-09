@@ -1,26 +1,41 @@
 import React from 'react'
-import { Details } from '../../data/details.js'
 import Styles from '../../styles/input.module.css'
-
 import { useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
+import { Details } from '../../data/details.js'
+import { scrollToTop } from '../../utils/controls.js'
+
 import {
-  setProfileImage,
-  setFirstName,
-  setLastName,
-  setRole,
-  setDescription
+  setProfileImage, setFirstName, setLastName, setRole, setDescription
 } from '../../redux/slices/bioSlice.js'
+import { nextComponents } from '../../redux/slices/sliceFillDetails.js'
+
 
 
 function Bio() {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    dispatch(nextComponents(1));
+    scrollToTop()
+  }
+
+  const goToPreviousComponents = () => {
+    navigate('/');
+    scrollToTop();
+  }
 
   return (
     <>
       <div className={Styles.container}>
         <div className={Styles.wrapper}>
           <div className={Styles.title}>Bio </div>
-          <div className={Styles.inputForm}>
+          <form
+            className={Styles.inputForm}
+            onSubmit={(e) => handleSubmit(e)}
+          >
 
             <div className={Styles.labelInputWrapper}>
               <label
@@ -99,8 +114,17 @@ function Bio() {
               ></textarea>
             </div>
 
-            <button className={Styles.button}>Next </button>
-          </div>
+            <div className={Styles.buttonWrapper}>
+              <div
+                className={Styles.button}
+                onClick={() => goToPreviousComponents()}
+              >
+                <p>Back</p>
+              </div>
+              <button type='submit' className={Styles.button}>Next </button>
+            </div>
+
+          </form>
         </div>
       </div>
     </>

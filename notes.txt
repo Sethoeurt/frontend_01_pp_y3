@@ -54,5 +54,15 @@ color
 
 
 
+  <Bio />
+      <Address />
+      <Experience />
+      <Projects />
+      <Education />
+      <KeySkills />
+
+
+
+
 
 

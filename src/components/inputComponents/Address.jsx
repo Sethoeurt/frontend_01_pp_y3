@@ -1,28 +1,43 @@
 import React from 'react'
 import Styles from '../../styles/input.module.css'
-import { Details } from '../../data/details'
-
 import { useDispatch } from 'react-redux'
+import { Details } from '../../data/details'
+import {scrollToTop} from '../../utils/controls.js'
+
 import {
-  setPostalcode,
-  setCity,
-  setState,
-  setCountry,
-  setPhone,
-  setEmail
+  setPostalcode, setCity, setState, 
+  setCountry, setPhone, setEmail
 } from '../../redux/slices/addressSlice.js'
 
+import {
+  previousComponents, nextComponents
+} from '../../redux/slices/sliceFillDetails.js'
 
 
 function Address() {
   const dispatch = useDispatch();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    dispatch(nextComponents(1));
+    scrollToTop()
+  }
+
+  const goToPreviousComponents = () => {
+    dispatch(previousComponents(1));
+    scrollToTop();
+  }
 
   return (
     <>
       <div className={Styles.container}>
         <div className={Styles.wrapper}>
           <div className={Styles.title}>Address </div>
-          <div className={Styles.inputForm}>
+
+          <form
+            className={Styles.inputForm}
+            onSubmit={(e) => handleSubmit(e)}
+          >
 
             <div className={Styles.labelInputWrapper}>
               <label
@@ -35,7 +50,7 @@ function Address() {
                 type="text"
                 id='postalCode'
                 placeholder={Details.address.postal_code}
-                onChange={ (e) => dispatch(setPostalcode(e.target.value))}
+                onChange={(e) => dispatch(setPostalcode(e.target.value))}
               />
             </div>
 
@@ -50,7 +65,7 @@ function Address() {
                 type="text"
                 id='city'
                 placeholder={Details.address.city}
-                onChange={ (e) => dispatch(setCity(e.target.value))}
+                onChange={(e) => dispatch(setCity(e.target.value))}
               />
             </div>
 
@@ -65,7 +80,7 @@ function Address() {
                 type="text"
                 id='state'
                 placeholder={Details.address.state}
-                onChange={ (e) => dispatch(setState(e.target.value))}
+                onChange={(e) => dispatch(setState(e.target.value))}
               />
             </div>
 
@@ -80,7 +95,7 @@ function Address() {
                 type="text"
                 id='country'
                 placeholder={Details.address.country}
-                onChange={ (e) => dispatch(setCountry(e.target.value))}
+                onChange={(e) => dispatch(setCountry(e.target.value))}
               />
             </div>
 
@@ -95,7 +110,7 @@ function Address() {
                 type='tel'
                 id='phone'
                 placeholder={Details.address.phone}
-                onChange={ (e) => dispatch(setPhone(e.target.value))}
+                onChange={(e) => dispatch(setPhone(e.target.value))}
               />
             </div>
 
@@ -109,12 +124,23 @@ function Address() {
                 className={Styles.inputStyle}
                 type="email"
                 placeholder={Details.address.email}
-                onChange={ (e) => dispatch(setEmail(e.target.value))}
+                onChange={(e) => dispatch(setEmail(e.target.value))}
               />
             </div>
 
-            <button className={Styles.button}>Next </button>
-          </div>
+            <div className={Styles.buttonWrapper}>
+              <div
+                className={Styles.button}
+                onClick={() => goToPreviousComponents()}
+              >
+                <p>Back</p>
+              </div>
+              <button type='submit' className={Styles.button}>Next </button>
+            </div>
+
+
+          </form>
+
         </div>
       </div>
     </>

@@ -1,12 +1,21 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { templates } from '../data/templates.js'
 import Styles from '../styles/home.module.css'
+import { firstComponents } from '../redux/slices/sliceFillDetails.js'
+
 
 function Home() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const fillDetails = () => {
+    dispatch(firstComponents())
     navigate('/fillDetails');
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
   }
 
   return (
@@ -18,7 +27,7 @@ function Home() {
               <div
                 key={template.id}
                 className={Styles.templatesImg}
-                onClick={ () => fillDetails() }
+                onClick={() => fillDetails()}
               >
                 <img
                   src={template.template_img}

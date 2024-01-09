@@ -61,11 +61,19 @@
 .button {
     color: #1f2937;
     height: 3rem;
+    width: 40%;
     border-radius: 0.5rem;
     background-color: #65a30d;
     border: none;
+    text-align: center;
 }
 
 .button:hover {
     background-color: #a3e635;
+}
+
+.buttonWrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
