@@ -1,25 +1,35 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { Container, Typography } from '@mui/material'
+import { Box, Divider, Typography } from '@mui/material'
 
 function Address() {
   const address = useSelector((state) => state.address);
   return (
     <>
       <div>
-        <Container sx={{
+        <Box sx={{
           display: 'flex',
           flexDirection: 'column',
           backgroundColor: '#f3f4f6',
-          color: '#1d4ed8',
-          gap: '0.25rem',
+          color: '#111827',
           p: '1rem'
         }}>
-          <Typography> {address.postal_code}</Typography>
-          <Typography>{address.city}, {address.state}, {address.country} </Typography>
-          <Typography>{address.phone}</Typography>
-          <Typography>{address.email}</Typography>
-        </Container>
+          <Typography sx={{
+            color: '#1d4ed8',
+            fontSize: '1.5rem',
+            fontWeight: 'bold'
+          }}>Address</Typography>
+          <Divider sx={{ backgroundColor: ' #1d4ed8', height: 1.5 }} />
+          <Box sx={{
+            display: 'flex',
+            gap: '1rem',
+            marginTop: '0.5rem'
+          }}>
+
+            <Typography> {address.postal_code}, {address.city}, {address.state}, {address.country} </Typography>
+            <Typography>{address.phone}  {address.email}</Typography>
+          </Box>
+        </Box>
       </div>
     </>
   )

@@ -1,15 +1,15 @@
 import React from 'react';
 import anuragaffection from '../../assets/anuragaffection.jpg'
 import { useSelector } from 'react-redux';
-import { Container, Box, Avatar, Typography } from '@mui/material';
+import { Box, Avatar, Typography } from '@mui/material';
 
 function Bio() {
   const bio = useSelector(state => state.bio);
 
   return (
     <div>
-      <Container sx={{
-        p: 2,
+      <Box sx={{
+        p: '1rem',
         backgroundColor: '#f3f4f6',
         color: '#111827',
         display: 'flex',
@@ -35,7 +35,7 @@ function Bio() {
           </Box>
         </Box>
         <Typography sx={{}}>{bio.description}</Typography>
-      </Container>
+      </Box>
     </div>
   );
 }

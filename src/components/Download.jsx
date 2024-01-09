@@ -12,18 +12,17 @@ function Download() {
         <div>
             <Box sx={{
                 display: 'flex',
-                justifyContent : 'space-around',
-                alignItems : 'center',
+                flexDirection: 'column',
                 backgroundColor : '#f3f4f6',
             }}>
                 <Bio />
+                <Experience/>
+                <Projects/>
+                <Education/>
+                <KeySkills />
                 <Address />
             </Box>
 
-            <Experience />
-            <Projects />
-            <Education />
-            <KeySkills />
         </div>
     )
 }
