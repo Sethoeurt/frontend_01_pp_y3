@@ -15,15 +15,19 @@ function Education() {
       }}>
         <Typography sx={{
           color: '#1d4ed8',
-          fontSize: '1.25rem',
+          fontSize: '1.5rem',
           fontWeight : 'bold'
         }}>Education</Typography>
         <Divider sx={{ backgroundColor: ' #1d4ed8', height: 1.5 }} />
         <Box sx={{
-
+          display:'flex',
+          gap : '1rem',
+          marginTop : '0.5rem'
         }}>
-          <Typography>{education.degree}</Typography>
-          <Typography> in {education.domain}</Typography>
+          <Typography sx={{
+            color : '#000000',
+            fontWeight : 'bold'
+          }}>{education.degree} in {education.domain}</Typography>
           <Typography>{education.university}</Typography>
           <Typography>{education.start_year} - {education.end_year}</Typography>
         </Box>

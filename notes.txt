@@ -63,9 +63,9 @@ bio color notes
 -- black = #000000 (subheading)
 
 -- gray-950 = #030712 ( h3 )
-
 -- gray-900 = #111827 (smaller text)
 -- gray-200 = #f3f4f6 (background color )
+
 -- blue-700 = #1d4ed8 (heading )
 
 

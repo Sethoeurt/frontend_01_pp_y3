@@ -31,7 +31,7 @@ function Bio() {
                 {bio.last_name}
               </Typography>
             </Box>
-            <Typography sx={{ typography: 'h2', fontSize: '1.25rem', color: '#000000' }} >{bio.role}</Typography>
+            <Typography sx={{ typography: 'h2', fontWeight: 'bold',  fontSize: '1.25rem', color: '#000000' }} >{bio.role}</Typography>
           </Box>
         </Box>
         <Typography sx={{}}>{bio.description}</Typography>

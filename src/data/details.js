@@ -23,7 +23,8 @@ export const Details = {
             organization_name: "Avengers",
             start_year: "1941",
             end_year: "Present",
-        } 
+        },
+       
     ],
     projects: [
         {
