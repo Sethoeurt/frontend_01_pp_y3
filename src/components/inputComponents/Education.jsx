@@ -1,8 +1,18 @@
 import React from 'react'
 import Styles from '../../styles/input.module.css'
 import { Details } from '../../data/details'
+import { useDispatch } from 'react-redux'
+import {
+  setDegree, 
+  setDomain, 
+  setUniversity, 
+  setStartYear, 
+  setEndYear
+} from "../../redux/slices/educationSlice.js"
 
 function Education() {
+  const dispatch = useDispatch();
+
   return (
     <>
       <div className={Styles.container}>
@@ -21,6 +31,7 @@ function Education() {
                 type="text"
                 id='degree'
                 placeholder={Details.education[0].degree}
+                onChange={ (e) => dispatch(setDegree(e.target.value))}
               />
             </div>
 
@@ -35,6 +46,7 @@ function Education() {
                 type="text"
                 id='domain'
                 placeholder={Details.education[0].domain}
+                onChange={ (e) => dispatch(setDomain(e.target.value))}
               />
             </div>
 
@@ -49,6 +61,7 @@ function Education() {
                 type="text"
                 id='univesity'
                 placeholder={Details.education[0].university}
+                onChange={ (e) => dispatch(setUniversity(e.target.value))}
               />
             </div>
 
@@ -63,6 +76,7 @@ function Education() {
                 type="text"
                 id='start_year'
                 placeholder={Details.education[0].start_year}
+                onChange={ (e) => dispatch(setStartYear(e.target.value))}
               />
             </div>
 
@@ -77,6 +91,7 @@ function Education() {
                 type="text"
                 id='end_year'
                 placeholder={Details.education[0].end_year}
+                onChange={ (e) => dispatch(setEndYear(e.target.value))}
               />
             </div>
 

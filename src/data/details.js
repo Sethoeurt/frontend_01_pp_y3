@@ -23,14 +23,7 @@ export const Details = {
             organization_name: "Avengers",
             start_year: "1941",
             end_year: "Present",
-        },
-        {
-            id: 2,
-            job_title: "S.H.I.E.L.D Agent",
-            organization_name: "S.H.I.E.L.D",
-            start_year: "1941",
-            end_year: "2023",
-        },
+        } 
     ],
     projects: [
         {
@@ -52,5 +45,5 @@ export const Details = {
             end_year: "1945",
         },
     ],
-    key_skills: ["Leadership", "Combat Skills", "Technology", "Strategy", "Teamwork"],
+    key_skills: ["Leadership", "Combat",  "Strategy", "Teamwork", "Technology"],
 };

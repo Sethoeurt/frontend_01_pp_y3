@@ -41,8 +41,9 @@ problems
 color 
 -- black = #000000
 
--- gray-900 = #111827
 -- gray-950 = #030712
+-- gray-900 = #111827
+-- gray-800 = #1f2937
 -- gray-200 = #f3f4f6
 
 -- lime-600 = #65a30d

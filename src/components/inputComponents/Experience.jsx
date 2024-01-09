@@ -1,8 +1,19 @@
 import React from 'react'
 import Styles from '../../styles/input.module.css'
 import { Details } from '../../data/details'
+import { useDispatch } from 'react-redux'
+import {
+  setJobTitle, 
+  setOrganizationName, 
+  setStartYear, 
+  setEndYear
+} from '../../redux/slices/experienceSlice.js'
+
 
 function Experience() {
+
+  const dispatch = useDispatch();
+
   return (
     <>
       <div className={Styles.container}>
@@ -21,6 +32,7 @@ function Experience() {
                 type="text"
                 id='job_title'
                 placeholder={Details.experience[0].job_title}
+                onChange={ (e) => dispatch(setJobTitle(e.target.value))}
               />
             </div>
 
@@ -35,6 +47,7 @@ function Experience() {
                 type="text"
                 id='organization_name'
                 placeholder={Details.experience[0].organization_name}
+                onChange={ (e) => dispatch(setOrganizationName(e.target.value))}
               />
             </div>
 
@@ -49,6 +62,7 @@ function Experience() {
                 type="text"
                 id='start_year'
                 placeholder={Details.experience[0].start_year}
+                onChange={ (e) => dispatch(setStartYear(e.target.value))}
               />
             </div>
 
@@ -63,6 +77,7 @@ function Experience() {
                 type="text"
                 id='end_year'
                 placeholder={Details.experience[0].end_year}
+                onChange={ (e) => dispatch(setEndYear(e.target.value))}
               />
             </div>
 

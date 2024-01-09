@@ -2,7 +2,21 @@ import React from 'react'
 import Styles from '../../styles/input.module.css'
 import { Details } from '../../data/details'
 
+import { useDispatch } from 'react-redux'
+import {
+  setPostalcode,
+  setCity,
+  setState,
+  setCountry,
+  setPhone,
+  setEmail
+} from '../../redux/slices/addressSlice.js'
+
+
+
 function Address() {
+  const dispatch = useDispatch();
+
   return (
     <>
       <div className={Styles.container}>
@@ -21,6 +35,7 @@ function Address() {
                 type="text"
                 id='postalCode'
                 placeholder={Details.address.postal_code}
+                onChange={ (e) => dispatch(setPostalcode(e.target.value))}
               />
             </div>
 
@@ -35,6 +50,7 @@ function Address() {
                 type="text"
                 id='city'
                 placeholder={Details.address.city}
+                onChange={ (e) => dispatch(setCity(e.target.value))}
               />
             </div>
 
@@ -49,6 +65,7 @@ function Address() {
                 type="text"
                 id='state'
                 placeholder={Details.address.state}
+                onChange={ (e) => dispatch(setState(e.target.value))}
               />
             </div>
 
@@ -63,6 +80,7 @@ function Address() {
                 type="text"
                 id='country'
                 placeholder={Details.address.country}
+                onChange={ (e) => dispatch(setCountry(e.target.value))}
               />
             </div>
 
@@ -77,6 +95,7 @@ function Address() {
                 type='tel'
                 id='phone'
                 placeholder={Details.address.phone}
+                onChange={ (e) => dispatch(setPhone(e.target.value))}
               />
             </div>
 
@@ -90,6 +109,7 @@ function Address() {
                 className={Styles.inputStyle}
                 type="email"
                 placeholder={Details.address.email}
+                onChange={ (e) => dispatch(setEmail(e.target.value))}
               />
             </div>
 

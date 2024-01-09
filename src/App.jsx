@@ -10,7 +10,7 @@ import About from './pages/About.jsx'
 function App() {
 
   return (
-    <div>
+    <>
       <BrowserRouter>
         <Navbar />
         <Routes>
@@ -21,7 +21,7 @@ function App() {
         </Routes>
         <Footer />
       </BrowserRouter >
-    </div>
+    </>
   )
 }
 
