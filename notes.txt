@@ -68,7 +68,8 @@ bio color notes
 
 -- blue-700 = #1d4ed8 (heading )
 
-
+resources 
+-- https://udithajanadara.medium.com/export-react-component-as-a-pdf-5afba8ba02ee
 
 
 
