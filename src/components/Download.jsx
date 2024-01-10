@@ -1,18 +1,26 @@
 import React, { useState } from 'react'
+import jsPDF from 'jspdf'
+import { useDispatch } from 'react-redux'
+import { Paper } from '@mui/material'
 import Address from '../components/previewComponents/Address'
 import Bio from '../components/previewComponents/Bio'
 import Education from '../components/previewComponents/Education'
 import Experience from '../components/previewComponents/Experience'
 import KeySkills from '../components/previewComponents/KeySkills'
 import Projects from '../components/previewComponents/Projects'
-import { Paper } from '@mui/material'
-import jsPDF from 'jspdf'
 import Styles from '../styles/input.module.css'
-
+import {previousComponents} from '../redux/slices/sliceFillDetails.js'
+import {scrollToTop} from '../utils/controls.js'
 
 
 function Download() {
+    const dispatch = useDispatch();
+    const backToEdit = () => {
+        dispatch(previousComponents(1))
+        scrollToTop();
+    }
     const [dynamicWidth, setDynamicWidth] = useState('auto');
+
     const orignalWidth = () => {
         setDynamicWidth(dynamicWidth === '600px' ? 'auto' : 'auto');
     }
@@ -42,11 +50,10 @@ function Download() {
         <div className={Styles.container} >
             <div className={Styles.wrapper}>
                 <div
-                    style={{ 
-                        display: 'flex', 
+                    style={{
+                        display: 'flex',
                         flexDirection: 'column',
-                        gap : '1rem' ,
-                        
+                        gap: '1rem',
                     }}
                 >
                     <div>
@@ -76,19 +83,20 @@ function Download() {
                     <div className={Styles.buttonWrapper}>
                         <button
                             className={Styles.button}
-                            onClick={() => generatePDF()} type="button"
+                            onClick={() => backToEdit()} 
+                            type="button"
                         >
-                            Export PDF
+                            Back To Edit 
                         </button>
                         <button
                             className={Styles.button}
-                            onClick={() => generatePDF()} type="button"
+                            onClick={() => generatePDF()} 
+                            type="button"
                         >
                             Export PDF
                         </button>
                     </div>
                 </div>
-
             </div>
         </div>
     )
