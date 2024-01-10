@@ -27,7 +27,7 @@ function Education() {
           <Typography sx={{
             color : '#000000',
             fontWeight : 'bold'
-          }}>{education.degree} in {education.domain}</Typography>
+          }}>{education.degree} - {education.domain}</Typography>
           <Typography>{education.university}</Typography>
           <Typography>{education.start_year} - {education.end_year}</Typography>
         </Box>

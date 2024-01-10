@@ -1,6 +1,9 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { Box, Typography, Divider } from '@mui/material'
+import { GitHub, LiveTv } from '@mui/icons-material'
+
 function Projects() {
   const projects = useSelector(state => state.projects);
 
@@ -29,12 +32,15 @@ function Projects() {
             <Typography sx={{
               color: '#000000',
               fontWeight: 'bold'
-            }}>{projects.project_name} </Typography>
+            }}>
+              {projects.project_name}
+            </Typography>
+
             <Typography> {projects.tech_stack} </Typography>
+            <Link to={projects.github_link} target='_blank'><GitHub/></Link>
+            <Link to={projects.live_link} target='_blank'><LiveTv/></Link>
 
           </Box>
-          <Typography> Github - {projects.github_link}</Typography>
-          <Typography> Live - {projects.live_link} </Typography>
           <Typography>{projects.description}</Typography>
         </Box>
       </Box>

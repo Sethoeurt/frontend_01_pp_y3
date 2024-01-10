@@ -1,7 +1,7 @@
 import React from 'react';
 import anuragaffection from '../../assets/anuragaffection.jpg'
 import { useSelector } from 'react-redux';
-import { Box, Avatar, Typography } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 
 function Bio() {
   const bio = useSelector(state => state.bio);
@@ -17,7 +17,13 @@ function Bio() {
         gap: '0.5rem',
       }}>
         <Box sx={{ display: 'flex', gap: '1rem' }}>
-          <Avatar sx={{ width: 60, height: 60 }} src={anuragaffection} alt="image" />
+          <img
+            width="60px"
+            height="60px"
+            src={anuragaffection}
+            alt="image"
+            style={{ borderRadius: '50%' }}
+          />
           <Box sx={{
             display: 'flex',
             flexDirection: 'column',
@@ -31,7 +37,7 @@ function Bio() {
                 {bio.last_name}
               </Typography>
             </Box>
-            <Typography sx={{ typography: 'h2', fontWeight: 'bold',  fontSize: '1.25rem', color: '#000000' }} >{bio.role}</Typography>
+            <Typography sx={{ typography: 'h2', fontWeight: 'bold', fontSize: '1.25rem', color: '#000000' }} >{bio.role}</Typography>
           </Box>
         </Box>
         <Typography sx={{}}>{bio.description}</Typography>

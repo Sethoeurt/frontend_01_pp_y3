@@ -12,9 +12,7 @@ import Styles from '../styles/input.module.css'
 
 
 function Download() {
-    
     const [dynamicWidth, setDynamicWidth] = useState('auto');
-
     const orignalWidth = () => {
         setDynamicWidth(dynamicWidth === '600px' ? 'auto' : 'auto');
     }
@@ -22,9 +20,18 @@ function Download() {
     const generatePDF = () => {
         setDynamicWidth(dynamicWidth === 'auto' ? '600px' : 'auto');
         const startTimeStamp = performance.now();
-        const report = new jsPDF('portrait', 'pt', 'a4');
-        report.html(document.querySelector('#report')).then(() => {
-            report.save('report.pdf');
+        const newPdf = new jsPDF('portrait', 'pt', 'a4');
+        const bgColor = '#f3f4f6';
+        newPdf.setFillColor(bgColor);
+        newPdf.rect(
+            0,
+            0,
+            newPdf.internal.pageSize.getWidth(),
+            newPdf.internal.pageSize.getHeight(),
+            'F'
+        );
+        newPdf.html(document.querySelector('#resume')).then(() => {
+            newPdf.save('resume.pdf');
         });
         const endTimeStamp = performance.now();
         const timeDifference = endTimeStamp - startTimeStamp;
@@ -34,34 +41,55 @@ function Download() {
     return (
         <div className={Styles.container} >
             <div className={Styles.wrapper}>
-                <Paper
-                    elevation={3}
-                    id='report'
-                    sx={{
-                        display: 'flex',
+                <div
+                    style={{ 
+                        display: 'flex', 
                         flexDirection: 'column',
-                        backgroundColor: '#f3f4f6',
-                        color: 'black',
-                        width: {
-                            xs : dynamicWidth,
-                            sm : '600px'
-                        },
+                        gap : '1rem' ,
+                        
                     }}
                 >
-                    <Bio />
-                    <Experience />
-                    <Projects />
-                    <Education />
-                    <KeySkills />
-                    <Address />
-                </Paper>
+                    <div>
+                        <Paper
+                            elevation={3}
+                            id='resume'
+                            sx={{
+                                display: 'flex',
+                                flexDirection: 'column',
+                                backgroundColor: '#f3f4f6',
+                                color: 'black',
+                                width: {
+                                    xs: dynamicWidth,
+                                    sm: '600px'
+                                },
+                            }}
+                        >
+                            <Bio />
+                            <Experience />
+                            <Projects />
+                            <Education />
+                            <KeySkills />
+                            <Address />
+                        </Paper>
+                    </div>
+
+                    <div className={Styles.buttonWrapper}>
+                        <button
+                            className={Styles.button}
+                            onClick={() => generatePDF()} type="button"
+                        >
+                            Export PDF
+                        </button>
+                        <button
+                            className={Styles.button}
+                            onClick={() => generatePDF()} type="button"
+                        >
+                            Export PDF
+                        </button>
+                    </div>
+                </div>
+
             </div>
-            <button
-                className={Styles.button}
-                onClick={ () => generatePDF()} type="button"
-            >
-                Export PDF
-            </button>
         </div>
     )
 }
