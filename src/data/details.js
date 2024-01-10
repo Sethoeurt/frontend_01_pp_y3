@@ -33,7 +33,7 @@ export const Details = {
             tech_stack: "MERN & Tailwind",
             github_link: "https://github.com/anuragaffection/resume_builder",
             live_link: "https://resume-builder-anurag.vercel.app",
-            description: "An application to build resume."
+            description: "A User Friendly Resume Builder app empowering users to craft professional resumes effortlessly."
         }
     ],
     education: [

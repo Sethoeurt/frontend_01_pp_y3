@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Address from '../components/previewComponents/Address'
 import Bio from '../components/previewComponents/Bio'
 import Education from '../components/previewComponents/Education'
@@ -10,13 +10,25 @@ import jsPDF from 'jspdf'
 import Styles from '../styles/input.module.css'
 
 
+
 function Download() {
+    
+    const [dynamicWidth, setDynamicWidth] = useState('auto');
+
+    const orignalWidth = () => {
+        setDynamicWidth(dynamicWidth === '600px' ? 'auto' : 'auto');
+    }
 
     const generatePDF = () => {
+        setDynamicWidth(dynamicWidth === 'auto' ? '600px' : 'auto');
+        const startTimeStamp = performance.now();
         const report = new jsPDF('portrait', 'pt', 'a4');
         report.html(document.querySelector('#report')).then(() => {
             report.save('report.pdf');
         });
+        const endTimeStamp = performance.now();
+        const timeDifference = endTimeStamp - startTimeStamp;
+        setTimeout(orignalWidth, timeDifference + 4000);
     }
 
     return (
@@ -30,7 +42,10 @@ function Download() {
                         flexDirection: 'column',
                         backgroundColor: '#f3f4f6',
                         color: 'black',
-                        width : '600px'
+                        width: {
+                            xs : dynamicWidth,
+                            sm : '600px'
+                        },
                     }}
                 >
                     <Bio />
@@ -41,7 +56,12 @@ function Download() {
                     <Address />
                 </Paper>
             </div>
-            <button className={Styles.button} onClick={generatePDF} type="button">Export PDF</button>
+            <button
+                className={Styles.button}
+                onClick={ () => generatePDF()} type="button"
+            >
+                Export PDF
+            </button>
         </div>
     )
 }
