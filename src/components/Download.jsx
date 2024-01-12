@@ -1,16 +1,16 @@
 import React, { useState } from 'react'
 import jsPDF from 'jspdf'
 import { useDispatch } from 'react-redux'
-import { Paper } from '@mui/material'
 import Address from '../components/previewComponents/Address'
 import Bio from '../components/previewComponents/Bio'
 import Education from '../components/previewComponents/Education'
 import Experience from '../components/previewComponents/Experience'
 import KeySkills from '../components/previewComponents/KeySkills'
 import Projects from '../components/previewComponents/Projects'
+import { Paper } from '@mui/material'
 import Styles from '../styles/input.module.css'
-import {previousComponents} from '../redux/slices/sliceFillDetails.js'
-import {scrollToTop} from '../utils/controls.js'
+import { previousComponents } from '../redux/slices/sliceFillDetails.js'
+import { scrollToTop } from '../utils/controls.js'
 
 
 function Download() {
@@ -83,14 +83,14 @@ function Download() {
                     <div className={Styles.buttonWrapper}>
                         <button
                             className={Styles.button}
-                            onClick={() => backToEdit()} 
+                            onClick={() => backToEdit()}
                             type="button"
                         >
-                            Back To Edit 
+                            Back To Edit
                         </button>
                         <button
                             className={Styles.button}
-                            onClick={() => generatePDF()} 
+                            onClick={() => generatePDF()}
                             type="button"
                         >
                             Export PDF

@@ -1,21 +1,20 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
+import {scrollToTop} from '../utils/controls.js'
 import { templates } from '../data/templates.js'
-import Styles from '../styles/home.module.css'
 import { firstComponents } from '../redux/slices/sliceFillDetails.js'
-
+import Styles from '../styles/home.module.css'
 
 function Home() {
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  
   const fillDetails = () => {
     dispatch(firstComponents())
     navigate('/fillDetails');
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
+    scrollToTop();
   }
 
   return (

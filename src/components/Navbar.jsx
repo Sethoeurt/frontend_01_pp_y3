@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import resume_builder from '../assets/resume_builder.jpg'
-import styles from '../styles/navbar.module.css'
 import { Box, Drawer, Divider, AppBar, Toolbar, useMediaQuery, useTheme } from '@mui/material';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
+import styles from '../styles/navbar.module.css'
 
 function Navbar() {
   const drawerWidth = 240;
@@ -54,7 +54,7 @@ function Navbar() {
           <AppBar sx={{
             position: "sticky",
             top: 0,
-            bgcolor: "#000000"
+            bgcolor: "#000000",
           }} >
             <Toolbar>
               <IconButton

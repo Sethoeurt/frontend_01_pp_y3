@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux'
 import { Details } from '../../data/details'
 import { scrollToTop } from '../../utils/controls.js'
 import { previousComponents, nextComponents } from '../../redux/slices/sliceFillDetails.js'
+import {setFirstKey, setSecondKey} from '../../redux/slices/keySkillsSlice.js'
 
 function KeySkills() {
   const dispatch = useDispatch();
@@ -33,12 +34,14 @@ function KeySkills() {
               className={Styles.inputStyle}
               type="text"
               placeholder={Details.key_skills[0]}
+              onChange={(e) => dispatch(setFirstKey(e.target.value))}
             />
 
             <input
               className={Styles.inputStyle}
               type="text"
               placeholder={Details.key_skills[1]}
+              onChange={(e) => dispatch(setSecondKey(e.target.value))}
             />
 
             <input

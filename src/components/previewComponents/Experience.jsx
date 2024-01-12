@@ -1,11 +1,12 @@
-
 import React from 'react'
 import { useSelector } from 'react-redux'
-import {Box, Typography, Divider} from '@mui/material'
+import { Box, Typography, Divider } from '@mui/material'
+
+
 export default function Experience() {
   const experience = useSelector(state => state.experience)
-  return (
 
+  return (
     <div>
       <Box sx={{
         display: 'flex',
@@ -34,8 +35,6 @@ export default function Experience() {
         </Box>
       </Box>
     </div>
-
-
 
   )
 }

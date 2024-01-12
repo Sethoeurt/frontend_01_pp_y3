@@ -2,7 +2,6 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import { Box, Divider, Typography } from '@mui/material'
 
-
 function Address() {
   const address = useSelector((state) => state.address);
   return (

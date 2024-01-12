@@ -16,7 +16,7 @@ function About() {
           }
         }}
       >
-        <h2 style={{ color: '#f59e0b' }}> Resume Builder </h2>
+        <h2 style={{ color: '#f59e0b' }}> About Resume Builder </h2>
 
         <Stack
           direction={{
