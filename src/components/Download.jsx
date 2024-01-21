@@ -7,7 +7,7 @@ import Education from '../components/previewComponents/Education'
 import Experience from '../components/previewComponents/Experience'
 import KeySkills from '../components/previewComponents/KeySkills'
 import Projects from '../components/previewComponents/Projects'
-import { Paper } from '@mui/material'
+import { Paper, Box } from '@mui/material'
 import Styles from '../styles/input.module.css'
 import { previousComponents } from '../redux/slices/sliceFillDetails.js'
 import { scrollToTop } from '../utils/controls.js'
@@ -71,12 +71,23 @@ function Download() {
                                 },
                             }}
                         >
-                            <Bio />
+                            <Box
+                                sx={{
+                                    display : 'flex',
+                                    flexDirection : 'row',
+                                    justifyContent : 'center',
+                                    alignItems : 'center',
+                                }}
+                            >
+                                <Bio />
+                                <Address />
+                            </Box>
+
                             <Experience />
                             <Projects />
                             <Education />
                             <KeySkills />
-                            <Address />
+
                         </Paper>
                     </div>
 

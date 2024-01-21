@@ -3,6 +3,7 @@ import anuragaffection from '../../assets/anuragaffection.jpg'
 import { useSelector } from 'react-redux';
 import { Box, Typography } from '@mui/material';
 
+
 function Bio() {
   const bio = useSelector(state => state.bio);
 
@@ -30,14 +31,14 @@ function Bio() {
             gap: '0.25rem'
           }}>
             <Box sx={{ display: 'flex', gap: '0.5rem', }}>
-              <Typography sx={{ typography: 'h1', fontWeight: 'bold', fontSize: '2rem', color: '#1d4ed8' }}>
+              <Typography sx={{ typography: 'h1', fontWeight: 'bold', fontSize: '1.5rem', color: '#1d4ed8' }}>
                 {bio.first_name}
               </Typography>
-              <Typography sx={{ typography: 'h1', fontWeight: 'bold', fontSize: '2rem', color: '#1d4ed8' }}>
+              <Typography sx={{ typography: 'h1', fontWeight: 'bold', fontSize: '1.5rem', color: '#1d4ed8' }}>
                 {bio.last_name}
               </Typography>
             </Box>
-            <Typography sx={{ typography: 'h2', fontWeight: 'bold', fontSize: '1.25rem', color: '#000000' }} >{bio.role}</Typography>
+            <Typography sx={{ typography: 'h2', fontWeight: 'bold', fontSize: '1rem', color: '#000000' }} >{bio.role}</Typography>
           </Box>
         </Box>
         <Typography sx={{}}>{bio.description}</Typography>
