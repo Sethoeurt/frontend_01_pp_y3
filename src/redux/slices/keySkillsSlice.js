@@ -1,25 +1,19 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const keySkillsInitialState = {
-    firstKey : "",
-    secondKey : "",
-}
-
+const keySkillsInitialState = ['','',''];
 
 const keySkillsSlice = createSlice({
     name : 'keySkills',
     initialState : keySkillsInitialState,
     reducers : {
-        setFirstKey : (state, action) => {
-            state.firstKey = action.payload;
+        setKeySkills : (state, action) => {
+            state.length = 0;
+            state.push(...action.payload);
         },
-        setSecondKey : (state, action) => {
-            state.secondKey = action.payload;
-        }
     }
 })
 
-export const {setFirstKey, setSecondKey} = keySkillsSlice.actions;
+export const {setKeySkills} = keySkillsSlice.actions;
 // actions = input file 
 
 export default keySkillsSlice.reducer; 
