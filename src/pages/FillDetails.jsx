@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 import {
-  IconButton, Menu, MenuItem, useTheme, useMediaQuery, Button, ButtonGroup, Grid
+  IconButton, Menu, MenuItem, useTheme, useMediaQuery, Button, ButtonGroup,
 } from '@mui/material'
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import Bio from '../components/inputComponents/Bio'
@@ -61,6 +61,7 @@ function FillDetails() {
       <div
         style={{
           display: 'flex',
+
         }}
       >
         {
@@ -69,7 +70,7 @@ function FillDetails() {
               <IconButton
                 sx={{
                   marginTop: '2rem',
-                  marginLeft: '1rem',
+                  marginLeft: '0.25rem',
                   position: "sticky",
                   top: 70,
                   color: "#65a30d",
@@ -101,7 +102,6 @@ function FillDetails() {
                 {buttons.map((button) => (
                   <MenuItem
                     key={button}
-
                   // selected={option === 'Pyxis'}
                   // onClick={handleClose}
                   >
