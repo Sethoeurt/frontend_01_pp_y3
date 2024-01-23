@@ -4,10 +4,10 @@ import { Box, Typography, Divider } from '@mui/material'
 
 
 export default function Experience() {
-  const experience = useSelector(state => state.experience)
+  const experience = useSelector(state => state.experience);
 
   return (
-    <div>
+    <>
       <Box sx={{
         display: 'flex',
         flexDirection: 'column',
@@ -21,20 +21,25 @@ export default function Experience() {
           fontWeight: 'bold'
         }}>Experience</Typography>
         <Divider sx={{ backgroundColor: ' #1d4ed8', height: 1.5 }} />
-        <Box sx={{
-          display: 'flex',
-          gap: '1rem',
-          marginTop: '0.5rem'
-        }}>
-          <Typography sx={{
-            color: '#000000',
-            fontWeight: 'bold'
-          }}>{experience.job_title} </Typography>
-          <Typography> {experience.organization_name} </Typography>
-          <Typography>{experience.start_year} - {experience.end_year}</Typography>
-        </Box>
+        {
+          experience.map((item, index) => {
+            return (
+              <Box key={index} sx={{
+                display: 'flex',
+                gap: '1rem',
+                marginTop: '0.5rem'
+              }}>
+                <Typography sx={{
+                  color: '#000000',
+                  fontWeight: 'bold'
+                }}>{item.job_title} </Typography>
+                <Typography> {item.organization_name} </Typography>
+                <Typography>{item.start_year} - {item.end_year}</Typography>
+              </Box>
+            )
+          })
+        }
       </Box>
-    </div>
-
+    </>
   )
 }

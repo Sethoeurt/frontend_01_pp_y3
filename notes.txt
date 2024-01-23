@@ -51,7 +51,12 @@ color code
 -- lime-600 = #65a30d
 -- lime-400 = #a3e635
 
+-- red-700 = #b91c1c
+-- red-500 = #ef4444
+
+-- amber-700 = #a16207
 -- amber-500 = #f59e0b
+
 -- blue-700 = #1d4ed8
 
 
@@ -68,8 +73,11 @@ bio color notes
 
 -- blue-700 = #1d4ed8 (heading )
 
+
+
 resources 
 -- https://udithajanadara.medium.com/export-react-component-as-a-pdf-5afba8ba02ee
+
 
 
 

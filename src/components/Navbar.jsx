@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
-import resume_builder from '../assets/resume_builder.jpg'
-import { Box, Drawer, Divider, AppBar, Toolbar, useMediaQuery, useTheme } from '@mui/material';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
+import resume_builder from '../assets/resume_builder.jpg'
+import { Box, Drawer, Divider, AppBar, Toolbar, useMediaQuery, useTheme } from '@mui/material';
 import styles from '../styles/navbar.module.css'
+
 
 function Navbar() {
   const drawerWidth = 240;
@@ -62,10 +63,16 @@ function Navbar() {
                 edge="start"
                 color="inherit"
                 aria-label="menu"
-                sx={{ mr: 2 }}
+                sx={{
+                  mr: 2,
+                  color: '#65a30d',
+                  '&:hover': {
+                    color: '#a3e635',
+                  },
+                }}
                 onClick={() => handleDrawerToggle()}
               >
-                <MenuIcon />
+                < MenuIcon />
               </IconButton>
               <NavLink to={'/'} className={styles.logoWrapper}>
                 <div className={styles.logo}>Resume Builder</div>
@@ -107,7 +114,7 @@ function Navbar() {
             "& .MuiDrawer-paper": {
               boxSizing: "border-box",
               width: drawerWidth,
-              backgroundColor : '#030712',
+              backgroundColor: '#030712',
             },
           }}>
           {drawer}

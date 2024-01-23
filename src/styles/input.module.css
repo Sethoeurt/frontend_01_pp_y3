@@ -28,13 +28,21 @@
     gap: 2rem;
     padding: 1.5rem;
     border-radius: 0.5rem;
-    width: 80%;
+    width: 90%;
 }
+
+@media (min-width: 768px) {
+    .inputForm {
+        width: 60%;
+    }
+}
+
 
 .labelInputWrapper {
     display: flex;
     flex-direction: column;
-    gap: 7px;
+    gap: 0.5rem;
+    margin-bottom: 1.25rem;
 }
 
 .labelStyle {
@@ -58,6 +66,14 @@
     border-radius: 0.5rem;
 }
 
+.hrLine {
+    color: #f59e0b;
+    background-color: #f59e0b;
+    height: 2px;
+    margin-top: 2rem;
+    border: none;
+}
+
 .button {
     color: #1f2937;
     height: 3rem;
@@ -79,12 +95,39 @@
     align-items: center;
 }
 
-
-@media (min-width: 768px) {
-    .inputForm {
-        width: 60%;
-    }
+.buttonRemove {
+    display: flex;
+    color: #111827;
+    height: 3rem;
+    width: 40%;
+    border-radius: 0.5rem;
+    background-color: #b91c1c;
+    border: none;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
 }
+
+.buttonRemove:hover {
+    background-color: #ef4444;
+}
+
+.buttonAdd {
+    color: #111827;
+    height: 3rem;
+    width: 40%;
+    border-radius: 0.5rem;
+    background-color: #a16207;
+    border: none;
+    text-align: center;
+    cursor: pointer;
+}
+
+.buttonAdd:hover {
+    background-color: #f59e0b;
+}
+
+
 
 
 .inputStyleSkill {

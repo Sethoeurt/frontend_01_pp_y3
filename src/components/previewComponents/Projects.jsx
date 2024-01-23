@@ -8,7 +8,6 @@ function Projects() {
   const projects = useSelector(state => state.projects);
 
   return (
-
     <div>
       <Box sx={{
         display: 'flex',
@@ -23,31 +22,37 @@ function Projects() {
           fontWeight: 'bold'
         }}>Projects</Typography>
         <Divider sx={{ backgroundColor: ' #1d4ed8', height: 1.5 }} />
-        <Box>
-          <Box sx={{
-            display: 'flex',
-            gap: '1rem',
-            marginTop: '0.5rem'
-          }}>
-            <Typography sx={{
-              color: '#000000',
-              fontWeight: 'bold'
-            }}>
-              {projects.project_name}
-            </Typography>
 
-            <Typography> {projects.tech_stack} </Typography>
-            <Link to={projects.github_link} target='_blank'><GitHub/></Link>
-            <Link to={projects.live_link} target='_blank'><LiveTv/></Link>
+        {
+          projects.map((item, index) => {
+            return (
+              <Box key={index} marginBottom={'0.5rem'}>
+                <Box sx={{
+                  display: 'flex',
+                  gap: '1rem',
+                  marginTop: '0.5rem'
+                }}>
+                  <Typography sx={{
+                    color: '#000000',
+                    fontWeight: 'bold'
+                  }}>
+                    {`0${index + 1}. `} {item.project_name}
+                  </Typography>
 
-          </Box>
-          <Typography>{projects.description}</Typography>
-        </Box>
+                  <Typography> {item.tech_stack} </Typography>
+                  <Link to={item.github_link} target='_blank'><GitHub /></Link>
+                  <Link to={item.live_link} target='_blank'><LiveTv /></Link>
+                </Box>
+                <Typography>{item.description}</Typography>
+
+              </Box>
+
+            )
+          })
+        }
+
       </Box>
     </div>
-
-
-
   )
 }
 

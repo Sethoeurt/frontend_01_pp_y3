@@ -1,26 +1,20 @@
 import React, { useState } from 'react'
 import Styles from '../../styles/input.module.css'
-import { useDispatch,useSelector } from 'react-redux'
+import { DeleteForeverRounded } from '@mui/icons-material'
+import { useDispatch, useSelector } from 'react-redux'
 import { scrollToTop } from '../../utils/controls.js'
 import { previousComponents, nextComponents } from '../../redux/slices/sliceFillDetails.js'
-import {setKeySkills} from '../../redux/slices/keySkillsSlice.js'
+import { keySkillsReducer } from '../../redux/slices/keySkillsSlice.js'
 
 
 function KeySkills() {
 
   const dispatch = useDispatch();
   const keySkillsArray = useSelector((state) => state.keySkills);
-
   const [keySkills, setKeySkillsList] = useState(keySkillsArray);
 
   const handleAddButtonClick = () => {
     setKeySkillsList([...keySkills, '']);
-  };
-
-  const handleInputChange = (index, value) => {
-    const updatedKeySkills = [...keySkills];
-    updatedKeySkills[index] = value;
-    setKeySkillsList(updatedKeySkills);
   };
 
   const handleRemoveButtonClick = (index) => {
@@ -29,17 +23,25 @@ function KeySkills() {
     setKeySkillsList(updatedKeySkills);
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    dispatch(setKeySkills(keySkills))
-    dispatch(nextComponents(1));
-    scrollToTop();
-  }
+  const handleInputChange = (index, value) => {
+    const updatedKeySkills = [...keySkills];
+    updatedKeySkills[index] = value;
+    setKeySkillsList(updatedKeySkills);
+  };
 
   const goToPreviousComponents = () => {
     dispatch(previousComponents(1));
     scrollToTop();
   }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(keySkillsReducer(keySkills))
+    dispatch(nextComponents(1));
+    scrollToTop();
+  }
+
+
 
   return (
     <>
@@ -63,19 +65,22 @@ function KeySkills() {
                     value={value}
                     onChange={(e) => handleInputChange(index, e.target.value)}
                   />
+
                   <div
-                    className={Styles.button}
+                    className={Styles.buttonRemove}
                     onClick={() => handleRemoveButtonClick(index)}>
-                    <p>Remove</p>
+                    <p>Remove  </p>
+                    <DeleteForeverRounded />
                   </div>
+
                 </div>
               ))
             }
 
             <div
-              className={Styles.button}
+              className={Styles.buttonAdd}
               onClick={handleAddButtonClick}>
-              <p>Add More Skills</p>
+              <p>Add Skills</p>
             </div>
 
             <div className={Styles.buttonWrapper}>

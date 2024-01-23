@@ -1,25 +1,30 @@
 import React, { useState } from 'react'
-import jsPDF from 'jspdf'
+import { useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
+import jsPDF from 'jspdf'
+import { Paper, Box } from '@mui/material'
 import Address from '../components/previewComponents/Address'
 import Bio from '../components/previewComponents/Bio'
 import Education from '../components/previewComponents/Education'
 import Experience from '../components/previewComponents/Experience'
 import KeySkills from '../components/previewComponents/KeySkills'
 import Projects from '../components/previewComponents/Projects'
-import { Paper, Box } from '@mui/material'
 import Styles from '../styles/input.module.css'
-import { previousComponents } from '../redux/slices/sliceFillDetails.js'
+import { firstComponents } from '../redux/slices/sliceFillDetails.js'
 import { scrollToTop } from '../utils/controls.js'
 
 
+
 function Download() {
+    const navigate = useNavigate();
     const dispatch = useDispatch();
+    const [dynamicWidth, setDynamicWidth] = useState('auto');
+
     const backToEdit = () => {
-        dispatch(previousComponents(1))
+        navigate('/fillDetails');
+        dispatch(firstComponents())
         scrollToTop();
     }
-    const [dynamicWidth, setDynamicWidth] = useState('auto');
 
     const orignalWidth = () => {
         setDynamicWidth(dynamicWidth === '600px' ? 'auto' : 'auto');
@@ -43,7 +48,7 @@ function Download() {
         });
         const endTimeStamp = performance.now();
         const timeDifference = endTimeStamp - startTimeStamp;
-        setTimeout(orignalWidth, timeDifference + 4000);
+        setTimeout(orignalWidth, timeDifference + 3000);
     }
 
     return (
@@ -73,21 +78,20 @@ function Download() {
                         >
                             <Box
                                 sx={{
-                                    display : 'flex',
-                                    flexDirection : 'row',
-                                    justifyContent : 'center',
-                                    alignItems : 'center',
+                                    display: 'flex',
+                                    flexDirection: 'row',
+                                    flexWrap : 'wrap',
+                                    justifyContent: 'center',
+                                    alignItems: 'center',
                                 }}
                             >
                                 <Bio />
                                 <Address />
                             </Box>
-
                             <Experience />
                             <Projects />
                             <Education />
                             <KeySkills />
-
                         </Paper>
                     </div>
 
