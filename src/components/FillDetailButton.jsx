@@ -1,15 +1,26 @@
 import React from 'react'
-import { Box,Button, ButtonGroup } from '@mui/material';
+import { useDispatch } from 'react-redux';
+import { Box, Button, ButtonGroup } from '@mui/material';
+import { switchComponents } from '../redux/slices/sliceFillDetails';
+import { scrollToTop } from '../utils/controls';
+
 
 function FillDetailButton() {
+    const dispatch = useDispatch();
+
+    const handleButtonClick = (index) => {
+        dispatch(switchComponents(index));
+        scrollToTop()
+    }
+    
     const buttons = [
-        <Button key="bio">Bio</Button>,
-        <Button key="address">Address</Button>,
-        <Button key="experience">Experience</Button>,
-        <Button key="projects">Projects</Button>,
-        <Button key="education">Education</Button>,
-        <Button key="keySkills">Key Skills</Button>,
-        <Button key="donwload">Download</Button>
+        'Bio',
+        'Address',
+        'Experience',
+        'Projects',
+        'Education',
+        'Key Skills',
+        'Download'
     ];
 
     return (
@@ -29,7 +40,15 @@ function FillDetailButton() {
                         bgcolor: "#030712",
                     }}
                 >
-                    {buttons}
+                    {buttons.map((button, index) => (
+                        <Button
+                            key={index}
+                            onClick={() => handleButtonClick(index)}
+                        >
+                            {button}
+                        </Button>
+                    ))
+                    }
                 </ButtonGroup>
             </Box>
         </>

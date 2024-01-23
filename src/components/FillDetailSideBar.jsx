@@ -1,13 +1,16 @@
 import React, { useState } from 'react'
+import { useDispatch } from 'react-redux';
 import IconButton from '@mui/material/IconButton';
 import Menu from '@mui/material/Menu'
 import MenuItem from '@mui/material/MenuItem';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { Button } from '@mui/material'
 import { Box } from '@mui/system';
-
+import { switchComponents } from '../redux/slices/sliceFillDetails.js'
+import { scrollToTop } from '../utils/controls.js';
 
 function FillDetailSideBar() {
+    const dispatch = useDispatch();
     const ITEM_HEIGHT = 48;
     const [anchorEl, setAnchorEl] = useState(null);
 
@@ -17,14 +20,20 @@ function FillDetailSideBar() {
     const handleClose = () => {
         setAnchorEl(null);
     }
+    const handleButtonClick = (index) => {
+        dispatch(switchComponents(index));
+        handleClose();
+        scrollToTop();
+    }
+
     const buttons = [
-        <Button key="bio">Bio</Button>,
-        <Button key="address">Address</Button>,
-        <Button key="experience">Experience</Button>,
-        <Button key="projects">Projects</Button>,
-        <Button key="education">Education</Button>,
-        <Button key="keySkills">Key Skills</Button>,
-        <Button key="donwload">Download</Button>
+        'Bio',
+        'Address',
+        'Experience',
+        'Projects',
+        'Education',
+        'Key Skills',
+        'Download'
     ];
     return (
         <>
@@ -67,13 +76,12 @@ function FillDetailSideBar() {
                         },
                     }}
                 >
-                    {buttons.map((button) => (
+                    {buttons.map((button, index) => (
                         <MenuItem
-                            key={button}
-                        // selected={option === 'Pyxis'}
-                        // onClick={handleClose}
+                            key={index}
+                            onClick={() => handleButtonClick(index)}
                         >
-                            {button}
+                            <Button>{button}</Button>
                         </MenuItem>
                     ))}
                 </Menu>

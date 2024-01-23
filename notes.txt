@@ -74,5 +74,7 @@ problems
 
 
              
-             
+                      
+                      
+-- selected === bio (in menu)           
 -- mui paper code in replace of paper props 
