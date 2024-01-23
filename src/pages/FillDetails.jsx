@@ -16,10 +16,11 @@ import { Box } from '@mui/system';
 
 function FillDetails() {
   const ITEM_HEIGHT = 48;
+  let flex_grow_value = 1;
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   // console.log(isMobile);
-
+  if (isMobile) flex_grow_value = 0;
   const [menuToggle, setMenuToggle] = useState(false);
 
   const handleClick = () => {
@@ -70,7 +71,7 @@ function FillDetails() {
               <IconButton
                 sx={{
                   marginTop: '2rem',
-                  marginLeft: '0.25rem',
+                  marginLeft: '1rem',
                   position: "sticky",
                   top: 70,
                   color: "#65a30d",
@@ -94,7 +95,7 @@ function FillDetails() {
                 sx={{
                   "& .MuiPaper-root": {
                     width: '20ch',
-                    maxHeight: ITEM_HEIGHT * 7.5,
+                    maxHeight: ITEM_HEIGHT * 4.5,
                     backgroundColor: '#030712'
                   },
                 }}
@@ -133,7 +134,7 @@ function FillDetails() {
             </Box>
           )
         }
-        <div style={{ flexGrow: 1 }}> {renderComponent()} </div>
+        <Box style={{ flexGrow: flex_grow_value }}> {renderComponent()} </Box>
       </div>
 
     </>
