@@ -77,7 +77,7 @@ function FillDetails() {
             width: isMobile ? '8%' : isMediumScreen ? '10%' : isLargeScreen ? '10%' : 'auto',
           },
           '& > :last-child': {
-            width: isMobile ? '90%' : isMediumScreen ? '80%' : isLargeScreen ? '90%' : '80%',
+            width: isMobile ? '80%' : isMediumScreen ? '80%' : isLargeScreen ? '90%' : '80%',
           },
         }}
       >
@@ -133,10 +133,12 @@ function FillDetails() {
               </Menu>
             </Box>
           ) : (
-            <Box sx={{
-              marginTop: '3rem',
-              marginLeft: '3rem',
-            }}>
+            <Box
+              sx={{
+                marginTop: '3rem',
+                marginLeft: '3rem',
+              }}
+            >
               <ButtonGroup
                 orientation="vertical"
                 aria-label="vertical outlined button group"
