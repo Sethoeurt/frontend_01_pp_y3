@@ -80,5 +80,5 @@ resources
 
 
 
-
+style={{ flexGrow: flex_grow_value }}
 

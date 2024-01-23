@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import {
   IconButton, Menu, MenuItem, useTheme, useMediaQuery, Button, ButtonGroup,
@@ -16,12 +16,18 @@ import { Box } from '@mui/system';
 
 function FillDetails() {
   const ITEM_HEIGHT = 48;
-  let flex_grow_value = 1;
+
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
-  // console.log(isMobile);
-  if (isMobile) flex_grow_value = 0;
+
+  const [flex_grow_value, set_flex_grow_value] = useState(1);
   const [menuToggle, setMenuToggle] = useState(false);
+
+  useEffect(() => {
+    return set_flex_grow_value(() => isMobile ? 0 : 1)
+  }, [isMobile])
+
+
 
   const handleClick = () => {
     setMenuToggle(prevState => !prevState);
@@ -49,12 +55,12 @@ function FillDetails() {
 
   const buttons = [
     <Button key="bio">Bio</Button>,
-    <Button key="address" >Address</Button>,
-    <Button key="experience" >Experience</Button>,
-    <Button key="projects" >Projects</Button>,
+    <Button key="address">Address</Button>,
+    <Button key="experience">Experience</Button>,
+    <Button key="projects">Projects</Button>,
     <Button key="education">Education</Button>,
-    <Button key="keySkills" >Key Skills</Button>,
-    <Button key="donwload" >Download</Button>
+    <Button key="keySkills">Key Skills</Button>,
+    <Button key="donwload">Download</Button>
   ];
 
   return (
@@ -62,7 +68,6 @@ function FillDetails() {
       <div
         style={{
           display: 'flex',
-
         }}
       >
         {
@@ -81,12 +86,17 @@ function FillDetails() {
                     backgroundColor: "#030712"
                   },
                 }}
+                aria-label='more'
+                aria-controls={menuToggle ? 'long_menu' : undefined}
+                aria-expanded={menuToggle ? 'true' : undefined}
+                aria-haspopup="true"
                 onClick={() => handleClick()}
               >
                 < MoreVertIcon />
               </IconButton>
 
               <Menu
+                id='long_menu'
                 MenuListProps={{
                   'aria-labelledby': 'long-button',
                 }}
@@ -120,7 +130,6 @@ function FillDetails() {
                 orientation="vertical"
                 aria-label="vertical outlined button group"
                 sx={{
-
                   position: "sticky",
                   top: 90,
                   bgcolor: "#030712",
