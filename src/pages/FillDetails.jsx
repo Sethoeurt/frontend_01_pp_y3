@@ -18,7 +18,10 @@ function FillDetails() {
   const ITEM_HEIGHT = 48;
 
   const theme = useTheme();
+
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const isMediumScreen = useMediaQuery(theme.breakpoints.between('md', 'lg'));
+  const isLargeScreen = useMediaQuery(theme.breakpoints.up('lg'));
 
   const [flex_grow_value, set_flex_grow_value] = useState(1);
   const [menuToggle, setMenuToggle] = useState(false);
@@ -65,9 +68,17 @@ function FillDetails() {
 
   return (
     <>
-      <div
-        style={{
+      <Box
+        sx={{
           display: 'flex',
+          flexDirection: 'row',
+          justifyContent: 'space-around',
+          '& > :first-child': {
+            width: isMobile ? '8%' : isMediumScreen ? '10%' : isLargeScreen ? '10%' : 'auto',
+          },
+          '& > :last-child': {
+            width: isMobile ? '90%' : isMediumScreen ? '80%' : isLargeScreen ? '90%' : '80%',
+          },
         }}
       >
         {
@@ -76,7 +87,7 @@ function FillDetails() {
               <IconButton
                 sx={{
                   marginTop: '2rem',
-                  marginLeft: '1rem',
+                  marginLeft: '0.75rem',
                   position: "sticky",
                   top: 70,
                   color: "#65a30d",
@@ -143,8 +154,9 @@ function FillDetails() {
             </Box>
           )
         }
-        <Box style={{ flexGrow: flex_grow_value }}> {renderComponent()} </Box>
-      </div>
+        <Box > {renderComponent()} </Box>
+      </Box>
+
 
     </>
   )
