@@ -1,12 +1,11 @@
 import React, { useState } from 'react'
 import Styles from '../../styles/input.module.css'
-import {DeleteForeverRounded} from '@mui/icons-material'
+import { DeleteForeverRounded } from '@mui/icons-material'
 import { useDispatch, useSelector } from 'react-redux'
 import { Details } from '../../data/details'
 import { scrollToTop } from '../../utils/controls.js'
 import { modifyExperience } from '../../redux/slices/experienceSlice.js'
 import { previousComponents, nextComponents } from '../../redux/slices/sliceFillDetails.js'
-
 
 
 function Experience() {
@@ -157,7 +156,7 @@ function Experience() {
               className={Styles.buttonAdd}
               onClick={() => handleAddButtonClick()}
             >
-              <p>Add Experience </p>
+              <p>Add More </p>
             </div>
 
             <div className={Styles.buttonWrapper}>

@@ -53,7 +53,7 @@ Color used in Bio (previewComponents)
 
 -- gray-950 = #030712 ( h3 & inputBackground  )
 -- gray-900 = #111827 (smaller text)
--- gray-200 = #f3f4f6 (background color )
+-- gray-200 = #f3f4f6 (color )
 
 -- blue-700 = #1d4ed8 (heading )
 
