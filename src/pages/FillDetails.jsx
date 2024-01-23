@@ -1,9 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { useSelector } from 'react-redux'
-import {
-  IconButton, Menu, MenuItem, useTheme, useMediaQuery, Button, ButtonGroup,
-} from '@mui/material'
-import MoreVertIcon from '@mui/icons-material/MoreVert';
+import { useTheme, useMediaQuery } from '@mui/material'
+import { Box } from '@mui/system';
 import Bio from '../components/inputComponents/Bio'
 import Address from '../components/inputComponents/Address'
 import Experience from '../components/inputComponents/Experience'
@@ -11,33 +9,15 @@ import Projects from '../components/inputComponents/Projects'
 import Education from '../components/inputComponents/Education'
 import KeySkills from '../components/inputComponents/KeySkills'
 import Download from '../components/Download'
-import { Box } from '@mui/system';
+import FillDetailButton from '../components/FillDetailButton';
+import FillDetailSideBar from '../components/FillDetailSideBar';
 
 
 function FillDetails() {
-  const ITEM_HEIGHT = 48;
-
   const theme = useTheme();
-
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const isMediumScreen = useMediaQuery(theme.breakpoints.between('md', 'lg'));
   const isLargeScreen = useMediaQuery(theme.breakpoints.up('lg'));
-
-  const [flex_grow_value, set_flex_grow_value] = useState(1);
-  const [menuToggle, setMenuToggle] = useState(false);
-
-  useEffect(() => {
-    return set_flex_grow_value(() => isMobile ? 0 : 1)
-  }, [isMobile])
-
-
-
-  const handleClick = () => {
-    setMenuToggle(prevState => !prevState);
-  }
-  const handleClose = () => {
-    setMenuToggle(false);
-  }
 
   const fillDetails = useSelector(state => state.fillDetails);
   const value = fillDetails.value
@@ -55,17 +35,6 @@ function FillDetails() {
     }
   };
 
-
-  const buttons = [
-    <Button key="bio">Bio</Button>,
-    <Button key="address">Address</Button>,
-    <Button key="experience">Experience</Button>,
-    <Button key="projects">Projects</Button>,
-    <Button key="education">Education</Button>,
-    <Button key="keySkills">Key Skills</Button>,
-    <Button key="donwload">Download</Button>
-  ];
-
   return (
     <>
       <Box
@@ -73,93 +42,17 @@ function FillDetails() {
           display: 'flex',
           flexDirection: 'row',
           justifyContent: 'space-around',
-          '& > :first-child': {
+          '& > :first-of-type': {
             width: isMobile ? '8%' : isMediumScreen ? '10%' : isLargeScreen ? '10%' : 'auto',
           },
-          '& > :last-child': {
+          '& > :last-of-type': {
             width: isMobile ? '85%' : isMediumScreen ? '80%' : isLargeScreen ? '90%' : '80%',
           },
         }}
       >
-        {
-          isMobile ? (
-            <Box >
-              <IconButton
-                sx={{
-                  marginTop: '2rem',
-                  marginLeft: '0.5rem',
-                  position: "sticky",
-                  top: 70,
-                  color: "#65a30d",
-                  backgroundColor: "#030712",
-                  '&:hover': {
-                    color: '#a3e635',
-                    backgroundColor: "#030712"
-                  },
-                }}
-                aria-label='more'
-                aria-controls={menuToggle ? 'long_menu' : undefined}
-                aria-expanded={menuToggle ? 'true' : undefined}
-                aria-haspopup="true"
-                onClick={() => handleClick()}
-              >
-                < MoreVertIcon />
-              </IconButton>
-
-              <Menu
-                id='long_menu'
-                MenuListProps={{
-                  'aria-labelledby': 'long-button',
-                }}
-                open={menuToggle}
-                onClose={handleClick}
-                sx={{
-                  "& .MuiPaper-root": {
-                    width: '20ch',
-                    maxHeight: ITEM_HEIGHT * 4.5,
-                    backgroundColor: '#030712'
-                  },
-                }}
-              >
-                {buttons.map((button) => (
-                  <MenuItem
-                    key={button}
-                  // selected={option === 'Pyxis'}
-                  // onClick={handleClose}
-                  >
-                    {button}
-                  </MenuItem>
-                ))}
-              </Menu>
-            </Box>
-          ) : (
-            <Box
-              sx={{
-                marginTop: '3rem',
-                marginLeft: '3rem',
-              }}
-            >
-              <ButtonGroup
-                orientation="vertical"
-                aria-label="vertical outlined button group"
-                sx={{
-                  position: "sticky",
-                  top: 90,
-                  bgcolor: "#030712",
-                  '&:hover': {
-                    color: '#a3e635',
-                  },
-                }}
-              >
-                {buttons}
-              </ButtonGroup>
-            </Box>
-          )
-        }
+        {isMobile ? <FillDetailSideBar /> : <FillDetailButton />}
         <Box > {renderComponent()} </Box>
       </Box>
-
-
     </>
   )
 }

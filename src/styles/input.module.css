@@ -113,20 +113,19 @@
 }
 
 .buttonAdd {
-    color: #111827;
+    color: #030712;
     height: 3rem;
     width: 40%;
     border-radius: 0.5rem;
-    background-color: #a16207;
+    background-color: #1d4ed8;
     border: none;
     text-align: center;
     cursor: pointer;
 }
 
 .buttonAdd:hover {
-    background-color: #f59e0b;
+    background-color: #3b82f6;
 }
-
 
 
 

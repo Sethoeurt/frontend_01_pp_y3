@@ -1,5 +1,3 @@
-
-
 installation 
 -- https://vitejs.dev/guide/
 -- vite 
@@ -7,34 +5,22 @@ installation
 -- npm install 
 -- npm run dev 
 
-https://mui.com/material-ui/react-tabs/
 
 pages 
 -- Resume Template 
 -- MyResume 
-
 -- About
--- Contact  
--- Privacy 
--- Developer 
-
 
 Components 
+-- inputComponents 
+-- previewComponents
 -- Navbar
 -- Footer 
-
-
 
 Structure 
 -- Navbar 
 -- Home 
 -- Footer
-
-
-problems 
--- react-router vs react-router-dom 
-
-
 
 
 
@@ -58,16 +44,14 @@ color code
 -- amber-500 = #f59e0b
 
 -- blue-700 = #1d4ed8
+-- blue-500 = #3b82f6
 
 
 
-
-
-
-bio color notes 
+Color used in Bio (previewComponents)
 -- black = #000000 (subheading)
 
--- gray-950 = #030712 ( h3 )
+-- gray-950 = #030712 ( h3 & inputBackground  )
 -- gray-900 = #111827 (smaller text)
 -- gray-200 = #f3f4f6 (background color )
 
@@ -75,10 +59,20 @@ bio color notes
 
 
 
+
+
 resources 
 -- https://udithajanadara.medium.com/export-react-component-as-a-pdf-5afba8ba02ee
+-- https://mui.com/material-ui/react-tabs/
+
+
+problems 
+-- react-router vs react-router-dom 
+-- nth child in css 
+-- 
 
 
 
-style={{ flexGrow: flex_grow_value }}
-
+             
+             
+-- mui paper code in replace of paper props 
