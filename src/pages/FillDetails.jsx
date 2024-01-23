@@ -77,7 +77,7 @@ function FillDetails() {
             width: isMobile ? '8%' : isMediumScreen ? '10%' : isLargeScreen ? '10%' : 'auto',
           },
           '& > :last-child': {
-            width: isMobile ? '80%' : isMediumScreen ? '80%' : isLargeScreen ? '90%' : '80%',
+            width: isMobile ? '85%' : isMediumScreen ? '80%' : isLargeScreen ? '90%' : '80%',
           },
         }}
       >
@@ -87,7 +87,7 @@ function FillDetails() {
               <IconButton
                 sx={{
                   marginTop: '2rem',
-                  marginLeft: '0.75rem',
+                  marginLeft: '0.5rem',
                   position: "sticky",
                   top: 70,
                   color: "#65a30d",
