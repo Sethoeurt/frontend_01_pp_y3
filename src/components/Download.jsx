@@ -44,7 +44,6 @@ function Download() {
     }
 
 
-
     const generatePDF = () => {
         setDynamicWidth(dynamicWidth === 'auto' ? '600px' : 'auto');
         setDynamicFlexDirection('row');
