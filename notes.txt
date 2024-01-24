@@ -6,6 +6,8 @@ installation
 -- npm run dev 
 
 
+
+
 pages 
 -- Resume Template 
 -- MyResume 
@@ -21,6 +23,8 @@ Structure
 -- Navbar 
 -- Home 
 -- Footer
+
+
 
 
 
@@ -48,14 +52,32 @@ color code
 
 
 
+
+
 Color used in Bio (previewComponents)
 -- black = #000000 (subheading)
-
 -- gray-950 = #030712 ( h3 & inputBackground  )
 -- gray-900 = #111827 (smaller text)
 -- gray-200 = #f3f4f6 (color )
-
 -- blue-700 = #1d4ed8 (heading )
+
+
+
+Git command 
+-- git init 
+-- git remote add origin <link> 
+-- git add .
+-- git commit -m "updated" 
+-- git push origin master 
+-- git branch 
+-- git checkout -b <newBrach> 
+-- git switch 
+-- git merge <branchName>   
+-- git pull origin master 
+-- 
+
+Git command points to remember 
+-- before merging switch to master 
 
 
 
