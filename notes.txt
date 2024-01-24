@@ -76,6 +76,9 @@ Git command
 -- git merge <branchName>   
 -- git pull origin master 
 -- git pull origin <branchName>
+-- git fetch origin 
+-- git fetch origin master 
+-- git fetch origin <otherBanchName>
 
 Git command points to remember 
 -- before merging switch to master 
