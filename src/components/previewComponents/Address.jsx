@@ -14,7 +14,6 @@ function Address() {
           color: '#111827',
           p: '1rem'
         }}>
-
           <Box sx={{
             display: 'flex',
             flexDirection: 'column',
@@ -25,9 +24,7 @@ function Address() {
             <Typography>{address.state} {','} {address.country}</Typography>
             <Typography> {address.phone}</Typography>
             <Typography> {address.email} </Typography>
-
           </Box>
-
         </Box>
       </div >
     </>

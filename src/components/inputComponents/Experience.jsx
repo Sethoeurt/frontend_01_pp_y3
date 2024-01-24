@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Styles from '../../styles/input.module.css'
 import { DeleteForeverRounded } from '@mui/icons-material'
 import { useDispatch, useSelector } from 'react-redux'
@@ -10,8 +10,16 @@ import { previousComponents, nextComponents } from '../../redux/slices/sliceFill
 
 function Experience() {
   const dispatch = useDispatch();
-  const experienceState = useSelector(state => state.experience)
-  const [experience, setExperience] = useState(experienceState);
+  const experienceInitialState = useSelector(state => state.experience)
+
+  const [experience, setExperience] = useState(() => {
+    const storedExperience = localStorage.getItem("myExperience");
+    return storedExperience ? JSON.parse(storedExperience) : experienceInitialState;
+  });
+
+  useEffect(() => {
+    localStorage.setItem("myExperience", JSON.stringify(experience));
+  }, [experience]);
 
   const handleAddButtonClick = () => {
     if (experience.length < 4) {
@@ -32,10 +40,8 @@ function Experience() {
   }
 
   const handleInputChange = (index, value, fieldType) => {
-    // taking copy of whole array 
-    // taking copy of whole object from specific index 
-    const updatedExperience = [...experience];
-    updatedExperience[index] = { ...updatedExperience[index] };
+    const updatedExperience = [...experience];  // copy of whole array 
+    updatedExperience[index] = { ...updatedExperience[index] }; // copy of whole object from index 
     switch (fieldType) {
       case "job_title": updatedExperience[index].job_title = value; break;
       case "organization_name": updatedExperience[index].organization_name = value; break;

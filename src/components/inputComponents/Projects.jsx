@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Styles from '../../styles/input.module.css'
-import {DeleteForeverRounded} from '@mui/icons-material'
+import { DeleteForeverRounded } from '@mui/icons-material'
 import { useDispatch, useSelector } from 'react-redux'
 import { Details } from '../../data/details'
 import { scrollToTop } from '../../utils/controls.js'
@@ -9,19 +9,29 @@ import { modifyProjects } from '../../redux/slices/projectsSlice.js'
 
 
 function Projects() {
-
+  
   const dispatch = useDispatch();
-  const projectsState = useSelector(state => state.projects);
-  const [projects, setProjects] = useState(projectsState);
+  const projectsInitialState = useSelector(state => state.projects);
+
+  const [projects, setProjects] = useState(() => {
+    const storedProjects = localStorage.getItem("storeProjects");
+    return storedProjects ? JSON.parse(storedProjects) : projectsInitialState;
+  });
+
+  useEffect(() => {
+    localStorage.setItem('storeProjects', JSON.stringify(projects));
+  }, [projects]);
 
   const handleAddButtonClick = () => {
-    setProjects([...projects, {
-      project_name: "",
-      tech_stack: "",
-      github_link: "",
-      live_link: "",
-      description: ""
-    }])
+    if (projects.length < 4) {
+      setProjects([...projects, {
+        project_name: "",
+        tech_stack: "",
+        github_link: "",
+        live_link: "",
+        description: ""
+      }])
+    }
   }
 
   const handleRemoveButtonClick = (index) => {
@@ -70,7 +80,6 @@ function Projects() {
               projects.map((item, index) => {
                 return (
                   <div key={index}>
-
                     <div className={Styles.labelInputWrapper}>
                       <label
                         htmlFor="project_name"

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Styles from '../../styles/input.module.css'
 import { DeleteForeverRounded } from '@mui/icons-material'
 import { useDispatch, useSelector } from 'react-redux'
@@ -8,10 +8,17 @@ import { keySkillsReducer } from '../../redux/slices/keySkillsSlice.js'
 
 
 function KeySkills() {
-
   const dispatch = useDispatch();
-  const keySkillsArray = useSelector((state) => state.keySkills);
-  const [keySkills, setKeySkillsList] = useState(keySkillsArray);
+  const keySkillsInitialState = useSelector((state) => state.keySkills);
+
+  const [keySkills, setKeySkillsList] = useState(() => {
+    const storedKeySkills = localStorage.getItem("storeKeySkills");
+    return storedKeySkills ? JSON.parse(storedKeySkills) : keySkillsInitialState;
+  });
+
+  useEffect(() => {
+    localStorage.setItem("storeKeySkills", JSON.stringify(keySkills));
+  }, [keySkills])
 
   const handleAddButtonClick = () => {
     setKeySkillsList([...keySkills, '']);

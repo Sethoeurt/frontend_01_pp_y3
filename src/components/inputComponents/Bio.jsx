@@ -1,27 +1,36 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Styles from '../../styles/input.module.css'
+import { useForm } from 'react-hook-form'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { Details } from '../../data/details.js'
 import { scrollToTop } from '../../utils/controls.js'
 import { nextComponents } from '../../redux/slices/sliceFillDetails.js'
-import {
-  setProfileImage, setFirstName, setLastName, setRole, setDescription
-} from '../../redux/slices/bioSlice.js'
+import { modifyBio } from '../../redux/slices/bioSlice.js'
 
 
 function Bio() {
+  const { handleSubmit, register } = useForm();
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const bio = useSelector( (state) => state.bio);
+  const bioInitialState = useSelector((state) => state.bio);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const [bio, setBio] = useState(() => {
+    const storedBio = localStorage.getItem("storeBio");
+    return storedBio ? JSON.parse(storedBio) : bioInitialState;
+  })
+
+  const handleNext = (data) => {
+    setBio((prevState) => {
+      return { ...prevState, ...data }
+    })
+    dispatch(modifyBio({ ...bio, ...data }))
     dispatch(nextComponents(1));
-    scrollToTop()
+    scrollToTop();
+    localStorage.setItem("storeBio", JSON.stringify({ ...bio, ...data }))
   }
 
-  const goToPreviousComponents = () => {
+  const handlePrevious = () => {
     navigate('/');
     scrollToTop();
   }
@@ -33,7 +42,7 @@ function Bio() {
           <div className={Styles.title}>Bio </div>
           <form
             className={Styles.inputForm}
-            onSubmit={(e) => handleSubmit(e)}
+            onSubmit={handleSubmit(handleNext)}
           >
 
             <div className={Styles.labelInputWrapper}>
@@ -48,40 +57,40 @@ function Bio() {
                 accept="image/*"
                 id='profileImage'
                 placeholder={"Upload Profile Image"}
-                // value={bio.profile_image}
-                onChange={(e) => dispatch(setProfileImage(e.target.value))}
+              // defaultValue={bio.profile_image}
+              // {...register("profileImage", { maxLength: 20 })}
               />
             </div>
 
             <div className={Styles.labelInputWrapper}>
               <label
-                htmlFor="first_name"
+                htmlFor="firstName"
                 className={Styles.labelStyle}>
                 First Name
               </label>
               <input
                 className={Styles.inputStyle}
                 type="text"
-                id='first_name'
-                value={bio.first_name}
+                id='firstName'
                 placeholder={Details.bio.first_name}
-                onChange={(e) => dispatch(setFirstName(e.target.value))}
+                defaultValue={bio.firstName}
+                {...register("firstName", { required: true, maxLength: 20 })}
               />
             </div>
 
             <div className={Styles.labelInputWrapper}>
               <label
-                htmlFor="last_name"
+                htmlFor="lastName"
                 className={Styles.labelStyle}>
                 Last Name
               </label>
               <input
                 className={Styles.inputStyle}
                 type="text"
-                id='last_name'
+                id='lastName'
                 placeholder={Details.bio.last_name}
-                value={bio.last_name}
-                onChange={(e) => dispatch(setLastName(e.target.value))}
+                defaultValue={bio.lastName}
+                {...register("lastName", { required: true, maxLength: 20 })}
               />
             </div>
 
@@ -96,8 +105,8 @@ function Bio() {
                 type="text"
                 id='role'
                 placeholder={Details.bio.role}
-                value={bio.role}
-                onChange={(e) => dispatch(setRole(e.target.value))}
+                defaultValue={bio.role}
+                {...register("role", { required: true, maxLength: 20 })}
               />
             </div>
 
@@ -113,15 +122,15 @@ function Bio() {
                 type='tel'
                 id='description'
                 placeholder={Details.bio.description}
-                value={bio.description}
-                onChange={(e) => dispatch(setDescription(e.target.value))}
+                defaultValue={bio.description}
+                {...register("description", { required: true, maxLength: 320 })}
               ></textarea>
             </div>
 
             <div className={Styles.buttonWrapper}>
               <div
                 className={Styles.button}
-                onClick={() => goToPreviousComponents()}
+                onClick={() => handlePrevious()}
               >
                 <p>Back</p>
               </div>
