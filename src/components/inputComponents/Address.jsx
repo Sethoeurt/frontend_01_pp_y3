@@ -1,30 +1,40 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Styles from '../../styles/input.module.css'
 import { useDispatch, useSelector } from 'react-redux'
+import { useForm } from 'react-hook-form'
 import { Details } from '../../data/details'
-import {scrollToTop} from '../../utils/controls.js'
-
-import {
-  setPostalcode, setCity, setState, 
-  setCountry, setPhone, setEmail
-} from '../../redux/slices/addressSlice.js'
-
-import {
-  previousComponents, nextComponents
-} from '../../redux/slices/sliceFillDetails.js'
+import { scrollToTop } from '../../utils/controls.js'
+import { modifyAddress } from '../../redux/slices/addressSlice.js'
+import { previousComponents, nextComponents } from '../../redux/slices/sliceFillDetails.js'
 
 
 function Address() {
   const dispatch = useDispatch();
-  const address = useSelector(state => state.address);
+  const addressInitialState = useSelector(state => state.address);
+  const { register, handleSubmit } = useForm();
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const [address, setAddress] = useState(() => {
+    const storedAddress = localStorage.getItem("storeAddress");
+    return storedAddress ? JSON.parse(storedAddress) : addressInitialState;
+  });
+
+
+
+  const handleNext = (data) => {
+    // console.log(data);
+
+    setAddress((prevAddress) => ({
+      ...prevAddress,
+      ...data,
+    }));
+
+    dispatch(modifyAddress({ ...address, ...data }));
     dispatch(nextComponents(1));
     scrollToTop()
+    localStorage.setItem("storeAddress", JSON.stringify({ ...address, ...data }));
   }
 
-  const goToPreviousComponents = () => {
+  const handlePrevious = () => {
     dispatch(previousComponents(1));
     scrollToTop();
   }
@@ -37,9 +47,8 @@ function Address() {
 
           <form
             className={Styles.inputForm}
-            onSubmit={(e) => handleSubmit(e)}
+            onSubmit={handleSubmit(handleNext)}
           >
-
             <div className={Styles.labelInputWrapper}>
               <label
                 htmlFor="postalCode"
@@ -48,11 +57,11 @@ function Address() {
               </label>
               <input
                 className={Styles.inputStyle}
-                type="text"
+                type="number"
                 id='postalCode'
                 placeholder={Details.address.postal_code}
-                value={address.postal_code}
-                onChange={(e) => dispatch(setPostalcode(e.target.value))}
+                defaultValue={address.postal_code}
+                {...register("postal_code", { required: true, maxLength: 8 })}
               />
             </div>
 
@@ -67,8 +76,8 @@ function Address() {
                 type="text"
                 id='city'
                 placeholder={Details.address.city}
-                value={address.city}
-                onChange={(e) => dispatch(setCity(e.target.value))}
+                defaultValue={address.city}
+                {...register("city", { required: true, maxLength: 20 })}
               />
             </div>
 
@@ -83,8 +92,8 @@ function Address() {
                 type="text"
                 id='state'
                 placeholder={Details.address.state}
-                value={address.state}
-                onChange={(e) => dispatch(setState(e.target.value))}
+                defaultValue={address.state}
+                {...register("state", { required: true, maxLength: 20 })}
               />
             </div>
 
@@ -99,8 +108,8 @@ function Address() {
                 type="text"
                 id='country'
                 placeholder={Details.address.country}
-                value={address.country}
-                onChange={(e) => dispatch(setCountry(e.target.value))}
+                defaultValue={address.country}
+                {...register("country", { required: true, maxLength: 20 })}
               />
             </div>
 
@@ -115,8 +124,8 @@ function Address() {
                 type='tel'
                 id='phone'
                 placeholder={Details.address.phone}
-                value={address.phone}
-                onChange={(e) => dispatch(setPhone(e.target.value))}
+                defaultValue={address.phone}
+                {...register("phone", { required: true, maxLength: 13 })}
               />
             </div>
 
@@ -130,15 +139,15 @@ function Address() {
                 className={Styles.inputStyle}
                 type="email"
                 placeholder={Details.address.email}
-                value={address.email}
-                onChange={(e) => dispatch(setEmail(e.target.value))}
+                defaultValue={address.email}
+                {...register("email", { required: true, maxLength: 50 })}
               />
             </div>
 
             <div className={Styles.buttonWrapper}>
               <div
                 className={Styles.button}
-                onClick={() => goToPreviousComponents()}
+                onClick={() => handlePrevious()}
               >
                 <p>Back</p>
               </div>

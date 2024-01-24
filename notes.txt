@@ -81,6 +81,15 @@ Git command points to remember
 -- before merging switch to master 
 
 
+React hook form 
+-- handleSubmit, register = useForm()
+-- validation 
+-- required 
+-- data stored in json format 
+-- 
+
+
+
 
 Next update
 -- local storage 
@@ -101,8 +110,18 @@ problems
 
 
 
-             
-                      
+                                
                       
 -- selected === bio (in menu)           
 -- mui paper code in replace of paper props 
+
+
+        
+        
+
+
+
+
+ 
+
+// onChange={(e) => dispatch(setPostalcode(e.target.value))}

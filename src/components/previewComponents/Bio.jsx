@@ -32,10 +32,10 @@ function Bio() {
           }}>
             <Box sx={{ display: 'flex', gap: '0.5rem', }}>
               <Typography sx={{ typography: 'h1', fontWeight: 'bold', fontSize: '1.5rem', color: '#1d4ed8' }}>
-                {bio.first_name}
+                {bio.firstName}
               </Typography>
               <Typography sx={{ typography: 'h1', fontWeight: 'bold', fontSize: '1.5rem', color: '#1d4ed8' }}>
-                {bio.last_name}
+                {bio.lastName}
               </Typography>
             </Box>
             <Typography sx={{ typography: 'h2', fontWeight: 'bold', fontSize: '1rem', color: '#000000' }} >{bio.role}</Typography>

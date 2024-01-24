@@ -1,17 +1,19 @@
-import React, { useState } from 'react'
+import jsPDF from 'jspdf'
+import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
-import jsPDF from 'jspdf'
-import { Paper, Box } from '@mui/material'
+import { Paper } from '@mui/material'
+import { Box } from '@mui/system'
+import Styles from '../styles/input.module.css'
 import Address from '../components/previewComponents/Address'
 import Bio from '../components/previewComponents/Bio'
 import Education from '../components/previewComponents/Education'
 import Experience from '../components/previewComponents/Experience'
 import KeySkills from '../components/previewComponents/KeySkills'
 import Projects from '../components/previewComponents/Projects'
-import Styles from '../styles/input.module.css'
 import { firstComponents } from '../redux/slices/sliceFillDetails.js'
 import { scrollToTop } from '../utils/controls.js'
+
 
 
 
@@ -19,6 +21,16 @@ function Download() {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const [dynamicWidth, setDynamicWidth] = useState('auto');
+    const [dynamicFlexDirection, setDynamicFlexDirection] = useState('column');
+
+    // useEffect(() => {
+    //     if (window.getWidth >= '600px') {
+    //         setDynamicFlexDirection('row');
+    //     }
+    //     else {
+    //         setDynamicFlexDirection('column')
+    //     }
+    // }, [window.getWidth])
 
     const backToEdit = () => {
         navigate('/fillDetails');
@@ -28,10 +40,14 @@ function Download() {
 
     const orignalWidth = () => {
         setDynamicWidth(dynamicWidth === '600px' ? 'auto' : 'auto');
+        setDynamicFlexDirection('column')
     }
+
+
 
     const generatePDF = () => {
         setDynamicWidth(dynamicWidth === 'auto' ? '600px' : 'auto');
+        setDynamicFlexDirection('row');
         const startTimeStamp = performance.now();
         const newPdf = new jsPDF('portrait', 'pt', 'a4');
         const bgColor = '#f3f4f6';
@@ -79,10 +95,10 @@ function Download() {
                             <Box
                                 sx={{
                                     display: 'flex',
-                                    flexDirection: 'row',
-                                    flexWrap : 'wrap', // change here
                                     justifyContent: 'center',
                                     alignItems: 'center',
+                                    flexDirection: dynamicFlexDirection,
+
                                 }}
                             >
                                 <Bio />
@@ -104,7 +120,7 @@ function Download() {
                             Back To Edit
                         </button>
                         <button
-                            className={Styles.button}
+                            className={Styles.buttonAdd}
                             onClick={() => generatePDF()}
                             type="button"
                         >

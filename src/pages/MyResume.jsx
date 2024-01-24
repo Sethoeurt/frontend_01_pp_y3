@@ -9,10 +9,7 @@ function MyResume() {
         <div className={Styles.heading}> My Resume </div>
         <div> Edit or Export Your Resume as PDF </div>
       </div>
-
-      <div>
-        <Download />
-      </div>
+      <div><Download /></div>
     </div>
   )
 }
