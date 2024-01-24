@@ -59,17 +59,22 @@ Color used in Bio (previewComponents)
 
 
 
+Next update
+-- local storage 
+-- multiple Template
+-- black Screen 
+-- react-hook-form 
 
 
 resources 
 -- https://udithajanadara.medium.com/export-react-component-as-a-pdf-5afba8ba02ee
 -- https://mui.com/material-ui/react-tabs/
-
+-- https://react-hook-form.com/get-started#ReactNative
 
 problems 
 -- react-router vs react-router-dom 
 -- nth child in css 
--- 
+-- jk
 
 
 

@@ -80,7 +80,7 @@ function Download() {
                                 sx={{
                                     display: 'flex',
                                     flexDirection: 'row',
-                                    flexWrap : 'wrap',
+                                    flexWrap : 'wrap', // change here
                                     justifyContent: 'center',
                                     alignItems: 'center',
                                 }}
