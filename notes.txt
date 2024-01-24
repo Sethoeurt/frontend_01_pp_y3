@@ -69,12 +69,13 @@ Git command
 -- git add .
 -- git commit -m "updated" 
 -- git push origin master 
+-- git push origin <branchName> 
 -- git branch 
 -- git checkout -b <newBrach> 
 -- git switch 
 -- git merge <branchName>   
 -- git pull origin master 
--- 
+-- git pull origin <branchName>
 
 Git command points to remember 
 -- before merging switch to master 
