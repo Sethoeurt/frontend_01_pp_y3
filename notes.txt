@@ -113,7 +113,10 @@ problems
 
 
 
-                                
+
+Severity Vulnerability 
+-- 1 high due to react-hook-form 
+
                       
 -- selected === bio (in menu)           
 -- mui paper code in replace of paper props 
