@@ -1,8 +1,8 @@
-import anuragaffection from '../assets/anuragaffection.jpg'
+import resume_builder from '../assets/resume_builder.jpg'
 
 export const Details = {
     bio: {
-        profile_image: anuragaffection,
+        profile_image: resume_builder,
         first_name: "Steve",
         last_name: "Rogers",
         role: "Software Developer",

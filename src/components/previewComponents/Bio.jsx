@@ -1,5 +1,5 @@
 import React from 'react';
-import anuragaffection from '../../assets/anuragaffection.jpg'
+import resume_builder from '../../assets/resume_builder.jpg'
 import { useSelector } from 'react-redux';
 import { Box, Typography } from '@mui/material';
 
@@ -21,7 +21,7 @@ function Bio() {
           <img
             width="60px"
             height="60px"
-            src={anuragaffection}
+            src={resume_builder}
             alt="image"
             style={{ borderRadius: '50%' }}
           />
