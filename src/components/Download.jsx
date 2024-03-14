@@ -16,12 +16,12 @@ import { scrollToTop } from '../utils/controls.js'
 
 
 
-
 function Download() {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const [dynamicWidth, setDynamicWidth] = useState('auto');
-    const [dynamicFlexDirection, setDynamicFlexDirection] = useState('column');
+    
+    // const [dynamicFlexDirection, setDynamicFlexDirection] = useState('row');
 
     // useEffect(() => {
     //     if (window.getWidth >= '600px') {
@@ -40,10 +40,8 @@ function Download() {
 
     const orignalWidth = () => {
         setDynamicWidth(dynamicWidth === '600px' ? 'auto' : 'auto');
-        setDynamicFlexDirection('column')
+        // setDynamicFlexDirection('column')
     }
-
-    
 
     const generatePDF = () => {
         setDynamicWidth(dynamicWidth === 'auto' ? '600px' : 'auto');
@@ -75,6 +73,7 @@ function Download() {
                         display: 'flex',
                         flexDirection: 'column',
                         gap: '1rem',
+                        // overflowX : 'scroll' // adding scroll, 
                     }}
                 >
                     <div>
@@ -97,8 +96,10 @@ function Download() {
                                     display: 'flex',
                                     justifyContent: 'center',
                                     alignItems: 'center',
-                                    flexDirection: dynamicFlexDirection,
-
+                                    flexDirection: {
+                                        xs: 'column',
+                                        sm: 'row'
+                                    }
                                 }}
                             >
                                 <Bio />

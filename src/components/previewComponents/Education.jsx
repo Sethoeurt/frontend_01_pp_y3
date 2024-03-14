@@ -10,6 +10,7 @@ function Education() {
         display: 'flex',
         flexDirection: 'column',
         backgroundColor: '#f3f4f6',
+        // backgroundColor: 'brown',
         color: '#111827',
         p: '1rem'
       }}>

@@ -13,8 +13,10 @@ function Projects() {
         display: 'flex',
         flexDirection: 'column',
         backgroundColor: '#f3f4f6',
+        // backgroundColor : 'bisque',
         color: '#111827',
-        p: '1rem'
+        p: '1rem',
+        paddingBottom : '0.25rem'
       }}>
         <Typography sx={{
           color: '#1d4ed8',
@@ -38,15 +40,12 @@ function Projects() {
                   }}>
                     {`0${index + 1}. `} {item.project_name}
                   </Typography>
-
                   <Typography> {item.tech_stack} </Typography>
                   <Link to={item.github_link} target='_blank'><GitHub /></Link>
                   <Link to={item.live_link} target='_blank'><LiveTv /></Link>
                 </Box>
                 <Typography>{item.description}</Typography>
-
               </Box>
-
             )
           })
         }

@@ -9,7 +9,7 @@ import { modifyProjects } from '../../redux/slices/projectsSlice.js'
 
 
 function Projects() {
-  
+
   const dispatch = useDispatch();
   const projectsInitialState = useSelector(state => state.projects);
 
@@ -175,20 +175,22 @@ function Projects() {
               })
             }
 
-            <div
+            <button
+              type='text'
               className={Styles.buttonAdd}
               onClick={() => handleAddButtonClick()}
             >
-              <p>Add Project </p>
-            </div>
+              Add Project
+            </button>
 
             <div className={Styles.buttonWrapper}>
-              <div
+              <button
+                type='text'
                 className={Styles.button}
                 onClick={() => goToPreviousComponents()}
               >
-                <p>Back</p>
-              </div>
+                Back
+              </button>
               <button type='submit' className={Styles.button}>Next </button>
             </div>
 

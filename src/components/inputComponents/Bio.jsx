@@ -57,8 +57,6 @@ function Bio() {
                 accept="image/*"
                 id='profileImage'
                 placeholder={"Upload Profile Image"}
-              // defaultValue={bio.profile_image}
-              // {...register("profileImage", { maxLength: 20 })}
               />
             </div>
 
@@ -72,6 +70,7 @@ function Bio() {
                 className={Styles.inputStyle}
                 type="text"
                 id='firstName'
+                required
                 placeholder={Details.bio.first_name}
                 defaultValue={bio.firstName}
                 {...register("firstName", { required: true, maxLength: 20 })}
@@ -88,6 +87,7 @@ function Bio() {
                 className={Styles.inputStyle}
                 type="text"
                 id='lastName'
+                required
                 placeholder={Details.bio.last_name}
                 defaultValue={bio.lastName}
                 {...register("lastName", { required: true, maxLength: 20 })}
@@ -104,6 +104,7 @@ function Bio() {
                 className={Styles.inputStyle}
                 type="text"
                 id='role'
+                required
                 placeholder={Details.bio.role}
                 defaultValue={bio.role}
                 {...register("role", { required: true, maxLength: 20 })}
@@ -121,6 +122,7 @@ function Bio() {
                 className={Styles.inputAreaStyle}
                 type='tel'
                 id='description'
+                required
                 placeholder={Details.bio.description}
                 defaultValue={bio.description}
                 {...register("description", { required: true, maxLength: 320 })}
@@ -128,15 +130,15 @@ function Bio() {
             </div>
 
             <div className={Styles.buttonWrapper}>
-              <div
+              <button
+                type='text'
                 className={Styles.button}
                 onClick={() => handlePrevious()}
               >
-                <p>Back</p>
-              </div>
+                Back
+              </button>
               <button type='submit' className={Styles.button}>Next </button>
             </div>
-
           </form>
         </div>
       </div>

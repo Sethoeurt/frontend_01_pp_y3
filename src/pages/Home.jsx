@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import {scrollToTop} from '../utils/controls.js'
+import { scrollToTop } from '../utils/controls.js'
 import { templates } from '../data/templates.js'
 import { firstComponents } from '../redux/slices/sliceFillDetails.js'
 import Styles from '../styles/home.module.css'
@@ -10,7 +10,10 @@ function Home() {
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  
+
+  const [isHovered, setIsHovered] = useState(null);
+
+
   const fillDetails = () => {
     dispatch(firstComponents())
     navigate('/fillDetails');
@@ -35,6 +38,8 @@ function Home() {
                     key={template.id}
                     className={Styles.templatesImg}
                     onClick={() => fillDetails()}
+                    onMouseEnter={() => setIsHovered(template.id)}
+                    onMouseLeave={() => setIsHovered(null)}
                   >
                     <img
                       src={template.template_img}
@@ -42,13 +47,19 @@ function Home() {
                       height={'380px'}
                       width={'auto'}
                     />
+
+                    {isHovered === template.id && (
+                      <div className={Styles.overlay}>
+                        <button>Select</button>
+                      </div>
+                    )}
                   </div>
                 )
               })
             }
           </div>
         </div>
-        
+
       </div>
     </>
   )

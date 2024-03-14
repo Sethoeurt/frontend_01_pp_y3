@@ -68,6 +68,7 @@ function KeySkills() {
                   <input
                     className={Styles.inputStyleSkill}
                     type="text"
+                    required
                     placeholder={`Skills ${index + 1}`}
                     value={value}
                     onChange={(e) => handleInputChange(index, e.target.value)}
@@ -84,18 +85,18 @@ function KeySkills() {
               ))
             }
 
-            <div
+            <button
               className={Styles.buttonAdd}
               onClick={handleAddButtonClick}>
-              <p>Add Skills</p>
-            </div>
+              Add Skills
+            </button>
 
             <div className={Styles.buttonWrapper}>
-              <div
+              <button
                 className={Styles.button}
                 onClick={() => goToPreviousComponents()}>
-                <p>Back</p>
-              </div>
+                Back
+              </button>
               <button type='submit' className={Styles.button}>Next </button>
             </div>
 

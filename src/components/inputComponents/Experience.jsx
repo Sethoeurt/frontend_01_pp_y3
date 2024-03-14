@@ -89,6 +89,7 @@ function Experience() {
                         className={Styles.inputStyle}
                         type="text"
                         id='job_title'
+                        required
                         placeholder={Details.experience[0].job_title}
                         value={item.job_title}
                         onChange={(e) => handleInputChange(index, e.target.value, 'job_title')}
@@ -105,6 +106,7 @@ function Experience() {
                         className={Styles.inputStyle}
                         type="text"
                         id='organization_name'
+                        required
                         placeholder={Details.experience[0].organization_name}
                         value={item.organization_name}
                         onChange={(e) => handleInputChange(index, e.target.value, "organization_name")}
@@ -158,20 +160,21 @@ function Experience() {
               })
             }
 
-            <div
+            <button
+              type='text'
               className={Styles.buttonAdd}
               onClick={() => handleAddButtonClick()}
             >
-              <p>Add More </p>
-            </div>
+              Add More
+            </button>
 
             <div className={Styles.buttonWrapper}>
-              <div
+              <button
                 className={Styles.button}
                 onClick={() => goToPreviousComponents()}
               >
-                <p>Back</p>
-              </div>
+                Back
+              </button>
               <button type='submit' className={Styles.button}>Next </button>
             </div>
 

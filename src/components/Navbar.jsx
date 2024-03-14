@@ -52,11 +52,14 @@ function Navbar() {
     <>
       {
         isMobile ? (
-          <AppBar sx={{
-            position: "sticky",
-            top: 0,
-            bgcolor: "#000000",
-          }} >
+          <AppBar
+            sx={{
+              position: "sticky",
+              top: 0,
+              bgcolor: "#000000",
+              zIndex : '10',
+            }}
+          >
             <Toolbar>
               <IconButton
                 size="large"

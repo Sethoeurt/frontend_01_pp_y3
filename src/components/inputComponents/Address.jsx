@@ -19,10 +19,8 @@ function Address() {
   });
 
 
-
   const handleNext = (data) => {
     // console.log(data);
-
     setAddress((prevAddress) => ({
       ...prevAddress,
       ...data,
@@ -75,6 +73,7 @@ function Address() {
                 className={Styles.inputStyle}
                 type="text"
                 id='city'
+                required
                 placeholder={Details.address.city}
                 defaultValue={address.city}
                 {...register("city", { required: true, maxLength: 20 })}
@@ -91,6 +90,7 @@ function Address() {
                 className={Styles.inputStyle}
                 type="text"
                 id='state'
+                required
                 placeholder={Details.address.state}
                 defaultValue={address.state}
                 {...register("state", { required: true, maxLength: 20 })}
@@ -107,6 +107,7 @@ function Address() {
                 className={Styles.inputStyle}
                 type="text"
                 id='country'
+                required
                 placeholder={Details.address.country}
                 defaultValue={address.country}
                 {...register("country", { required: true, maxLength: 20 })}
@@ -138,6 +139,7 @@ function Address() {
               <input
                 className={Styles.inputStyle}
                 type="email"
+                required
                 placeholder={Details.address.email}
                 defaultValue={address.email}
                 {...register("email", { required: true, maxLength: 50 })}
@@ -145,12 +147,13 @@ function Address() {
             </div>
 
             <div className={Styles.buttonWrapper}>
-              <div
+              <button
+                type='text'
                 className={Styles.button}
                 onClick={() => handlePrevious()}
               >
-                <p>Back</p>
-              </div>
+                Back
+              </button>
               <button type='submit' className={Styles.button}>Next </button>
             </div>
 

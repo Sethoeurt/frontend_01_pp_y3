@@ -1,3 +1,8 @@
+:local(:root) {
+    --cyan-600: #0891b2;
+    --cyan-500: #06b6d4;
+}
+
 .footerContainer {
     background-color: black;
 }
@@ -23,11 +28,11 @@
     margin-left: 0.50rem;
     margin-right: 0.50rem;
     font-size: 2rem;
-    color: #65a30d;
+    color: var(--cyan-600);
 }
 
 .socialMediaIcon:hover {
-    color: #a3e635;
+    color: var(--cyan-500);
 }
 
 .copyright {

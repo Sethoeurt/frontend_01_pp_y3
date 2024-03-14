@@ -92,6 +92,7 @@ function Education() {
                       className={Styles.inputStyle}
                       type="text"
                       id='degree'
+                      required
                       placeholder={Details.education[0].degree}
                       value={item.degree}
                       onChange={(e) => handleInputChange(index, e.target.value, 'degree')}
@@ -108,6 +109,7 @@ function Education() {
                       className={Styles.inputStyle}
                       type="text"
                       id='domain'
+                      required
                       placeholder={Details.education[0].domain}
                       value={item.domain}
                       onChange={(e) => handleInputChange(index, e.target.value, 'domain')}
@@ -176,20 +178,22 @@ function Education() {
               ))
             }
 
-            <div
+            <button
+              type='text'
               className={Styles.buttonAdd}
               onClick={() => handleAddButtonClick()}
             >
-              <p>Add More </p>
-            </div>
+              Add More
+            </button>
 
             <div className={Styles.buttonWrapper}>
-              <div
+              <button
+                type='text'
                 className={Styles.button}
                 onClick={() => goToPreviousComponents()}
               >
-                <p>Back</p>
-              </div>
+                Back
+              </button>
               <button type='submit' className={Styles.button}>Next </button>
             </div>
 

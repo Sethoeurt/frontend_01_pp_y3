@@ -1,3 +1,9 @@
+:local(:root) {
+    --cyan-600: #0891b2;
+    --cyan-500: #06b6d4;
+    --cyan-400: #38bdf8;
+}
+
 .navbarContainer {
     display: flex;
     justify-content: space-between;
@@ -7,6 +13,7 @@
     padding: 16px;
     position: sticky;
     top: 0;
+    z-index: 10;
 }
 
 .logo {
@@ -38,12 +45,12 @@
 .navEachLink {
     font-size: large;
     margin-right: 1rem;
-    color: #65a30d;
+    color: var(--cyan-600);
     text-decoration: none;
 }
 
 .navEachLink:hover {
-    color: #a3e635;
+    color: var(--cyan-400);
 }
 
 
