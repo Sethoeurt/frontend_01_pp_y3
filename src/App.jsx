@@ -6,9 +6,7 @@ import FillDetails from './pages/FillDetails.jsx'
 import MyResume from './pages/MyResume.jsx'
 import About from './pages/About.jsx'
 
-
 function App() {
-
   return (
     <>
       <BrowserRouter>

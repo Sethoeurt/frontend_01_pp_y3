@@ -20,12 +20,10 @@ function Address() {
 
 
   const handleNext = (data) => {
-    // console.log(data);
     setAddress((prevAddress) => ({
       ...prevAddress,
       ...data,
     }));
-
     dispatch(modifyAddress({ ...address, ...data }));
     dispatch(nextComponents(1));
     scrollToTop()

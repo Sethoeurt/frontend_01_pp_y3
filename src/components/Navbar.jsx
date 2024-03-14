@@ -2,9 +2,10 @@ import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
-import resume_builder from '../assets/resume_builder.jpg'
 import { Box, Drawer, Divider, AppBar, Toolbar, useMediaQuery, useTheme } from '@mui/material';
+import { colors } from '../utils/colors.js'
 import styles from '../styles/navbar.module.css'
+import resume_builder from '../assets/resume_builder.jpg'
 
 
 function Navbar() {
@@ -26,7 +27,7 @@ function Navbar() {
         gap: '1rem',
         padding: '1rem',
         textAlign: "center",
-        backgroundColor: '#030712'
+        backgroundColor: colors.gray950
       }}>
       <NavLink to={'/'} className={styles.logoWrapper}>
         <img className={styles.logoImg} src={resume_builder} alt="logo" />
@@ -57,7 +58,7 @@ function Navbar() {
               position: "sticky",
               top: 0,
               bgcolor: "#000000",
-              zIndex : '10',
+              zIndex: '10',
             }}
           >
             <Toolbar>
@@ -68,9 +69,9 @@ function Navbar() {
                 aria-label="menu"
                 sx={{
                   mr: 2,
-                  color: '#65a30d',
+                  color: colors.cyan600,
                   '&:hover': {
-                    color: '#a3e635',
+                    color: colors.cyan500,
                   },
                 }}
                 onClick={() => handleDrawerToggle()}
@@ -117,7 +118,7 @@ function Navbar() {
             "& .MuiDrawer-paper": {
               boxSizing: "border-box",
               width: drawerWidth,
-              backgroundColor: '#030712',
+              backgroundColor: colors.gray950,
             },
           }}>
           {drawer}

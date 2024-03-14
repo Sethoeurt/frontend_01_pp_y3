@@ -44,7 +44,6 @@ function Bio() {
             className={Styles.inputForm}
             onSubmit={handleSubmit(handleNext)}
           >
-
             <div className={Styles.labelInputWrapper}>
               <label
                 htmlFor="profileImage"

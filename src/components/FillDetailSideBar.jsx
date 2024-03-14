@@ -8,6 +8,7 @@ import { Button } from '@mui/material'
 import { Box } from '@mui/system';
 import { switchComponents } from '../redux/slices/sliceFillDetails.js'
 import { scrollToTop } from '../utils/controls.js';
+import { colors } from '../utils/colors.js'
 
 function FillDetailSideBar() {
     const dispatch = useDispatch();
@@ -44,11 +45,11 @@ function FillDetailSideBar() {
                         marginLeft: '0.5rem',
                         position: "sticky",
                         top: 70,
-                        color: "#65a30d",
-                        backgroundColor: "#030712",
+                        color: colors.cyan600,
+                        backgroundColor: colors.gray950,
                         '&:hover': {
-                            color: '#a3e635',
-                            backgroundColor: "#030712"
+                            color: colors.cyan500,
+                            backgroundColor: colors.gray950
                         },
                     }}
                     aria-label='more'
@@ -72,7 +73,7 @@ function FillDetailSideBar() {
                         style: {
                             width: '20ch',
                             maxHeight: ITEM_HEIGHT * 7.5,
-                            backgroundColor: '#030712',
+                            backgroundColor: colors.gray950,
                         },
                     }}
                 >
