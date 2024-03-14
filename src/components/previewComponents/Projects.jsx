@@ -6,25 +6,25 @@ import { GitHub, LiveTv } from '@mui/icons-material'
 
 function Projects() {
   const projects = useSelector(state => state.projects);
+  const dynamicStyle = useSelector((state) => state.dynamicStyle);
+
 
   return (
-    <div>
+    <>
       <Box sx={{
         display: 'flex',
         flexDirection: 'column',
         backgroundColor: '#f3f4f6',
-        // backgroundColor : 'bisque',
         color: '#111827',
         p: '1rem',
-        paddingBottom : '0.25rem'
+        paddingBottom: '0.25rem'
       }}>
         <Typography sx={{
-          color: '#1d4ed8',
+          color : dynamicStyle.headingColor,
           fontSize: '1.5rem',
           fontWeight: 'bold'
         }}>Projects</Typography>
-        <Divider sx={{ backgroundColor: ' #1d4ed8', height: 1.5 }} />
-
+        <Divider sx={{ backgroundColor: dynamicStyle.dividerColor, height: 1.5 }} />
         {
           projects.map((item, index) => {
             return (
@@ -49,9 +49,8 @@ function Projects() {
             )
           })
         }
-
       </Box>
-    </div>
+    </>
   )
 }
 

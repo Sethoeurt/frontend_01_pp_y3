@@ -6,7 +6,8 @@ installation
 -- npm run dev 
 
 
-
+----------------------------------
+-----------------------------------
 
 pages 
 -- Resume Template 
@@ -24,10 +25,8 @@ Structure
 -- Home 
 -- Footer
 
-
-
-
-
+--------------------------------------
+--------------------------------------
 
 color code 
 -- black = #000000
@@ -54,9 +53,6 @@ color code
 -- cyan-500 = #06b6d4
 
 
-
-
-
 Color used in Bio (previewComponents)
 -- black = #000000 (subheading)
 -- gray-950 = #030712 ( h3 & inputBackground  )
@@ -65,6 +61,8 @@ Color used in Bio (previewComponents)
 -- blue-700 = #1d4ed8 (heading )
 
 
+---------------------------------------------------
+---------------------------------------------------
 
 Git command 
 -- git init 
@@ -87,6 +85,11 @@ Git command points to remember
 -- before merging switch to master 
 
 
+
+---------------------------------------------------
+---------------------------------------------------
+
+
 React hook form 
 -- handleSubmit, register = useForm()
 -- validation 
@@ -96,18 +99,27 @@ React hook form
 
 
 
+---------------------------------------------------
+---------------------------------------------------
 
 Next update
--- local storage 
+-- local storage in dowload  
 -- multiple Template
--- black Screen 
+-- restrict switching 
 -- react-hook-form 
+
+
+
 
 
 resources 
 -- https://udithajanadara.medium.com/export-react-component-as-a-pdf-5afba8ba02ee
 -- https://mui.com/material-ui/react-tabs/
 -- https://react-hook-form.com/get-started#ReactNative
+
+
+
+
 
 problems 
 -- react-router vs react-router-dom 
@@ -125,6 +137,4 @@ Severity Vulnerability
 -- mui paper code in replace of paper props 
 
 
-        
 
-// onChange={(e) => dispatch(setPostalcode(e.target.value))}

@@ -93,11 +93,8 @@ function About() {
               <ol>3. HTML, CSS, Material UI </ol>
               <ol>3. Jspdf, React-hook-form </ol>
             </Typography>
-
           </Stack>
-
         </Stack>
-
       </Stack>
     </>
   )

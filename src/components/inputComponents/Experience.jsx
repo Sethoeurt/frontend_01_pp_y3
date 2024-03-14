@@ -175,7 +175,7 @@ function Experience() {
               >
                 Back
               </button>
-              <button type='submit' className={Styles.button}>Next </button>
+              <button type='submit' className={Styles.button}>Next & Submit </button>
             </div>
 
           </form>

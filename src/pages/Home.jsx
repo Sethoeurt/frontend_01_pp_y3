@@ -4,31 +4,29 @@ import { useNavigate } from 'react-router-dom'
 import { scrollToTop } from '../utils/controls.js'
 import { templates } from '../data/templates.js'
 import { firstComponents } from '../redux/slices/sliceFillDetails.js'
+import { modifyDynamicStyle } from '../redux/slices/sliceDynamicStyle.js'
 import Styles from '../styles/home.module.css'
 
 function Home() {
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
-
   const [isHovered, setIsHovered] = useState(null);
 
-
-  const fillDetails = () => {
+  const fillDetails = (templateId) => {
     dispatch(firstComponents())
     navigate('/fillDetails');
     scrollToTop();
+    dispatch(modifyDynamicStyle(templates[templateId - 1].dynamicStyle));
   }
 
   return (
     <>
       <div className={Styles.container}>
-
         <div className={Styles.headingWrapper}>
           <div className={Styles.heading}> Resume Templates</div>
           <div> Select a template to get started</div>
         </div>
-
         <div>
           <div className={Styles.templateWrapper}>
             {
@@ -37,7 +35,6 @@ function Home() {
                   <div
                     key={template.id}
                     className={Styles.templatesImg}
-                    onClick={() => fillDetails()}
                     onMouseEnter={() => setIsHovered(template.id)}
                     onMouseLeave={() => setIsHovered(null)}
                   >
@@ -50,7 +47,9 @@ function Home() {
 
                     {isHovered === template.id && (
                       <div className={Styles.overlay}>
-                        <button>Select</button>
+                        <button
+                          onClick={() => fillDetails(template.id)}
+                        >Select</button>
                       </div>
                     )}
                   </div>
@@ -59,7 +58,6 @@ function Home() {
             }
           </div>
         </div>
-
       </div>
     </>
   )

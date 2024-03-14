@@ -4,29 +4,29 @@ import { Box, Typography } from '@mui/material'
 
 function Address() {
   const address = useSelector((state) => state.address);
+  const dynamicStyle = useSelector((state) => state.dynamicStyle);
+
   return (
     <>
-      <div>
+      <Box sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        backgroundColor: dynamicStyle.backgroundColor,
+        color: dynamicStyle.color,
+        p: '1rem'
+      }}>
         <Box sx={{
           display: 'flex',
           flexDirection: 'column',
-          backgroundColor: '#f3f4f6',
-          color: '#111827',
-          p: '1rem'
-        }}>
-          <Box sx={{
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '0.5rem',
+          gap: '0.5rem',
 
-          }}>
-            <Typography >{address.postal_code} {','} {address.city} </Typography>
-            <Typography>{address.state} {','} {address.country}</Typography>
-            <Typography> {address.phone}</Typography>
-            <Typography> {address.email} </Typography>
-          </Box>
+        }}>
+          <Typography >{address.postal_code} {','} {address.city} </Typography>
+          <Typography>{address.state} {','} {address.country}</Typography>
+          <Typography> {address.phone}</Typography>
+          <Typography> {address.email} </Typography>
         </Box>
-      </div >
+      </Box>
     </>
   )
 }

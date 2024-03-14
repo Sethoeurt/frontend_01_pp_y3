@@ -4,9 +4,11 @@ import { Box, Typography, Divider } from '@mui/material'
 
 function KeySkills() {
   const keySkills = useSelector((state) => state.keySkills);
+  const dynamicStyle = useSelector((state) => state.dynamicStyle);
+
 
   return (
-    <div>
+    <>
       <Box sx={{
         display: 'flex',
         flexDirection: 'column',
@@ -15,11 +17,11 @@ function KeySkills() {
         p: '1rem'
       }}>
         <Typography sx={{
-          color: '#1d4ed8',
+          color: dynamicStyle.headingColor,
           fontSize: '1.5rem',
           fontWeight: 'bold'
         }}>Key Skills</Typography>
-        <Divider sx={{ backgroundColor: ' #1d4ed8', height: 1.5 }} />
+        <Divider sx={{ backgroundColor: dynamicStyle.dividerColor, height: 1.5 }} />
         <Box sx={{
           display: 'flex',
           flexWrap: 'wrap',
@@ -38,8 +40,7 @@ function KeySkills() {
           }
         </Box>
       </Box>
-
-    </div>
+    </>
   )
 }
 

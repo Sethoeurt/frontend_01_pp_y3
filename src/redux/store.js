@@ -4,8 +4,9 @@ import bioSlice from './slices/bioSlice.js'
 import educationSlice from './slices/educationSlice.js'
 import experienceSlice from "./slices/experienceSlice.js";
 import projectsSlice from "./slices/projectsSlice.js";
-import sliceFillDetails from "./slices/sliceFillDetails.js";
 import keySkillsSlice from "./slices/keySkillsSlice.js";
+import sliceDynamicStyle from "./slices/sliceDynamicStyle.js";
+import sliceFillDetails from "./slices/sliceFillDetails.js";
 
 export const store = configureStore({
     reducer: {
@@ -14,8 +15,9 @@ export const store = configureStore({
         education : educationSlice,
         experience : experienceSlice,
         projects : projectsSlice,
-        fillDetails : sliceFillDetails,
         keySkills : keySkillsSlice,
+        dynamicStyle : sliceDynamicStyle,
+        fillDetails : sliceFillDetails,
     },
     devTools: true,
 });

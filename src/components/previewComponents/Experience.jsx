@@ -5,6 +5,8 @@ import { Box, Typography, Divider } from '@mui/material'
 
 export default function Experience() {
   const experience = useSelector(state => state.experience);
+  const dynamicStyle = useSelector((state) => state.dynamicStyle);
+
 
   return (
     <>
@@ -16,11 +18,11 @@ export default function Experience() {
         p: '1rem'
       }}>
         <Typography sx={{
-          color: '#1d4ed8',
+          color : dynamicStyle.headingColor,
           fontSize: '1.5rem',
           fontWeight: 'bold'
         }}>Experience</Typography>
-        <Divider sx={{ backgroundColor: ' #1d4ed8', height: 1.5 }} />
+        <Divider sx={{ backgroundColor: dynamicStyle.dividerColor, height: 1.5 }} />
         {
           experience.map((item, index) => {
             return (

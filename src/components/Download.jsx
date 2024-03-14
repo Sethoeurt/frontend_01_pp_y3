@@ -1,10 +1,9 @@
 import jsPDF from 'jspdf'
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
-import { Paper } from '@mui/material'
+import { useDispatch, useSelector } from 'react-redux'
+import { Button, Paper } from '@mui/material'
 import { Box } from '@mui/system'
-import Styles from '../styles/input.module.css'
 import Address from '../components/previewComponents/Address'
 import Bio from '../components/previewComponents/Bio'
 import Education from '../components/previewComponents/Education'
@@ -13,24 +12,14 @@ import KeySkills from '../components/previewComponents/KeySkills'
 import Projects from '../components/previewComponents/Projects'
 import { firstComponents } from '../redux/slices/sliceFillDetails.js'
 import { scrollToTop } from '../utils/controls.js'
-
+import { colors } from '../utils/colors.js'
 
 
 function Download() {
     const navigate = useNavigate();
     const dispatch = useDispatch();
+    const dynamicStyle = useSelector(state => state.dynamicStyle);
     const [dynamicWidth, setDynamicWidth] = useState('auto');
-    
-    // const [dynamicFlexDirection, setDynamicFlexDirection] = useState('row');
-
-    // useEffect(() => {
-    //     if (window.getWidth >= '600px') {
-    //         setDynamicFlexDirection('row');
-    //     }
-    //     else {
-    //         setDynamicFlexDirection('column')
-    //     }
-    // }, [window.getWidth])
 
     const backToEdit = () => {
         navigate('/fillDetails');
@@ -40,12 +29,10 @@ function Download() {
 
     const orignalWidth = () => {
         setDynamicWidth(dynamicWidth === '600px' ? 'auto' : 'auto');
-        // setDynamicFlexDirection('column')
     }
 
     const generatePDF = () => {
         setDynamicWidth(dynamicWidth === 'auto' ? '600px' : 'auto');
-        setDynamicFlexDirection('row');
         const startTimeStamp = performance.now();
         const newPdf = new jsPDF('portrait', 'pt', 'a4');
         const bgColor = '#f3f4f6';
@@ -66,71 +53,105 @@ function Download() {
     }
 
     return (
-        <div className={Styles.container} >
-            <div className={Styles.wrapper}>
-                <div
-                    style={{
+        <Box
+            sx={{
+                backgroundColor: colors.gray900,
+                color: colors.gray200,
+                padding: '1rem'
+            }}
+        >
+            <Box
+                sx={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    gap: '0.75rem',
+                    marginTop: '0.75rem'
+                }}
+            >
+                <Box
+                    sx={{
                         display: 'flex',
                         flexDirection: 'column',
                         gap: '1rem',
-                        // overflowX : 'scroll' // adding scroll, 
                     }}
                 >
-                    <div>
-                        <Paper
-                            elevation={3}
-                            id='resume'
+                    <Paper
+                        elevation={3}
+                        id='resume'
+                        sx={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            backgroundColor: '#f3f4f6',
+                            color: 'black',
+                            width: {
+                                xs: dynamicWidth,
+                                sm: '600px'
+                            },
+                        }}
+                    >
+                        <Box
                             sx={{
+                                backgroundColor: dynamicStyle.backgroundColor,
+                                color: dynamicStyle.color,
                                 display: 'flex',
-                                flexDirection: 'column',
-                                backgroundColor: '#f3f4f6',
-                                color: 'black',
-                                width: {
-                                    xs: dynamicWidth,
-                                    sm: '600px'
-                                },
+                                justifyContent: 'center',
+                                alignItems: 'center',
+                                flexDirection: {
+                                    xs: 'column',
+                                    sm: 'row'
+                                }
                             }}
                         >
-                            <Box
-                                sx={{
-                                    display: 'flex',
-                                    justifyContent: 'center',
-                                    alignItems: 'center',
-                                    flexDirection: {
-                                        xs: 'column',
-                                        sm: 'row'
-                                    }
-                                }}
-                            >
-                                <Bio />
-                                <Address />
-                            </Box>
-                            <Experience />
-                            <Projects />
-                            <Education />
-                            <KeySkills />
-                        </Paper>
-                    </div>
+                            <Bio />
+                            <Address />
+                        </Box>
+                        <Experience />
+                        <Projects />
+                        <Education />
+                        <KeySkills />
+                    </Paper>
+                    <Box
+                        sx={{
+                            display: 'flex',
+                            justifyContent: 'space-between',
+                            alignItems: 'center'
+                        }}
+                    >
+                        <Button
+                            sx={{
+                                backgroundColor: colors.cyan600,
+                                color: colors.gray950,
+                                width: '30%',
 
-                    <div className={Styles.buttonWrapper}>
-                        <button
-                            className={Styles.button}
+                                fontWeight: 'bolder',
+                                '&:hover': {
+                                    backgroundColor: colors.cyan500,
+                                }
+                            }}
                             onClick={() => backToEdit()}
-                            type="button"
                         >
                             Back To Edit
-                        </button>
-                        <button
-                            className={Styles.buttonAdd}
+                        </Button>
+                        <Button
+                            sx={{
+                                backgroundColor: colors.blue800,
+                                color: colors.gray200,
+                                width: '30%',
+                                fontWeight: 'bolder',
+                                '&:hover': {
+                                    backgroundColor: colors.blue700,
+                                }
+                            }}
                             onClick={() => generatePDF()}
-                            type="button"
                         >
                             Export PDF
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
+                        </Button>
+                    </Box>
+                </Box>
+            </Box>
+        </Box >
     )
 }
 

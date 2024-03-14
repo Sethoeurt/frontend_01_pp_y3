@@ -1,3 +1,6 @@
+
+/* CSS of all input compoents  */
+
 :local(:root) {
     --gray-950: #030712;
     --gray-900: #111827;
@@ -7,7 +10,6 @@
     --cyan-500: #06b6d4;
     --blue-800: #1e40af;
     --blue-700: #1d4ed8;
-
 }
 
 .container {
