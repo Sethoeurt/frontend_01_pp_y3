@@ -49,7 +49,7 @@ function Home() {
                       <div className={Styles.overlay}>
                         <button
                           onClick={() => fillDetails(template.id)}
-                        >Select</button>
+                        > Use Template </button>
                       </div>
                     )}
                   </div>

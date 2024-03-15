@@ -93,7 +93,6 @@ Git command points to remember
 React hook form 
 -- handleSubmit, register = useForm()
 -- validation 
--- required 
 -- data stored in json format 
 -- 
 
@@ -103,10 +102,10 @@ React hook form
 ---------------------------------------------------
 
 Next update
--- local storage in dowload  
--- multiple Template
--- restrict switching 
--- react-hook-form 
+-- local storage in dowload component
+-- delete resume  
+-- restrict switching in filldetails component
+
 
 
 
