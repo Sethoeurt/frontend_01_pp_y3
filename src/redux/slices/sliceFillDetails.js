@@ -18,7 +18,7 @@ const sliceFillDetails = createSlice({
             state.value = 1;
         },
         switchComponents: (state, action) => {
-            state.value = action.payload + 1;
+            state.value = action.payload;
         }
     }
 })

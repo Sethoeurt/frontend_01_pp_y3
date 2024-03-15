@@ -1,18 +1,21 @@
 import React from 'react'
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Box, Button, ButtonGroup } from '@mui/material';
 import { switchComponents } from '../redux/slices/sliceFillDetails';
+import { colors } from '../utils/colors.js'
 import { scrollToTop } from '../utils/controls';
 
 
 function FillDetailButton() {
     const dispatch = useDispatch();
+    const fillDetails = useSelector(state => state.fillDetails);
+    const value = fillDetails.value
 
     const handleButtonClick = (index) => {
-        dispatch(switchComponents(index));
+        dispatch(switchComponents(index + 1));
         scrollToTop()
     }
-    
+
     const buttons = [
         'Bio',
         'Address',
@@ -37,13 +40,14 @@ function FillDetailButton() {
                     sx={{
                         position: "sticky",
                         top: 90,
-                        bgcolor: "#030712",
+                        bgcolor: colors.gray950,
                     }}
                 >
                     {buttons.map((button, index) => (
                         <Button
                             key={index}
                             onClick={() => handleButtonClick(index)}
+                            variant={value === index + 1 ? 'contained' : 'outlined'}
                         >
                             {button}
                         </Button>

@@ -36,24 +36,24 @@ function FillDetails() {
   };
 
   return (
-    <>
-      <Box
-        sx={{
-          display: 'flex',
-          flexDirection: 'row',
-          justifyContent: 'space-around',
-          '& > :first-of-type': {
-            width: isMobile ? '8%' : isMediumScreen ? '10%' : isLargeScreen ? '10%' : 'auto',
-          },
-          '& > :last-of-type': {
-            width: isMobile ? '85%' : isMediumScreen ? '80%' : isLargeScreen ? '90%' : '80%',
-          },
-        }}
-      >
-        {isMobile ? <FillDetailSideBar /> : <FillDetailButton />}
-        <Box > {renderComponent()} </Box>
-      </Box>
-    </>
+
+    <Box
+      sx={{
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+        '& > :first-of-type': {
+          width: isMobile ? '8%' : isMediumScreen ? '10%' : isLargeScreen ? '10%' : 'auto',
+        },
+        '& > :last-of-type': {
+          width: isMobile ? '85%' : isMediumScreen ? '80%' : isLargeScreen ? '90%' : '80%',
+        },
+      }}
+    >
+      {isMobile ? <FillDetailSideBar /> : <FillDetailButton />}
+      <Box > {renderComponent()} </Box>
+    </Box>
+
   )
 }
 

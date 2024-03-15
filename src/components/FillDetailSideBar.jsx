@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import IconButton from '@mui/material/IconButton';
 import Menu from '@mui/material/Menu'
 import MenuItem from '@mui/material/MenuItem';
@@ -15,6 +15,10 @@ function FillDetailSideBar() {
     const ITEM_HEIGHT = 48;
     const [anchorEl, setAnchorEl] = useState(null);
 
+    const fillDetails = useSelector(state => state.fillDetails);
+    const value = fillDetails.value
+
+
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
     }
@@ -22,7 +26,7 @@ function FillDetailSideBar() {
         setAnchorEl(null);
     }
     const handleButtonClick = (index) => {
-        dispatch(switchComponents(index));
+        dispatch(switchComponents(index + 1));
         handleClose();
         scrollToTop();
     }
@@ -82,7 +86,11 @@ function FillDetailSideBar() {
                             key={index}
                             onClick={() => handleButtonClick(index)}
                         >
-                            <Button>{button}</Button>
+                            <Button
+                                variant={value === index + 1 ? 'contained' : 'text'}
+                            >
+                                {button}
+                            </Button>
                         </MenuItem>
                     ))}
                 </Menu>
