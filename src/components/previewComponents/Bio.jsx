@@ -7,6 +7,7 @@ import { Box, Typography, } from '@mui/material';
 function Bio() {
   const bio = useSelector(state => state.bio);
   const dynamicStyle = useSelector(state => state.dynamicStyle);
+  const storedImage = localStorage.getItem('uploadedImage');
 
   return (
     <>
@@ -26,7 +27,7 @@ function Bio() {
           <img
             width="60px"
             height="60px"
-            src={resume_builder}
+            src={storedImage ? storedImage : resume_builder}
             alt="image"
             style={{ borderRadius: '50%' }}
           />

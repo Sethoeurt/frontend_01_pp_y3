@@ -40,7 +40,6 @@ function Address() {
       <div className={Styles.container}>
         <div className={Styles.wrapper}>
           <div className={Styles.title}>Address </div>
-
           <form
             className={Styles.inputForm}
             onSubmit={handleSubmit(handleNext)}

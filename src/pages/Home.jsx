@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import { scrollToTop } from '../utils/controls.js'
 import { templates } from '../data/templates.js'
-import { firstComponents } from '../redux/slices/sliceFillDetails.js'
 import { modifyDynamicStyle } from '../redux/slices/sliceDynamicStyle.js'
+import { firstComponents } from '../redux/slices/sliceFillDetails.js'
+import { scrollToTop } from '../utils/controls.js'
 import Styles from '../styles/home.module.css'
+
 
 function Home() {
 

@@ -3,10 +3,11 @@ import Styles from '../../styles/input.module.css'
 import { useForm } from 'react-hook-form'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
+import ImageUpload from '../muiComponents/ImageUpload.jsx'
 import { Details } from '../../data/details.js'
-import { scrollToTop } from '../../utils/controls.js'
-import { nextComponents } from '../../redux/slices/sliceFillDetails.js'
 import { modifyBio } from '../../redux/slices/bioSlice.js'
+import { nextComponents } from '../../redux/slices/sliceFillDetails.js'
+import { scrollToTop } from '../../utils/controls.js'
 
 
 function Bio() {
@@ -44,20 +45,8 @@ function Bio() {
             className={Styles.inputForm}
             onSubmit={handleSubmit(handleNext)}
           >
-            <div className={Styles.labelInputWrapper}>
-              <label
-                htmlFor="profileImage"
-                className={Styles.labelStyle}>
-                Profile Image
-              </label>
-              <input
-                className={Styles.inputStyle}
-                type="file"
-                accept="image/*"
-                id='profileImage'
-                placeholder={"Upload Profile Image"}
-              />
-            </div>
+
+            <ImageUpload />
 
             <div className={Styles.labelInputWrapper}>
               <label
