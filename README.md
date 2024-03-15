@@ -6,7 +6,7 @@ Craft your personalized resume within minutes using industry-approved sections, 
 
 ## Live
 
-- This application is purely frontend application, collection no data at all.
+- This application is purely frontend application, collection of no data at all.
 - It is deployed on vercel [Live Link](https://resume-builder-anurag.vercel.app).
 
 ## Table of Contents
@@ -15,7 +15,9 @@ Craft your personalized resume within minutes using industry-approved sections, 
 2. [Installation ](#installation)
 3. [Features](#features)
 4. [Folder Structure](#folder-structure)
-5. [License](#license)
+5. [Acknowledgement](#acknowledgments)
+6. [Contributors](#contributors)
+7. [License](#license)
 
 ## Technologies Used
 
@@ -108,6 +110,19 @@ Craft your personalized resume within minutes using industry-approved sections, 
 |-- package.json
 |-- package-lock.json
 </pre>
+
+## Acknowledgments
+
+- [Material UI](https://mui.com/material-ui/getting-started/overview/)
+- [Material UI ICONS ](https://mui.com/material-ui/material-icons/)
+- [React Hook Form](https://react-hook-form.com/)
+- [JsPdf](https://www.npmjs.com/package/jspdf)
+- Google
+
+## Contributors
+
+- [ Anurag Affection ](https://github.com/anuragaffection)
+- You are welcome to contribute here !
 
 ## License
 
