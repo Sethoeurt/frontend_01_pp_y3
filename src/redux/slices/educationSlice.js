@@ -21,8 +21,5 @@ const educationSlice = createSlice({
     }
 })
 
-
 export const { modifyEducation } = educationSlice.actions
-
-
 export default educationSlice.reducer;

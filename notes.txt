@@ -136,3 +136,6 @@ Severity Vulnerability
 
 
 
+Error when no image found in localhost 
+-- blob:http://localhost:5173/0e3c6cdf-2b7b-43b0-ba7f-18843204b5bb net::ERR_FILE_NOT_FOUND
+

@@ -3,6 +3,7 @@ import {GitHub,  LinkedIn, YouTube, Twitter, Facebook, Instagram} from '@mui/ico
 import { Social } from '../data/social'
 import styles from '../styles/footer.module.css'
 
+// footer components 
 function Footer() {
   return (
     <>

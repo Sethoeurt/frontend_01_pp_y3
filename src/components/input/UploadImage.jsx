@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { Button, Input, Box } from '@mui/material';
 import resume_builder from '../../assets/resume_builder.jpg'
+import { colors } from '../../utils/colors';
 
 
-const ImageUpload = () => {
+// Image components to upload image 
+const UploadImage = () => {
 
     const [image, setImage] = useState(null);
     const storedImage = localStorage.getItem('uploadedImage');
@@ -54,31 +56,33 @@ const ImageUpload = () => {
                     id="image-upload"
                 />
             </Box>
-
             {
                 image ? (
                     <img
                         src={URL.createObjectURL(image)}
-                        alt="Image"
+                        alt="img"
                         width={100}
                         height={100}
                         style={{
+                            border : '1px solid',
+                            borderColor : colors.cyan600,
                             borderRadius: '50%'
                         }}
                     />
                 ) : (
                     <img
                         src={storedImage ? storedImage : resume_builder}
-                        alt="Uploaded"
+                        alt="img"
                         width={100}
                         height={100}
                         style={{
+                            border: '1px solid', 
+                            borderColor: colors.cyan600,
                             borderRadius: '50%'
                         }}
                     />
                 )
             }
-
             <Button
                 variant="contained"
                 onClick={handleUpload}
@@ -88,4 +92,4 @@ const ImageUpload = () => {
     );
 };
 
-export default ImageUpload;
+export default UploadImage;

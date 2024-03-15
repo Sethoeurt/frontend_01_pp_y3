@@ -1,28 +1,31 @@
+// from installed dependencies 
 import jsPDF from 'jspdf'
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { Button, Paper, TextField } from '@mui/material'
 import { Box } from '@mui/system'
-import SuccessSnackbar from './muiComponents/SuccessSnackbar.jsx'
-import Address from './previewComponents/Address.jsx'
-import Bio from './previewComponents/Bio'
-import Education from './previewComponents/Education'
-import Experience from './previewComponents/Experience'
-import KeySkills from './previewComponents/KeySkills'
-import Projects from './previewComponents/Projects'
-import { firstComponents } from '../redux/slices/sliceFillDetails.js'
-import { scrollToTop } from '../utils/controls.js'
-import { colors } from '../utils/colors.js'
 
+// from previewComponents folder 
+import Address from './Address.jsx'
+import Bio from './Bio.jsx'
+import Education from './Education.jsx'
+import Experience from './Experience.jsx'
+import KeySkills from './KeySkills.jsx'
+import Projects from './Projects.jsx'
 
-function Download() {
+import SuccessSnackbar from '../SuccessSnackbar.jsx'
+import { firstComponents } from '../../redux/slices/sliceFillDetails.js'
 
+// from utils folder 
+import { colors } from '../../utils/colors.js'
+import { scrollToTop } from '../../utils/controls.js'
+
+// this ViewPreview componets is preview of all single previewComponents 
+function ViewPreview() {
     const navigate = useNavigate();
     const dispatch = useDispatch();
-
-    const dynamicStyle = useSelector(state => state.dynamicStyle);
-
+    const dynamicStyle = useSelector(state => state.dynamicStyle);  
     const [isHovered, setIsHovered] = useState(false);
     const [dynamicWidth, setDynamicWidth] = useState('auto');
     const [pdfName, setPdfName] = useState('resume');
@@ -236,4 +239,4 @@ function Download() {
     )
 }
 
-export default Download
+export default ViewPreview

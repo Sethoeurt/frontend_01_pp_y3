@@ -1,11 +1,17 @@
-import React from 'react'
+// from installed dependencies 
+import React from 'react' 
 import { useDispatch, useSelector } from 'react-redux';
 import { Box, Button, ButtonGroup } from '@mui/material';
-import { switchComponents } from '../redux/slices/sliceFillDetails';
-import { colors } from '../utils/colors.js'
-import { scrollToTop } from '../utils/controls';
+
+// from utils folder 
+import { colors } from '../utils/colors.js' 
+import { scrollToTop } from '../utils/controls.js';
+
+// from redux slices
+import { switchComponents } from '../redux/slices/sliceFillDetails.js';  
 
 
+// this components will render on all device size except lower than mobile size (sm)
 function FillDetailButton() {
     const dispatch = useDispatch();
     const fillDetails = useSelector(state => state.fillDetails);
@@ -43,15 +49,16 @@ function FillDetailButton() {
                         bgcolor: colors.gray950,
                     }}
                 >
-                    {buttons.map((button, index) => (
-                        <Button
-                            key={index}
-                            onClick={() => handleButtonClick(index)}
-                            variant={value === index + 1 ? 'contained' : 'outlined'}
-                        >
-                            {button}
-                        </Button>
-                    ))
+                    {
+                        buttons.map((button, index) => (
+                            <Button
+                                key={index}
+                                onClick={() => handleButtonClick(index)}
+                                variant={value === index + 1 ? 'contained' : 'outlined'}
+                            >
+                                {button}
+                            </Button>
+                        ))
                     }
                 </ButtonGroup>
             </Box>

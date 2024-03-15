@@ -1,7 +1,8 @@
 import React from 'react'
-import Download from '../components/Download.jsx'
+import ViewPreview from '../components/preview/ViewPreview.jsx'
 import Styles from '../styles/home.module.css'
 
+// Resume page to show the created resume 
 function MyResume() {
   return (
     <div className={Styles.container}>
@@ -9,7 +10,7 @@ function MyResume() {
         <div className={Styles.heading}> My Resume </div>
         <div> Edit or Export Your Resume as PDF </div>
       </div>
-      <div><Download /></div>
+      <div><ViewPreview /></div>
     </div>
   )
 }

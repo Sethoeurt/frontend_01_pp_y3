@@ -3,7 +3,7 @@ import Styles from '../../styles/input.module.css'
 import { useForm } from 'react-hook-form'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import ImageUpload from '../muiComponents/ImageUpload.jsx'
+import UploadImage from '../input/UploadImage.jsx'
 import { Details } from '../../data/details.js'
 import { modifyBio } from '../../redux/slices/bioSlice.js'
 import { nextComponents } from '../../redux/slices/sliceFillDetails.js'
@@ -46,7 +46,7 @@ function Bio() {
             onSubmit={handleSubmit(handleNext)}
           >
 
-            <ImageUpload />
+            <UploadImage />
 
             <div className={Styles.labelInputWrapper}>
               <label

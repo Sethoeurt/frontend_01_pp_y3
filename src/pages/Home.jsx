@@ -1,15 +1,19 @@
+// from installed dependencies
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import { templates } from '../data/templates.js'
+
+// method or actions from slices folder 
 import { modifyDynamicStyle } from '../redux/slices/sliceDynamicStyle.js'
 import { firstComponents } from '../redux/slices/sliceFillDetails.js'
-import { scrollToTop } from '../utils/controls.js'
-import Styles from '../styles/home.module.css'
+
+import { templates } from '../data/templates.js' // from data folder 
+import Styles from '../styles/home.module.css' // from styles folder 
+import { scrollToTop } from '../utils/controls.js' // from utils folder 
 
 
+// displaying template & passing data of selected templates 
 function Home() {
-
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [isHovered, setIsHovered] = useState(null);
@@ -45,14 +49,15 @@ function Home() {
                       height={'380px'}
                       width={'auto'}
                     />
-
-                    {isHovered === template.id && (
-                      <div className={Styles.overlay}>
-                        <button
-                          onClick={() => fillDetails(template.id)}
-                        > Use Template </button>
-                      </div>
-                    )}
+                    {
+                      isHovered === template.id && (
+                        <div className={Styles.overlay}>
+                          <button
+                            onClick={() => fillDetails(template.id)}
+                          > Use Template </button>
+                        </div>
+                      )
+                    }
                   </div>
                 )
               })

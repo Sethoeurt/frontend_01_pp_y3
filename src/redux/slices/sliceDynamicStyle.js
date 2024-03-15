@@ -23,5 +23,4 @@ const sliceDynamicStyle = createSlice({
 })
 
 export const { modifyDynamicStyle } = sliceDynamicStyle.actions
-
 export default sliceDynamicStyle.reducer

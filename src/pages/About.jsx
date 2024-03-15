@@ -1,135 +1,116 @@
-import React from 'react'
+// from installed dependencies
+import React from 'react';
 import { Stack, Typography } from "@mui/material";
-import { colors } from "../utils/colors.js"
 
+import aboutData from '../data/aboutData.js' // from data folder 
+import { colors } from "../utils/colors.js"; // from utils folder 
+
+// this is about components 
+// fecthing the about data from aboutData.js file 
+// then displaying using .map()
 function About() {
-  return (
-    <>
-      <Stack
-        sx={{
-          color: '#f3f4f6',
-          padding: {
-            xs: "18px",
-            sm: "25px",
-            md: "40px",
-            lg: "60px "
-          }
-        }}
-      >
-        <h2 style={{ color: '#f59e0b' }}> About Resume Builder </h2>
-
-        <Stack
-          direction={{
-            xs: "column",
-            lg: "row-reverse",
-          }}
-          spacing={{ xs: 1, sm: 2, md: 4 }}
-          mt="20px"
-        >
-          <Stack>
-            <img
-              src="https://www.visualcv.com/static/67fb7346de03f735bcf1b48751bb8b19/e3663/CV_Examples_2x.png"
-              alt="img"
-            />
-          </Stack>
-
-          <Stack
-            sx={{
-              fontSize: {
-                xs: "13px",
-                sm: "15px",
-                md: "17px",
-                lg: "19px",
-              },
-              paddingRight: {
-                xs: "15px",
-                sm: "18px",
-                lg: "25px",
-              },
-              textAlign: "justify",
-              display: "flex",
-              flexDirection: 'column',
-              gap: '2rem'
-            }}>
-
-            <Typography>
-              <p>
-                We are Empowering professionals to land coveted positions at top-tier companies like BBC, Google, Apple, Tesla, and Airbnb, our online resume builder is a game-changer in the job market. With our intuitive platform, choose from a curated selection of expertly designed resume templates.
-              </p>
-
-              <p>
-                Craft your personalized resume within minutes using industry-approved sections, meticulously tailored to impress recruiters worldwide. Each section is thoughtfully crafted to reflect your unique skills and personality, ensuring a standout application that speaks volumes.
-              </p>
-
-              <p>
-                Our platform offers the flexibility to customize every aspect, allowing you to shape a professional-grade resume that perfectly mirrors your career aspirations and expertise.
-              </p>
-            </Typography>
-
-            <Typography>
-              <h3 style={{ color: '#f59e0b' }}>
-                Simple Steps to Build Professional Resume
-              </h3>
-              <ol>1. Select Template </ol>
-              <ol>2. Fill details </ol>
-              <ol>3. Keep in mind to save image & submit input</ol>
-              <ol>4. Export Resume [ ready to download ]   </ol>
-            </Typography>
-
-            <Typography>
-              <h3 style={{ color: '#f59e0b' }}>
-                Privacy Policy
-              </h3>
-              <ol>1. We are collecting Nothing. </ol>
-              <ol>2. Using Secured Connection.  </ol>
-              <ol>3. Use this app without any hesitation. </ol>
-            </Typography>
-
-            <Typography>
-              <h3 style={{ color: '#f59e0b' }}>
-                Technology used in this App
-              </h3>
-              <ol>1. Javascript </ol>
-              <ol>2. React & Redux Toolkit  </ol>
-              <ol>3. HTML, CSS, Material UI </ol>
-              <ol>3. Jspdf, React-hook-form </ol>
-            </Typography>
-
-            <Typography>
-              <h3 style={{ color: '#f59e0b' }}>
-                About Developer
-              </h3>
-              <ol>Anurag Affection </ol>
-              <ol>
-                <a
-                  href="https://anuragaffection.vercel.app/"
-                  target='_blank'
-                  style={{
-                    textDecoration: 'none',
-                    color: colors.cyan500,
-                  }}>
-                  Checkout Portfolio
-                </a>
-              </ol>
-              <ol>
-                <a
-                  href="mailto:anuragaffection07@gmail.com"
-                  target='_blank'
-                  style={{
-                    textDecoration: 'none',
-                    color: colors.cyan500
-                  }}>
-                  Email Me
-                </a>
-              </ol>
-            </Typography>
-
-          </Stack>
-
-        </Stack>
-      </Stack>
-    </>
-  )
+    return (
+        <>
+            <Stack
+                sx={{
+                    color: colors.gray200,
+                    padding: {
+                        xs: "18px",
+                        sm: "25px",
+                        md: "40px",
+                        lg: "60px "
+                    }
+                }}
+            >
+                <h2 style={{ color: colors.amber500 }}>{aboutData.aboutResumeBuilder.heading}</h2>
+                <Stack
+                    direction={{
+                        xs: "column",
+                        lg: "row-reverse",
+                    }}
+                    spacing={{ xs: 1, sm: 2, md: 4 }}
+                    mt="20px"
+                >
+                    <Stack>
+                        <img
+                            src={aboutData.aboutResumeBuilder.imageUrl}
+                            alt="img"
+                        />
+                    </Stack>
+                    <Stack
+                        sx={{
+                            fontSize: {
+                                xs: "13px",
+                                sm: "15px",
+                                md: "17px",
+                                lg: "19px",
+                            },
+                            paddingRight: {
+                                xs: "15px",
+                                sm: "18px",
+                                lg: "25px",
+                            },
+                            textAlign: "justify",
+                            display: "flex",
+                            flexDirection: 'column',
+                            gap: '2rem'
+                        }}>
+                        <Typography>
+                            {aboutData.aboutResumeBuilder.paragraphs.map((paragraph, index) => (
+                                <p key={index}>{paragraph}</p>
+                            ))}
+                        </Typography>
+                        <Typography>
+                            <h3 style={{ color: colors.amber500 }}>{aboutData.simpleSteps.heading}</h3>
+                            <ol>
+                                {aboutData.simpleSteps.steps.map((step, index) => (
+                                    <li key={index} style={{ margin: '1rem' }}>{step}</li>
+                                ))}
+                            </ol>
+                        </Typography>
+                        <Typography>
+                            <h3 style={{ color: colors.amber500 }}>{aboutData.privacyPolicy.heading}</h3>
+                            <ol>
+                                {aboutData.privacyPolicy.points.map((point, index) => (
+                                    <li key={index} style={{ margin: '1rem' }}>{point}</li>
+                                ))}
+                            </ol>
+                        </Typography>
+                        <Typography>
+                            <h3 style={{ color: colors.amber500 }}>{aboutData.technologiesUsed.heading}</h3>
+                            <ol>
+                                {aboutData.technologiesUsed.technologies.map((technology, index) => (
+                                    <li key={index} style={{ margin: '1rem' }}>{technology}</li>
+                                ))}
+                            </ol>
+                        </Typography>
+                        <Typography>
+                            <h3 style={{ color: colors.amber500 }}>{aboutData.aboutDeveloper.heading}</h3>
+                            <ul>
+                                {aboutData.aboutDeveloper.details.map((detail, index) => (
+                                    <li key={index} style={{ margin: '1rem' }}>
+                                        {typeof detail === 'string' ? detail : (
+                                            <a
+                                                href={detail.url}
+                                                target='_blank'
+                                                rel="noopener noreferrer"
+                                                style={{
+                                                    textDecoration: 'none',
+                                                    color: colors.cyan500,
+                                                }}
+                                            >
+                                                {detail.label}
+                                            </a>
+                                        )}
+                                    </li>
+                                ))}
+                            </ul>
+                        </Typography>
+                    </Stack>
+                </Stack>
+            </Stack>
+        </>
+    );
 }
 
-export default About
+export default About;

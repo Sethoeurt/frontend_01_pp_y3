@@ -1,7 +1,12 @@
+// from installed dependencies 
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
 import { Provider } from 'react-redux'
+
+// from app.jsx  
+import App from './App.jsx'
+
+// from redux store to provide global state access 
 import { store } from './redux/store.js'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
