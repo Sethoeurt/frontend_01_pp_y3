@@ -48,7 +48,7 @@ function FillDetailSideBar() {
                         marginTop: '2rem',
                         marginLeft: '0.5rem',
                         position: "sticky",
-                        top: 70,
+                        top: 80,
                         color: colors.cyan600,
                         backgroundColor: colors.gray950,
                         '&:hover': {

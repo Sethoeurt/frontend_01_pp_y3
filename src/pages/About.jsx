@@ -1,6 +1,6 @@
 import React from 'react'
 import { Stack, Typography } from "@mui/material";
-
+import { colors } from "../utils/colors.js"
 
 function About() {
   return (
@@ -8,7 +8,7 @@ function About() {
       <Stack
         sx={{
           color: '#f3f4f6',
-          padding : {
+          padding: {
             xs: "18px",
             sm: "25px",
             md: "40px",
@@ -72,7 +72,8 @@ function About() {
               </h3>
               <ol>1. Select Template </ol>
               <ol>2. Fill details </ol>
-              <ol>3. Export Resume [ ready to download ]   </ol>
+              <ol>3. Keep in mind to save image & submit input</ol>
+              <ol>4. Export Resume [ ready to download ]   </ol>
             </Typography>
 
             <Typography>
@@ -93,7 +94,38 @@ function About() {
               <ol>3. HTML, CSS, Material UI </ol>
               <ol>3. Jspdf, React-hook-form </ol>
             </Typography>
+
+            <Typography>
+              <h3 style={{ color: '#f59e0b' }}>
+                About Developer
+              </h3>
+              <ol>Anurag Affection </ol>
+              <ol>
+                <a
+                  href="https://anuragaffection.vercel.app/"
+                  target='_blank'
+                  style={{
+                    textDecoration: 'none',
+                    color: colors.cyan500,
+                  }}>
+                  Checkout Portfolio
+                </a>
+              </ol>
+              <ol>
+                <a
+                  href="mailto:anuragaffection07@gmail.com"
+                  target='_blank'
+                  style={{
+                    textDecoration: 'none',
+                    color: colors.cyan500
+                  }}>
+                  Email Me
+                </a>
+              </ol>
+            </Typography>
+
           </Stack>
+
         </Stack>
       </Stack>
     </>

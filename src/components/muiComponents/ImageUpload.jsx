@@ -22,8 +22,17 @@ const ImageUpload = () => {
             sx={{
                 display: 'flex',
                 justifyContent: 'space-between',
-                alignItems: 'center',
-                p: '1rem'
+                flexWrap: 'wrap',
+                gap: '1rem',
+                p: '0.5rem',
+                flexDirection: {
+                    xs: 'column',
+                    md: 'row'
+                },
+                alignItems: {
+                    xs: 'flex-start',
+                    md: 'center'
+                }
             }}
         >
             <Box>
@@ -50,7 +59,7 @@ const ImageUpload = () => {
                 image ? (
                     <img
                         src={URL.createObjectURL(image)}
-                        alt="Uploaded"
+                        alt="Image"
                         width={100}
                         height={100}
                         style={{
@@ -75,7 +84,7 @@ const ImageUpload = () => {
                 onClick={handleUpload}
             > Save Image
             </Button>
-        </Box>
+        </Box >
     );
 };
 
