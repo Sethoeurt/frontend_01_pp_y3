@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import Styles from '../../styles/input.module.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { useForm } from 'react-hook-form'
@@ -154,9 +154,8 @@ function Address() {
               <button type='submit' className={Styles.button}>Next & Submit </button>
             </div>
 
-
           </form>
-
+          
         </div>
       </div>
     </>

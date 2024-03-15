@@ -1,5 +1,6 @@
 import resume_builder from '../assets/resume_builder.jpg'
 
+// storing some  dummy data to be placed as placeholder in input 
 export const Details = {
     bio: {
         profile_image: resume_builder,

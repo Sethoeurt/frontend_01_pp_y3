@@ -3,6 +3,7 @@ import templateTwoImg from "../assets/resume-template02.png";
 import templateThreeImg from "../assets/resume-template03.png"
 import { colors } from "../utils/colors.js"
 
+// storing the data of template 
 export const templates = [
   {
     id: 1,

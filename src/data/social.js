@@ -1,3 +1,5 @@
+// social link
+// used in footer 
 export const Social = {
     github: "https://github.com/anuragaffection",
     linkedin: "https://www.linkedin.com/in/anuragaffection/",

@@ -43,7 +43,6 @@ function Navbar() {
         }}
       >
         <NavLink to={"/"} className={styles.navEachLink} > Resume Template </NavLink>
-        <NavLink to={"/filldetails"} className={styles.navEachLink} > Fill Your Details </NavLink>
         <NavLink to={"/myresume"} className={styles.navEachLink}>My Resume </NavLink>
         <NavLink to={"/about"} className={styles.navEachLink}>About </NavLink>
       </Box>

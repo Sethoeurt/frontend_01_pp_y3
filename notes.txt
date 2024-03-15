@@ -102,10 +102,9 @@ React hook form
 ---------------------------------------------------
 
 Next update
--- local storage in dowload component
 -- delete resume  
 -- restrict switching in filldetails component
-
+-- remove hex value of color with name 
 
 
 
@@ -119,19 +118,19 @@ resources
 
 
 
-
-problems 
+Explore 
 -- react-router vs react-router-dom 
 -- nth child in css 
--- jk
-
+-- controlled vs uncontrolled component 
+-- redux vs react-redux vs redux-toolkit 
+-- 
 
 
 
 Severity Vulnerability 
 -- 1 high due to react-hook-form 
 
-                      
+
 -- selected === bio (in menu)           
 -- mui paper code in replace of paper props 
 
