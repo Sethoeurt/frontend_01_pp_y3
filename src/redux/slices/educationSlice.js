@@ -23,3 +23,5 @@ const educationSlice = createSlice({
 
 export const { modifyEducation } = educationSlice.actions
 export default educationSlice.reducer;
+
+// state.length = 0, removing all items from array 

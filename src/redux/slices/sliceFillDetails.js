@@ -4,6 +4,8 @@ const fillDetailsInitialState = {
     value: 1
 }
 
+// updating value accordig to selected buttons 
+// this value is used to render components of fillDetails
 const sliceFillDetails = createSlice({
     name: "fillDetails",
     initialState: fillDetailsInitialState,

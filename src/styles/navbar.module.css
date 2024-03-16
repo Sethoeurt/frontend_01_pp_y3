@@ -46,7 +46,7 @@
 }
 
 .navEachLink:hover {
-    color: var(--cyan-500);
+    color: var(--cyan-400);
 }
 
 @media (min-width: 768px) {

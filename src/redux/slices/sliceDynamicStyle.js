@@ -1,6 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { colors } from '../../utils/colors'
 
+// dynamic color, 
+// updating this slice for slected resumeTemplate 
+// data folder - template.js 
+// dispatching - from home.jsx 
 const dynamicStyleInitialState = {
     backgroundColor: colors.gray200,
     color: colors.gray900,

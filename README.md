@@ -2,7 +2,7 @@
 
 ## Description
 
-Craft your personalized resume within minutes using industry-approved sections, meticulously tailored to impress recruiters worldwide. Each section is thoughtfully crafted to reflect your unique skills and personality, ensuring a standout application that speaks volumes.
+Create your own custom resume quickly with sections designed to impress recruiters globally. Each section is carefully tailored to showcase your skills and personality, ensuring your application stands out and leaves a lasting impression.
 
 ## Live
 
@@ -16,8 +16,9 @@ Craft your personalized resume within minutes using industry-approved sections, 
 3. [Features](#features)
 4. [Folder Structure](#folder-structure)
 5. [Acknowledgement](#acknowledgments)
-6. [Contributors](#contributors)
-7. [License](#license)
+6. [Project History](#project-history)
+7. [Contributors](#contributors)
+8. [License](#license)
 
 ## Technologies Used
 
@@ -123,6 +124,12 @@ Craft your personalized resume within minutes using industry-approved sections, 
 - [JsPdf](https://www.npmjs.com/package/jspdf)
 - Google
 
+## Project History
+
+- First Commit : January 07, 2024
+- First Release : February 07, 2024
+- Updated Release : I am continously updating our application after first live.
+
 ## Contributors
 
 - [ Anurag Affection ](https://github.com/anuragaffection)
@@ -130,4 +137,15 @@ Craft your personalized resume within minutes using industry-approved sections, 
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE).
+You are free to:
+
+- Use — the software for any purpose
+- Share — Copy and redistribute the material in any medium or format
+- Adapt — Remix, transform, and build upon the material
+
+Under the following terms:
+
+- Attribution — You must give appropriate credit.
+- NonCommercial — You may not use material for commercial purposes.
+
+## Thank You

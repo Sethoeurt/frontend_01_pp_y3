@@ -59,8 +59,8 @@ function FillDetails() {
 
   return (
     <Box sx={boxWrapper}>
-      <Box> {isMobile ? <FillDetailSideBar /> : <FillDetailButton />} </Box>
-      <Box> {renderComponent()}</Box>
+      {isMobile ? <FillDetailSideBar /> : <FillDetailButton />}
+      {renderComponent()}
     </Box>
   )
 }
