@@ -94,6 +94,7 @@ React hook form
 -- handleSubmit, register = useForm()
 -- validation 
 -- data stored in json format 
+-- either keep material ui or custom ui in a single file 
 -- 
 
 
@@ -102,7 +103,7 @@ React hook form
 ---------------------------------------------------
 
 Next update
--- delete resume  
+-- delete resume functionality 
 -- restrict switching in filldetails component
 -- remove hex value of color with name 
 
@@ -120,12 +121,16 @@ resources
 
 Explore 
 -- react-router vs react-router-dom 
+-- react-dom vs react-native 
 -- nth child in css 
 -- controlled vs uncontrolled component 
 -- redux vs react-redux vs redux-toolkit 
--- 
+-- useLocation() vs useParams() in react-router-dom 
 
 
+Learnings 
+-- Do not higher semantic meaning tag into smaller semantic tag meaning 
+-- like h1 cannot be in h2 tage 
 
 Severity Vulnerability 
 -- 1 high due to react-hook-form 
@@ -138,4 +143,3 @@ Severity Vulnerability
 
 Error when no image found in localhost 
 -- blob:http://localhost:5173/0e3c6cdf-2b7b-43b0-ba7f-18843204b5bb net::ERR_FILE_NOT_FOUND
-

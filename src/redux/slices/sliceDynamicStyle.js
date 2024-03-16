@@ -8,7 +8,6 @@ const dynamicStyleInitialState = {
     headingColor : colors.blue700,
     dividerColor : colors.blue700,
     subHeadingColor : colors.gray900,
-    
 }
 
 const sliceDynamicStyle = createSlice({

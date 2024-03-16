@@ -3,8 +3,8 @@ import { NavLink } from 'react-router-dom'
 import MenuIcon from '@mui/icons-material/Menu';
 import { AppBar, Toolbar, IconButton } from '@mui/material'
 import { colors } from '../../utils/colors';
-import styles from '../../styles/navbar.module.css'
 
+// this is navbar of mobile size devices 
 function NavbarMobile({ handleDrawerToggle }) {
     return (
         <AppBar
@@ -33,8 +33,15 @@ function NavbarMobile({ handleDrawerToggle }) {
                 >
                     < MenuIcon />
                 </IconButton>
-                <NavLink to={'/'} className={styles.logoWrapper}>
-                    <div className={styles.logo}>Resume Builder</div>
+                <NavLink
+                    to={'/'}
+                    style={{
+                        textDecoration: 'none',
+                        color: colors.amber500,
+                        fontSize: 'large',
+                    }}
+                >
+                    Resume Builder
                 </NavLink>
             </Toolbar>
         </AppBar >

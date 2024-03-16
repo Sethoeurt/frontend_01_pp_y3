@@ -2,10 +2,10 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import { Box, Typography, Divider } from '@mui/material'
 
+// preview of skills 
 function KeySkills() {
   const keySkills = useSelector((state) => state.keySkills);
   const dynamicStyle = useSelector((state) => state.dynamicStyle);
-
 
   return (
     <>
@@ -21,7 +21,7 @@ function KeySkills() {
           fontSize: '1.5rem',
           fontWeight: 'bold'
         }}>Key Skills</Typography>
-        <Divider sx={{ backgroundColor: dynamicStyle.dividerColor, height: 1.5 }} />
+        <Divider sx={{ backgroundColor: dynamicStyle.dividerColor }} />
         <Box sx={{
           display: 'flex',
           flexWrap: 'wrap',

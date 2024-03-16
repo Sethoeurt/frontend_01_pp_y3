@@ -2,11 +2,10 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import { Box, Typography, Divider } from '@mui/material'
 
-
-export default function Experience() {
+// preview of experience 
+function Experience() {
   const experience = useSelector(state => state.experience);
   const dynamicStyle = useSelector((state) => state.dynamicStyle);
-
 
   return (
     <>
@@ -22,7 +21,7 @@ export default function Experience() {
           fontSize: '1.5rem',
           fontWeight: 'bold'
         }}>Experience</Typography>
-        <Divider sx={{ backgroundColor: dynamicStyle.dividerColor, height: 1.5 }} />
+        <Divider sx={{ backgroundColor: dynamicStyle.dividerColor }} />
         {
           experience.map((item, index) => {
             return (
@@ -45,3 +44,5 @@ export default function Experience() {
     </>
   )
 }
+
+export default Experience;

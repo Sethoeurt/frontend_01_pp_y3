@@ -2,14 +2,9 @@
 import React from 'react' 
 import { useDispatch, useSelector } from 'react-redux';
 import { Box, Button, ButtonGroup } from '@mui/material';
-
-// from utils folder 
-import { colors } from '../utils/colors.js' 
+import { switchComponents } from '../redux/slices/sliceFillDetails.js'; // from redux 
+import { colors } from '../utils/colors.js' // from utils folder 
 import { scrollToTop } from '../utils/controls.js';
-
-// from redux slices
-import { switchComponents } from '../redux/slices/sliceFillDetails.js';  
-
 
 // this components will render on all device size except lower than mobile size (sm)
 function FillDetailButton() {

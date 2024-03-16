@@ -1,15 +1,15 @@
-import React, { useState } from 'react'
-import Styles from '../../styles/input.module.css'
+import React, { useState } from 'react' // from installed dependencies 
 import { useForm } from 'react-hook-form'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import UploadImage from '../input/UploadImage.jsx'
-import { Details } from '../../data/details.js'
-import { modifyBio } from '../../redux/slices/bioSlice.js'
+import UploadImage from '../input/UploadImage.jsx' // from input folder 
+import { Details } from '../../data/details.js' // from data folder 
+import { modifyBio } from '../../redux/slices/bioSlice.js' // from redux 
 import { nextComponents } from '../../redux/slices/sliceFillDetails.js'
-import { scrollToTop } from '../../utils/controls.js'
+import Styles from '../../styles/input.module.css' // from styles 
+import { scrollToTop } from '../../utils/controls.js' // from utils 
 
-
+// taking all inputs related to Bio 
 function Bio() {
   const { handleSubmit, register } = useForm();
   const navigate = useNavigate();
@@ -45,9 +45,9 @@ function Bio() {
             className={Styles.inputForm}
             onSubmit={handleSubmit(handleNext)}
           >
-
+            {/* image input  */}
             <UploadImage />
-
+            {/* first name input  */}
             <div className={Styles.labelInputWrapper}>
               <label
                 htmlFor="firstName"
@@ -64,7 +64,7 @@ function Bio() {
                 {...register("firstName", { required: true, maxLength: 20 })}
               />
             </div>
-
+            {/* last name input  */}
             <div className={Styles.labelInputWrapper}>
               <label
                 htmlFor="lastName"
@@ -81,7 +81,7 @@ function Bio() {
                 {...register("lastName", { required: true, maxLength: 20 })}
               />
             </div>
-
+            {/* Job role input  */}
             <div className={Styles.labelInputWrapper}>
               <label
                 htmlFor="role"
@@ -98,7 +98,7 @@ function Bio() {
                 {...register("role", { required: true, maxLength: 20 })}
               />
             </div>
-
+            {/* Role description input  */}
             <div className={Styles.labelInputWrapper}>
               <label
                 htmlFor="description"
@@ -116,7 +116,7 @@ function Bio() {
                 {...register("description", { required: true, maxLength: 320 })}
               ></textarea>
             </div>
-
+            {/* buttons  */}
             <div className={Styles.buttonWrapper}>
               <button
                 type='text'
@@ -135,3 +135,7 @@ function Bio() {
 }
 
 export default Bio
+
+// note -
+// this bio.jsx functionality is same as previous as address.jsx
+// so, first try to uderstand address.jsx 

@@ -1,24 +1,18 @@
-// from installed dependencies 
-import jsPDF from 'jspdf'
-import React, { useState } from 'react'
+import React, { useState } from 'react'  // from installed dependencies 
 import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { Button, Paper, TextField } from '@mui/material'
 import { Box } from '@mui/system'
-
-// from previewComponents folder 
-import Address from './Address.jsx'
+import jsPDF from 'jspdf'
+import Address from './Address.jsx' // previewComponents folder 
 import Bio from './Bio.jsx'
 import Education from './Education.jsx'
 import Experience from './Experience.jsx'
 import KeySkills from './KeySkills.jsx'
 import Projects from './Projects.jsx'
-
-import SuccessSnackbar from '../SuccessSnackbar.jsx'
-import { firstComponents } from '../../redux/slices/sliceFillDetails.js'
-
-// from utils folder 
-import { colors } from '../../utils/colors.js'
+import SuccessSnackbar from '../SuccessSnackbar.jsx' // components 
+import { firstComponents } from '../../redux/slices/sliceFillDetails.js' // redux 
+import { colors } from '../../utils/colors.js' //  utils folder 
 import { scrollToTop } from '../../utils/controls.js'
 
 // this ViewPreview componets is preview of all single previewComponents 

@@ -1,16 +1,5 @@
-
 /* CSS of all input compoents  */
-
-:local(:root) {
-    --gray-950: #030712;
-    --gray-900: #111827;
-    --gray-800: #1f2937;
-    --gray-200: #f3f4f6;
-    --cyan-600: #0891b2;
-    --cyan-500: #06b6d4;
-    --blue-800: #1e40af;
-    --blue-700: #1d4ed8;
-}
+/* all the colors coming from index.css  */
 
 .container {
     background-color: var(--gray-900);
@@ -29,7 +18,7 @@
 
 .title {
     text-align: center;
-    color: #f59e0b;
+    color: var(--amber-500);
     font-size: 1.5rem;
     font-weight: 600;
 }
@@ -50,7 +39,6 @@
         width: 60%;
     }
 }
-
 
 .labelInputWrapper {
     display: flex;
@@ -81,8 +69,8 @@
 }
 
 .hrLine {
-    color: #f59e0b;
-    background-color: #f59e0b;
+    color: var(--amber-500);
+    background-color: var(--amber-500);
     height: 2px;
     margin-top: 2rem;
     border: none;
@@ -116,13 +104,16 @@
     height: 3rem;
     width: 40%;
     border-radius: 0.5rem;
-    background-color: #b91c1c;
+    background-color: var(--red-700);
     border: none;
     justify-content: center;
     align-items: center;
     cursor: pointer;
 }
 
+.buttonRemove:hover {
+    background-color: var(--red);
+}
 
 .buttonAdd {
     color: var(--gray-200);
@@ -138,7 +129,6 @@
 .buttonAdd:hover {
     background-color: var(--blue-700);
 }
-
 
 
 .inputStyleSkill {

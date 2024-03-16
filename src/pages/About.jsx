@@ -1,7 +1,5 @@
-// from installed dependencies
-import React from 'react';
-import { Stack, Typography } from "@mui/material";
-
+import React from 'react'; // from installed dependencies
+import { Stack, Box } from "@mui/material";
 import aboutData from '../data/aboutData.js' // from data folder 
 import { colors } from "../utils/colors.js"; // from utils folder 
 
@@ -55,36 +53,36 @@ function About() {
                             flexDirection: 'column',
                             gap: '2rem'
                         }}>
-                        <Typography>
+                        <Box>
                             {aboutData.aboutResumeBuilder.paragraphs.map((paragraph, index) => (
                                 <p key={index}>{paragraph}</p>
                             ))}
-                        </Typography>
-                        <Typography>
+                        </Box>
+                        <Box>
                             <h3 style={{ color: colors.amber500 }}>{aboutData.simpleSteps.heading}</h3>
                             <ol>
                                 {aboutData.simpleSteps.steps.map((step, index) => (
                                     <li key={index} style={{ margin: '1rem' }}>{step}</li>
                                 ))}
                             </ol>
-                        </Typography>
-                        <Typography>
+                        </Box>
+                        <Box>
                             <h3 style={{ color: colors.amber500 }}>{aboutData.privacyPolicy.heading}</h3>
                             <ol>
                                 {aboutData.privacyPolicy.points.map((point, index) => (
                                     <li key={index} style={{ margin: '1rem' }}>{point}</li>
                                 ))}
                             </ol>
-                        </Typography>
-                        <Typography>
+                        </Box>
+                        <Box>
                             <h3 style={{ color: colors.amber500 }}>{aboutData.technologiesUsed.heading}</h3>
                             <ol>
                                 {aboutData.technologiesUsed.technologies.map((technology, index) => (
                                     <li key={index} style={{ margin: '1rem' }}>{technology}</li>
                                 ))}
                             </ol>
-                        </Typography>
-                        <Typography>
+                        </Box>
+                        <Box>
                             <h3 style={{ color: colors.amber500 }}>{aboutData.aboutDeveloper.heading}</h3>
                             <ul>
                                 {aboutData.aboutDeveloper.details.map((detail, index) => (
@@ -105,7 +103,7 @@ function About() {
                                     </li>
                                 ))}
                             </ul>
-                        </Typography>
+                        </Box>
                     </Stack>
                 </Stack>
             </Stack>

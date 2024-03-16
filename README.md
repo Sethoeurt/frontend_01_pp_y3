@@ -53,29 +53,33 @@ Craft your personalized resume within minutes using industry-approved sections, 
 |-- src
     |-- assets 
     |-- components
-        |-- inputComponents
+        |-- AppNavBar 
+            |-- Navbar.jsx 
+            |-- NavbarDesktop.jsx 
+            |-- NavbarMobile.jsx 
+            |-- NavbarMobileDrawer.jsx
+        |-- input
             |-- Address.jsx
             |-- Bio.jsx
             |-- Education.jsx
             |-- Experience.jsx 
             |-- KeySkills.jsx
             |-- Projects.jsx
-        |-- muiComponents 
-            |-- ImageUpload.jsx 
-            |-- SuccessSnackbar.jsx
-        |-- previewComponets 
+            |-- UploadImage.jsx
+        |-- preview
             |-- Address.jsx
             |-- Bio.jsx
             |-- Education.jsx
             |-- Experience.jsx 
             |-- KeySkills.jsx
             |-- Projects.jsx
-        |-- Donload.jsx 
+            |-- ViewPreview.jsx
         |-- FillDetailButton.jsx
         |-- FillDetailSideBar.jsx
         |-- Footer.jsx
-        |-- Navbar.jsx
+        |-- SuccessSnackbar.jsx
     |-- data
+        |-- aboutData.js
         |-- details.js 
         |-- social.js
         |-- templates.js 

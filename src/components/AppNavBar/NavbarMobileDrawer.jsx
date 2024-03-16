@@ -1,13 +1,20 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useLocation } from 'react-router-dom'
+import { Box, Stack } from '@mui/system'
+import { Divider, Button, Typography } from '@mui/material'
 import resume_builder from '../../assets/resume_builder.jpg'
-import { Box } from '@mui/system'
-import { Divider } from '@mui/material'
 import { colors } from '../../utils/colors.js'
-import styles from '../../styles/navbar.module.css'
 
-
+// this mobile drawer will appear when navbarMobile is true 
 function NavbarMobileDrawer({ handleDrawerToggle }) {
+    const location = useLocation();
+    const links = [
+        { text: 'Resume Template', route: '/' },
+        { text: 'Fill Details', route: '/filldetails' },
+        { text: 'My Resume', route: '/myresume' },
+        { text: 'About', route: '/about' },
+    ];
+
     return (
         <Box
             onClick={handleDrawerToggle}
@@ -19,25 +26,50 @@ function NavbarMobileDrawer({ handleDrawerToggle }) {
                 textAlign: "center",
                 backgroundColor: colors.gray950
             }}>
-            <NavLink to={'/'} className={styles.logoWrapper}>
-                <img className={styles.logoImg} src={resume_builder} alt="logo" />
-                <div className={styles.logo}>Resume Builder</div>
-            </NavLink>
-            <Divider sx={{ backgroundColor: ' #f59e0b' }} />
-            <Box
-                sx={{
+            <NavLink
+                to={'/'}
+                style={{
+                    textDecoration: 'none',
                     display: 'flex',
-                    flexDirection: 'column',
-                    gap: '1rem',
-
-                }}
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    gap: '0.5rem'
+                }}>
+                <img
+                    src={resume_builder}
+                    alt="logo"
+                    height={40}
+                    width={40}
+                />
+                <Typography
+                    fontSize={'large'}
+                    color={colors.amber500}
+                >
+                    Resume Builder
+                </Typography>
+            </NavLink>
+            <Divider sx={{ backgroundColor: colors.amber500 }} />
+            <Stack
+                direction={'column'}
+                spacing={2}
             >
-                <NavLink to={"/"} className={styles.navEachLink} > Resume Template </NavLink>
-                <NavLink to={"/myresume"} className={styles.navEachLink}>My Resume </NavLink>
-                <NavLink to={"/about"} className={styles.navEachLink}>About </NavLink>
-            </Box>
+                {
+                    links.map((link, index) => (
+                        <NavLink
+                            key={index}
+                            to={`${link.route}`}
+                        >
+                            <Button
+                                variant={location.pathname === `${link.route}` ? 'contained' : 'text'}
+                                size='large'
+                            >
+                                {link.text}
+                            </Button>
+                        </NavLink>
+                    ))
+                }
+            </Stack>
         </Box>
-
     )
 }
 

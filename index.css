@@ -12,6 +12,18 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 
+    --amber-500: #f59e0b;
+    --black: black;
+    --blue-700: #1d4ed8;
+    --blue-800: #1e40af;
+    --cyan-500: #06b6d4;
+    --cyan-600: #0891b2;
+    --gray-200: #f3f4f6;
+    --gray-800: #1f2937;
+    --gray-900: #111827;
+    --gray-950: #030712;
+    --red: #ff0000;
+    --red-700: #b91c1c;
 }
 
 .bodyStyle {

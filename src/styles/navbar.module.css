@@ -1,16 +1,11 @@
 /* css of navbar components  */
-
-:local(:root) {
-    --cyan-600: #0891b2;
-    --cyan-500: #06b6d4;
-    --cyan-400: #38bdf8;
-}
+/* color coming from index.css */
 
 .navbarContainer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: black;
+    background-color: var(--black);
     font-size: large;
     padding: 16px 32px;
     position: sticky;
@@ -20,7 +15,7 @@
 
 .logo {
     font-size: large;
-    color: #f59e0b;
+    color: var(--amber-500);
 }
 
 .logoImg {
@@ -37,7 +32,6 @@
     text-decoration: none;
 }
 
-
 .navLinksGroup {
     display: flex;
     justify-content: center;
@@ -52,10 +46,8 @@
 }
 
 .navEachLink:hover {
-    color: var(--cyan-400);
+    color: var(--cyan-500);
 }
-
-
 
 @media (min-width: 768px) {
     .navEachLink {

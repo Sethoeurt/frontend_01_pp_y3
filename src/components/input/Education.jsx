@@ -1,12 +1,11 @@
-import React, { useEffect, useState } from 'react'
-import Styles from '../../styles/input.module.css'
-import { DeleteForeverRounded } from '@mui/icons-material'
+import React, { useEffect, useState } from 'react' // from installed dependencies 
 import { useDispatch, useSelector } from 'react-redux'
-import { Details } from '../../data/details'
-import { scrollToTop } from '../../utils/controls.js'
-import { modifyEducation } from "../../redux/slices/educationSlice.js"
+import { DeleteForeverRounded } from '@mui/icons-material'
+import { Details } from '../../data/details' // from data 
+import { modifyEducation } from "../../redux/slices/educationSlice.js" // redux 
 import { previousComponents, nextComponents } from '../../redux/slices/sliceFillDetails.js'
-
+import Styles from '../../styles/input.module.css' // styles folder 
+import { scrollToTop } from '../../utils/controls.js' // utils 
 
 function Education() {
   const dispatch = useDispatch();
@@ -21,6 +20,7 @@ function Education() {
     localStorage.setItem("storeEducation", JSON.stringify(education));
   }, [education]);
 
+  // adding item to an array 
   const handleAddButtonClick = () => {
     if (education.length < 3) {
       setEducation([...education, {
@@ -33,6 +33,7 @@ function Education() {
     }
   }
 
+  // deletig item from array 
   const handleRemoveButtonClick = (index) => {
     const updatedEducation = [...education];
     updatedEducation.splice(index, 1);
@@ -40,6 +41,7 @@ function Education() {
     scrollToTop();
   }
 
+  // updating value of input 
   const handleInputChange = (index, value, fieldType) => {
     const updatedEducation = [...education];
     updatedEducation[index] = { ...updatedEducation[index] };
@@ -54,7 +56,7 @@ function Education() {
     setEducation(updatedEducation);
   }
 
-
+  // form submit 
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(modifyEducation(education));
@@ -67,21 +69,20 @@ function Education() {
     scrollToTop();
   }
 
-
   return (
     <>
       <div className={Styles.container}>
         <div className={Styles.wrapper}>
           <div className={Styles.title}> Education  </div>
-
           <form
             className={Styles.inputForm}
             onSubmit={(e) => handleSubmit(e)}
           >
+            {/* at first  we will have one item in educaton array , with empty value */}
             {
               education.map((item, index) => (
                 <div key={index}>
-
+                  {/* degree name input  */}
                   <div className={Styles.labelInputWrapper}>
                     <label
                       htmlFor="degree"
@@ -98,7 +99,7 @@ function Education() {
                       onChange={(e) => handleInputChange(index, e.target.value, 'degree')}
                     />
                   </div>
-
+                  {/* domain of education input  */}
                   <div className={Styles.labelInputWrapper}>
                     <label
                       htmlFor="domain"
@@ -115,7 +116,7 @@ function Education() {
                       onChange={(e) => handleInputChange(index, e.target.value, 'domain')}
                     />
                   </div>
-
+                  {/* university name input  */}
                   <div className={Styles.labelInputWrapper}>
                     <label
                       htmlFor="university"
@@ -131,7 +132,7 @@ function Education() {
                       onChange={(e) => handleInputChange(index, e.target.value, 'university')}
                     />
                   </div>
-
+                  {/* start year  */}
                   <div className={Styles.labelInputWrapper}>
                     <label
                       htmlFor="start_year "
@@ -140,14 +141,14 @@ function Education() {
                     </label>
                     <input
                       className={Styles.inputStyle}
-                      type="text"
+                      type="number"
                       id='start_year'
                       placeholder={Details.education[0].start_year}
                       value={item.start_year}
                       onChange={(e) => handleInputChange(index, e.target.value, 'start_year')}
                     />
                   </div>
-
+                  {/* end year input  */}
                   <div className={Styles.labelInputWrapper}>
                     <label
                       htmlFor="end_year"
@@ -163,7 +164,7 @@ function Education() {
                       onChange={(e) => handleInputChange(index, e.target.value, 'end_year')}
                     />
                   </div>
-
+                  {/* deleting item from education array  */}
                   <div className={Styles.labelInputWrapper}>
                     <div
                       className={Styles.buttonRemove}
@@ -172,12 +173,11 @@ function Education() {
                       <DeleteForeverRounded />
                     </div>
                   </div>
-
                   < hr className={Styles.hrLine} />
                 </div>
               ))
             }
-
+            {/* adding items in education array  */}
             <button
               type='text'
               className={Styles.buttonAdd}
@@ -185,7 +185,7 @@ function Education() {
             >
               Add More
             </button>
-
+            {/* buttons previous & next  */}
             <div className={Styles.buttonWrapper}>
               <button
                 type='text'
@@ -196,7 +196,6 @@ function Education() {
               </button>
               <button type='submit' className={Styles.button}>Next & Submit</button>
             </div>
-
           </form>
         </div>
       </div>

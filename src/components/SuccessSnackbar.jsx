@@ -3,6 +3,8 @@ import { Snackbar, IconButton } from '@mui/material';
 import { Close as CloseIcon } from '@mui/icons-material';
 import { colors } from '../utils/colors.js'
 
+// success modal 
+// shown when user download resume 
 function SuccessSnackbar({ open, onClose }) {
     return (
         <Snackbar

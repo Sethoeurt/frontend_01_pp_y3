@@ -1,12 +1,8 @@
 /* css of footer components  */
-
-:local(:root) {
-    --cyan-600: #0891b2;
-    --cyan-500: #06b6d4;
-}
+/* all the color coming  from index.css */
 
 .footerContainer {
-    background-color: black;
+    background-color: var(--black);
 }
 
 .footerWrapper {
@@ -39,7 +35,7 @@
 
 .copyright {
     margin-bottom: 10px;
-    color: #f59e0b;
+    color: var(--amber-500);
     display: flex;
     gap: 10px;
     flex-direction: column;

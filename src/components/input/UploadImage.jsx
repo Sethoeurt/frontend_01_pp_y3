@@ -3,10 +3,8 @@ import { Button, Input, Box } from '@mui/material';
 import resume_builder from '../../assets/resume_builder.jpg'
 import { colors } from '../../utils/colors';
 
-
 // Image components to upload image 
 const UploadImage = () => {
-
     const [image, setImage] = useState(null);
     const storedImage = localStorage.getItem('uploadedImage');
 

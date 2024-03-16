@@ -4,10 +4,10 @@ import { useSelector } from 'react-redux'
 import { Box, Typography, Divider } from '@mui/material'
 import { GitHub, LiveTv } from '@mui/icons-material'
 
+// preview of projects 
 function Projects() {
   const projects = useSelector(state => state.projects);
   const dynamicStyle = useSelector((state) => state.dynamicStyle);
-
 
   return (
     <>
@@ -24,7 +24,7 @@ function Projects() {
           fontSize: '1.5rem',
           fontWeight: 'bold'
         }}>Projects</Typography>
-        <Divider sx={{ backgroundColor: dynamicStyle.dividerColor, height: 1.5 }} />
+        <Divider sx={{ backgroundColor: dynamicStyle.dividerColor}} />
         {
           projects.map((item, index) => {
             return (

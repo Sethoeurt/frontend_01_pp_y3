@@ -3,12 +3,12 @@ import resume_builder from '../../assets/resume_builder.jpg'
 import { useSelector } from 'react-redux';
 import { Box, Typography, } from '@mui/material';
 
-
+// preview of Bio 
 function Bio() {
-  const bio = useSelector(state => state.bio);
-  const dynamicStyle = useSelector(state => state.dynamicStyle);
-  const storedImage = localStorage.getItem('uploadedImage');
-
+  const storedImage = localStorage.getItem('uploadedImage'); // local storage 
+  const bio = useSelector(state => state.bio); // redux store 
+  const dynamicStyle = useSelector(state => state.dynamicStyle); 
+  
   return (
     <>
       <Box
@@ -60,7 +60,6 @@ function Bio() {
                 }}
               > {bio.lastName}</Typography>
             </Box>
-
             <Typography
               sx={{
                 typography: 'h2',

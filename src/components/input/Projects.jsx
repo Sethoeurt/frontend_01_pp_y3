@@ -1,15 +1,13 @@
 import React, { useEffect, useState } from 'react'
-import Styles from '../../styles/input.module.css'
-import { DeleteForeverRounded } from '@mui/icons-material'
 import { useDispatch, useSelector } from 'react-redux'
-import { Details } from '../../data/details.js'
-import { scrollToTop } from '../../utils/controls.js'
+import { DeleteForeverRounded } from '@mui/icons-material'
+import { Details } from '../../data/details.js' // data 
+import { modifyProjects } from '../../redux/slices/projectsSlice.js' // redux 
 import { previousComponents, nextComponents } from '../../redux/slices/sliceFillDetails.js'
-import { modifyProjects } from '../../redux/slices/projectsSlice.js'
-
+import Styles from '../../styles/input.module.css' // styles 
+import { scrollToTop } from '../../utils/controls.js' // utils 
 
 function Projects() {
-
   const dispatch = useDispatch();
   const projectsInitialState = useSelector(state => state.projects);
 
@@ -80,6 +78,7 @@ function Projects() {
               projects.map((item, index) => {
                 return (
                   <div key={index}>
+                    {/* project name input  */}
                     <div className={Styles.labelInputWrapper}>
                       <label
                         htmlFor="project_name"
@@ -95,7 +94,7 @@ function Projects() {
                         onChange={(e) => handleInputChange(index, e.target.value, "project_name")}
                       />
                     </div>
-
+                    {/* technologies used or tech stack input  */}
                     <div className={Styles.labelInputWrapper}>
                       <label
                         htmlFor="tech_stack"
@@ -111,7 +110,7 @@ function Projects() {
                         onChange={(e) => handleInputChange(index, e.target.value, "tech_stack")}
                       />
                     </div>
-
+                    {/* github link inputs  */}
                     <div className={Styles.labelInputWrapper}>
                       <label
                         htmlFor="github_link"
@@ -127,7 +126,7 @@ function Projects() {
                         onChange={(e) => handleInputChange(index, e.target.value, "github_link")}
                       />
                     </div>
-
+                    {/* deployed link or live link */}
                     <div className={Styles.labelInputWrapper}>
                       <label
                         htmlFor="live_link"
@@ -143,7 +142,7 @@ function Projects() {
                         onChange={(e) => handleInputChange(index, e.target.value, "live_link")}
                       />
                     </div>
-
+                    {/* project description  */}
                     <div className={Styles.labelInputWrapper}>
                       <label
                         htmlFor="description"
@@ -159,7 +158,7 @@ function Projects() {
                         onChange={(e) => handleInputChange(index, e.target.value, "description")}
                       />
                     </div>
-
+                    {/* deleting project from array */}
                     <div className={Styles.labelInputWrapper}>
                       <div
                         className={Styles.buttonRemove}
@@ -169,12 +168,11 @@ function Projects() {
                       </div>
                     </div>
                     < hr className={Styles.hrLine} />
-
                   </div>
                 )
               })
             }
-
+            {/* adding project to an array  */}
             <button
               type='text'
               className={Styles.buttonAdd}
@@ -182,7 +180,7 @@ function Projects() {
             >
               Add Project
             </button>
-
+            {/* previous & next buttons  */}
             <div className={Styles.buttonWrapper}>
               <button
                 type='text'
@@ -193,7 +191,6 @@ function Projects() {
               </button>
               <button type='submit' className={Styles.button}>Next & Submit</button>
             </div>
-
           </form>
         </div>
       </div>

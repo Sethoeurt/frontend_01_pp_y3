@@ -1,12 +1,11 @@
-import React, { useEffect, useState } from 'react'
-import Styles from '../../styles/input.module.css'
-import { DeleteForeverRounded } from '@mui/icons-material'
+import React, { useEffect, useState } from 'react' // from installed dependencies 
 import { useDispatch, useSelector } from 'react-redux'
-import { Details } from '../../data/details'
-import { scrollToTop } from '../../utils/controls.js'
-import { modifyExperience } from '../../redux/slices/experienceSlice.js'
+import { DeleteForeverRounded } from '@mui/icons-material'
+import { Details } from '../../data/details' // data folder 
+import { modifyExperience } from '../../redux/slices/experienceSlice.js' // redux folder 
 import { previousComponents, nextComponents } from '../../redux/slices/sliceFillDetails.js'
-
+import Styles from '../../styles/input.module.css' // styles 
+import { scrollToTop } from '../../utils/controls.js' // utils 
 
 function Experience() {
   const dispatch = useDispatch();
@@ -21,6 +20,7 @@ function Experience() {
     localStorage.setItem("myExperience", JSON.stringify(experience));
   }, [experience]);
 
+  // adding item to an array 
   const handleAddButtonClick = () => {
     if (experience.length < 4) {
       setExperience([...experience, {
@@ -32,6 +32,7 @@ function Experience() {
     }
   }
 
+  // deleting item from an array 
   const handleRemoveButtonClick = (index) => {
     const updatedExperience = [...experience];
     updatedExperience.splice(index, 1);
@@ -39,6 +40,7 @@ function Experience() {
     scrollToTop()
   }
 
+  // updating on input value change 
   const handleInputChange = (index, value, fieldType) => {
     const updatedExperience = [...experience];  // copy of whole array 
     updatedExperience[index] = { ...updatedExperience[index] }; // copy of whole object from index 
@@ -51,7 +53,6 @@ function Experience() {
     }
     setExperience(updatedExperience);
   };
-
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -74,11 +75,12 @@ function Experience() {
             className={Styles.inputForm}
             onSubmit={(e) => handleSubmit(e)}
           >
+            {/* iterating array using map */}
             {
               experience.map((item, index) => {
                 return (
                   <div key={index}>
-
+                    {/* job title input  */}
                     <div className={Styles.labelInputWrapper}>
                       <label
                         htmlFor="job_title"
@@ -95,7 +97,7 @@ function Experience() {
                         onChange={(e) => handleInputChange(index, e.target.value, 'job_title')}
                       />
                     </div>
-
+                    {/* company or orgamizatio name input */}
                     <div className={Styles.labelInputWrapper}>
                       <label
                         htmlFor="organization_name"
@@ -112,7 +114,7 @@ function Experience() {
                         onChange={(e) => handleInputChange(index, e.target.value, "organization_name")}
                       />
                     </div>
-
+                    {/* start year input  */}
                     <div className={Styles.labelInputWrapper}>
                       <label
                         htmlFor="start_year"
@@ -121,14 +123,14 @@ function Experience() {
                       </label>
                       <input
                         className={Styles.inputStyle}
-                        type="text"
+                        type="number"
                         id='start_year'
                         placeholder={Details.experience[0].start_year}
                         value={item.start_year}
                         onChange={(e) => handleInputChange(index, e.target.value, "start_year")}
                       />
                     </div>
-
+                    {/* end year input  */}
                     <div className={Styles.labelInputWrapper}>
                       <label
                         htmlFor="end_year"
@@ -144,7 +146,7 @@ function Experience() {
                         onChange={(e) => handleInputChange(index, e.target.value, "end_year")}
                       />
                     </div>
-
+                    {/* removing item from an array */}
                     <div className={Styles.labelInputWrapper}>
                       <div
                         className={Styles.buttonRemove}
@@ -153,13 +155,12 @@ function Experience() {
                         <DeleteForeverRounded />
                       </div>
                     </div>
-
                     < hr className={Styles.hrLine} />
                   </div>
                 )
               })
             }
-
+            {/* adding item to  an array  */}
             <button
               type='text'
               className={Styles.buttonAdd}
@@ -167,7 +168,7 @@ function Experience() {
             >
               Add More
             </button>
-
+            {/* previous & next buttons  */}
             <div className={Styles.buttonWrapper}>
               <button
                 className={Styles.button}
@@ -177,7 +178,6 @@ function Experience() {
               </button>
               <button type='submit' className={Styles.button}>Next & Submit </button>
             </div>
-
           </form>
         </div>
       </div>
@@ -186,3 +186,7 @@ function Experience() {
 }
 
 export default Experience
+
+// note  -
+// this, experience.jsx , logicwise is same as education.jsx
+// first try to uderstand education.jsx  

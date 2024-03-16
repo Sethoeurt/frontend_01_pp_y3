@@ -6,23 +6,17 @@ import MenuItem from '@mui/material/MenuItem';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { Button } from '@mui/material'
 import { Box } from '@mui/system';
-
-// from utils folder 
-import { colors } from '../utils/colors.js'
+import { switchComponents } from '../redux/slices/sliceFillDetails.js' // from redux slices 
+import { colors } from '../utils/colors.js' // from utils folder 
 import { scrollToTop } from '../utils/controls.js';
-
-// from redux slices 
-import { switchComponents } from '../redux/slices/sliceFillDetails.js'
 
 // this components will be shown on small & extra small size device 
 function FillDetailSideBar() {
     const dispatch = useDispatch();
     const ITEM_HEIGHT = 48;
     const [anchorEl, setAnchorEl] = useState(null);
-
     const fillDetails = useSelector(state => state.fillDetails);
     const value = fillDetails.value
-
 
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
@@ -45,9 +39,10 @@ function FillDetailSideBar() {
         'Key Skills',
         'Download'
     ];
+
     return (
         <>
-            <Box >
+            <Box>
                 <IconButton
                     sx={{
                         marginTop: '2rem',
@@ -69,7 +64,6 @@ function FillDetailSideBar() {
                 >
                     < MoreVertIcon />
                 </IconButton>
-
                 <Menu
                     id='long_menu'
                     anchorEl={anchorEl}

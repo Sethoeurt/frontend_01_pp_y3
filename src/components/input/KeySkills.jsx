@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from 'react'
-import Styles from '../../styles/input.module.css'
-import { DeleteForeverRounded } from '@mui/icons-material'
+import React, { useEffect, useState } from 'react' // from installed dependencies 
 import { useDispatch, useSelector } from 'react-redux'
-import { scrollToTop } from '../../utils/controls.js'
+import { DeleteForeverRounded } from '@mui/icons-material'
+import { keySkillsReducer } from '../../redux/slices/keySkillsSlice.js' // redux 
 import { previousComponents, nextComponents } from '../../redux/slices/sliceFillDetails.js'
-import { keySkillsReducer } from '../../redux/slices/keySkillsSlice.js'
-
+import Styles from '../../styles/input.module.css'
+import { scrollToTop } from '../../utils/controls.js'
 
 function KeySkills() {
   const dispatch = useDispatch();
@@ -48,8 +47,6 @@ function KeySkills() {
     scrollToTop();
   }
 
-
-
   return (
     <>
       <div className={Styles.container}>
@@ -73,24 +70,20 @@ function KeySkills() {
                     value={value}
                     onChange={(e) => handleInputChange(index, e.target.value)}
                   />
-
                   <div
                     className={Styles.buttonRemove}
                     onClick={() => handleRemoveButtonClick(index)}>
                     <p>Remove  </p>
                     <DeleteForeverRounded />
                   </div>
-
                 </div>
               ))
             }
-
             <button
               className={Styles.buttonAdd}
               onClick={handleAddButtonClick}>
               Add Skills
             </button>
-
             <div className={Styles.buttonWrapper}>
               <button
                 className={Styles.button}
@@ -99,7 +92,6 @@ function KeySkills() {
               </button>
               <button type='submit' className={Styles.button}>Next & Submit </button>
             </div>
-
           </form>
         </div>
       </div>

@@ -2,6 +2,7 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import { Box, Typography, Divider } from '@mui/material'
 
+// preview of education 
 function Education() {
   const education = useSelector(state => state.education);
   const dynamicStyle = useSelector((state) => state.dynamicStyle);
@@ -12,7 +13,6 @@ function Education() {
         display: 'flex',
         flexDirection: 'column',
         backgroundColor: '#f3f4f6',
-        // backgroundColor: 'brown',
         color: '#111827',
         p: '1rem'
       }}>
@@ -21,7 +21,7 @@ function Education() {
           fontSize: '1.5rem',
           fontWeight: 'bold'
         }}>Education</Typography>
-        <Divider sx={{ backgroundColor: dynamicStyle.dividerColor, height: 1.5 }} />
+        <Divider sx={{ backgroundColor: dynamicStyle.dividerColor}} />
         {
           education?.map((item, index) => (
             <Box
