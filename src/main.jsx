@@ -1,13 +1,8 @@
-// from installed dependencies 
-import React from 'react'
+import React from 'react' // from installed dependencies 
 import ReactDOM from 'react-dom/client'
 import { Provider } from 'react-redux'
-
-// from app.jsx  
-import App from './App.jsx'
-
-// from redux store to provide global state access 
-import { store } from './redux/store.js'
+import App from './App.jsx' // from app.jsx 
+import { store } from './redux/store.js' // from redux store to provide global state access 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

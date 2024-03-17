@@ -36,7 +36,8 @@ function Address() {
     // event.preventDefault(),  already stricted in react-hook-form 
   }
 
-  const handlePrevious = () => {
+  const handlePrevious = (event) => {
+    event.preventDefault();
     dispatch(previousComponents(1));
     scrollToTop();
   }
@@ -152,9 +153,9 @@ function Address() {
             {/* buttons  */}
             <div className={Styles.buttonWrapper}>
               <button
-                type='text'
+                type="text"
                 className={Styles.button}
-                onClick={() => handlePrevious()} >
+                onClick={(event) => handlePrevious(event)} >
                 Back
               </button>
               <button type='submit' className={Styles.button}>Next & Submit </button>

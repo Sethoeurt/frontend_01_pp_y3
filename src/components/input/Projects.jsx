@@ -60,7 +60,8 @@ function Projects() {
     scrollToTop();
   }
 
-  const goToPreviousComponents = () => {
+  const goToPreviousComponents = (e) => {
+    e.preventDefault()
     dispatch(previousComponents(1));
     scrollToTop();
   }
@@ -185,7 +186,7 @@ function Projects() {
               <button
                 type='text'
                 className={Styles.button}
-                onClick={() => goToPreviousComponents()}
+                onClick={(e) => goToPreviousComponents(e)}
               >
                 Back
               </button>

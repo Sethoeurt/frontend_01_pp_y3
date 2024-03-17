@@ -61,7 +61,8 @@ function Experience() {
     scrollToTop()
   }
 
-  const goToPreviousComponents = () => {
+  const goToPreviousComponents = (event) => {
+    event.preventDefault();
     dispatch(previousComponents(1));
     scrollToTop();
   }
@@ -171,8 +172,9 @@ function Experience() {
             {/* previous & next buttons  */}
             <div className={Styles.buttonWrapper}>
               <button
+                type='text'
                 className={Styles.button}
-                onClick={() => goToPreviousComponents()}
+                onClick={(event) => goToPreviousComponents(event)}
               >
                 Back
               </button>

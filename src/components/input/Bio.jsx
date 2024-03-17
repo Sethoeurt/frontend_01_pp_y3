@@ -31,7 +31,8 @@ function Bio() {
     localStorage.setItem("storeBio", JSON.stringify({ ...bio, ...data }))
   }
 
-  const handlePrevious = () => {
+  const handlePrevious = (event) => {
+    event.preventDefault(); // this is neccessary as our button is part of form 
     navigate('/');
     scrollToTop();
   }
@@ -121,7 +122,7 @@ function Bio() {
               <button
                 type='text'
                 className={Styles.button}
-                onClick={() => handlePrevious()}
+                onClick={(event) => handlePrevious(event)}
               >
                 Back
               </button>

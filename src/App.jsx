@@ -1,17 +1,11 @@
-// from installed dependencies
-import React from 'react'
+import React from 'react' // from installed dependencies
 import { BrowserRouter, Routes, Route, } from 'react-router-dom'
-
-// from components 
-import Footer from './components/Footer.jsx'
+import Footer from './components/Footer.jsx' // from components 
 import Navbar from './components/AppNavBar/Navbar.jsx'
-
-// from pages 
-import About from './pages/About.jsx'
+import About from './pages/About.jsx' // from pages 
 import FillDetails from './pages/FillDetails.jsx'
 import Home from './pages/Home.jsx'
 import MyResume from './pages/MyResume.jsx'
-
 
 function App() {
   return (
@@ -20,9 +14,10 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path='/filldetails' element = {<FillDetails/>} />
+          <Route path='/filldetails' element={<FillDetails />} />
           <Route path="/myresume" element={<MyResume />} />
           <Route path="/about" element={<About />} />
+          <Route path='*' element={<Home />} />
         </Routes>
         <Footer />
       </BrowserRouter >

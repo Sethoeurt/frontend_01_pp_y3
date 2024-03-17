@@ -3,7 +3,7 @@ import { Button, Input, Box } from '@mui/material';
 import resume_builder from '../../assets/resume_builder.jpg'
 import { colors } from '../../utils/colors';
 
-// Image components to upload image 
+// UploadImage components to upload image 
 const UploadImage = () => {
     const [image, setImage] = useState(null);
     const storedImage = localStorage.getItem('uploadedImage');
@@ -15,6 +15,12 @@ const UploadImage = () => {
 
     const handleUpload = () => {
         localStorage.setItem('uploadedImage', URL.createObjectURL(image));
+    };
+
+    const isValidImage = (url) => {
+        const img = new Image(); // inbuilt Image() constructor in javascript 
+        img.src = url;
+        return img.complete && img.naturalWidth !== 0;
     };
 
     return (
@@ -54,6 +60,7 @@ const UploadImage = () => {
                     id="image-upload"
                 />
             </Box>
+
             {
                 image ? (
                     <img
@@ -62,25 +69,28 @@ const UploadImage = () => {
                         width={100}
                         height={100}
                         style={{
-                            border : '1px solid',
-                            borderColor : colors.cyan600,
-                            borderRadius: '50%'
-                        }}
-                    />
-                ) : (
-                    <img
-                        src={storedImage ? storedImage : resume_builder}
-                        alt="img"
-                        width={100}
-                        height={100}
-                        style={{
-                            border: '1px solid', 
+                            border: '1px solid',
                             borderColor: colors.cyan600,
                             borderRadius: '50%'
                         }}
                     />
+                ) : (
+
+                    <img
+                        src={isValidImage(storedImage) ? storedImage : resume_builder}
+                        alt="img"
+                        width={100}
+                        height={100}
+                        style={{
+                            border: '1px solid',
+                            borderColor: colors.cyan600,
+                            borderRadius: '50%'
+                        }}
+                    />
+
                 )
             }
+
             <Button
                 variant="contained"
                 onClick={handleUpload}

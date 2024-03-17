@@ -1,7 +1,7 @@
 import React, { useState } from 'react'  // from installed dependencies 
 import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { Button, Paper, TextField } from '@mui/material'
+import { Button, Paper, TextField, useTheme, useMediaQuery } from '@mui/material'
 import { Box } from '@mui/system'
 import jsPDF from 'jspdf'
 import Address from './Address.jsx' // previewComponents folder 
@@ -15,15 +15,17 @@ import { firstComponents } from '../../redux/slices/sliceFillDetails.js' // redu
 import { colors } from '../../utils/colors.js' //  utils folder 
 import { scrollToTop } from '../../utils/controls.js'
 
+
 // this ViewPreview componets is preview of all single previewComponents 
 function ViewPreview() {
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const dynamicStyle = useSelector(state => state.dynamicStyle);  
+    const dynamicStyle = useSelector(state => state.dynamicStyle);
     const [isHovered, setIsHovered] = useState(false);
     const [dynamicWidth, setDynamicWidth] = useState('auto');
     const [pdfName, setPdfName] = useState('resume');
     const [showSnackbar, setShowSnackbar] = useState(false);
+    const [dynamicFlexDirection, setDynamicFlexDirection] = useState('column')
 
     const backToEdit = () => {
         navigate('/fillDetails');
@@ -33,10 +35,12 @@ function ViewPreview() {
 
     const orignalWidth = () => {
         setDynamicWidth(dynamicWidth === '600px' ? 'auto' : 'auto');
+        setDynamicFlexDirection('column');
     }
 
     const generatePDF = () => {
         setDynamicWidth(dynamicWidth === 'auto' ? '600px' : 'auto');
+        setDynamicFlexDirection('row');
         const startTimeStamp = performance.now();
         const newPdf = new jsPDF('portrait', 'pt', 'a4');
         const bgColor = '#f3f4f6';
@@ -92,14 +96,13 @@ function ViewPreview() {
                         elevation={3}
                         id='resume'
                         sx={{
-
                             display: 'flex',
                             flexDirection: 'column',
                             backgroundColor: '#f3f4f6',
                             color: 'black',
                             width: {
                                 xs: dynamicWidth,
-                                sm: '600px'
+                                sm: '600px',
                             },
                         }}
                     >
@@ -108,12 +111,8 @@ function ViewPreview() {
                                 backgroundColor: dynamicStyle.backgroundColor,
                                 color: dynamicStyle.color,
                                 display: 'flex',
-                                justifyContent: 'center',
-                                alignItems: 'center',
-                                flexDirection: {
-                                    xs: 'column',
-                                    sm: 'row'
-                                }
+                                flexDirection: dynamicFlexDirection,
+                                alignItems: dynamicFlexDirection === 'column' ? 'start' : 'center',
                             }}
                         >
                             <Bio />

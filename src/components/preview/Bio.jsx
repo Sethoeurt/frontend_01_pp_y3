@@ -1,14 +1,23 @@
-import React from 'react';
-import resume_builder from '../../assets/resume_builder.jpg'
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Box, Typography, } from '@mui/material';
+import resume_builder from '../../assets/resume_builder.jpg'
 
 // preview of Bio 
 function Bio() {
   const storedImage = localStorage.getItem('uploadedImage'); // local storage 
   const bio = useSelector(state => state.bio); // redux store 
-  const dynamicStyle = useSelector(state => state.dynamicStyle); 
-  
+  const dynamicStyle = useSelector(state => state.dynamicStyle);
+  // const [storedImage, setStoredImage] = useState(localStorage.getItem('uploadedImage') || resume_builder);
+
+
+  // Function to check if the stored image is valid
+  const isValidImage = (url) => {
+    const img = new Image();
+    img.src = url;
+    return img.complete && img.naturalWidth !== 0;
+  };
+
   return (
     <>
       <Box
@@ -27,7 +36,8 @@ function Bio() {
           <img
             width="60px"
             height="60px"
-            src={storedImage ? storedImage : resume_builder}
+            src={storedImage && isValidImage(storedImage) ? storedImage : resume_builder}
+
             alt="image"
             style={{ borderRadius: '50%' }}
           />
@@ -77,3 +87,6 @@ function Bio() {
 }
 
 export default Bio;
+
+
+

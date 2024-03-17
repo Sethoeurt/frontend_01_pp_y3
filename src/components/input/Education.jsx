@@ -64,7 +64,8 @@ function Education() {
     scrollToTop();
   }
 
-  const goToPreviousComponents = () => {
+  const goToPreviousComponents = (event) => {
+    event.preventDefault();
     dispatch(previousComponents(1));
     scrollToTop();
   }
@@ -190,7 +191,7 @@ function Education() {
               <button
                 type='text'
                 className={Styles.button}
-                onClick={() => goToPreviousComponents()}
+                onClick={(event) => goToPreviousComponents(event)}
               >
                 Back
               </button>

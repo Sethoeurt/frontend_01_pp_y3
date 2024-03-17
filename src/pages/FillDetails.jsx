@@ -1,25 +1,20 @@
-// from installed dependencies 
-import React from 'react'
+import React from 'react' // from installed dependencies 
 import { useSelector } from 'react-redux'
 import { useTheme, useMediaQuery } from '@mui/material'
 import { Box } from '@mui/system';
-
-// from inputComponents folder 
-import Bio from '../components/input/Bio'
+import Bio from '../components/input/Bio' // from input folder 
 import Address from '../components/input/Address'
 import Experience from '../components/input/Experience'
 import Projects from '../components/input/Projects'
 import Education from '../components/input/Education'
 import KeySkills from '../components/input/KeySkills'
-
-// from components folder 
-import ViewPreview from '../components/preview/ViewPreview';
-import FillDetailButton from '../components/FillDetailButton';
+import ViewPreview from '../components/preview/ViewPreview'; // from preview folder 
+import FillDetailButton from '../components/FillDetailButton'; // from components folder 
 import FillDetailSideBar from '../components/FillDetailSideBar';
 
-
+// page to fill details 
 function FillDetails() {
-
+  
   // use of material ui to find the screen size 
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
@@ -60,7 +55,7 @@ function FillDetails() {
   return (
     <Box sx={boxWrapper}>
       {isMobile ? <FillDetailSideBar /> : <FillDetailButton />}
-      {renderComponent()}
+      <Box>{renderComponent()}</Box>
     </Box>
   )
 }

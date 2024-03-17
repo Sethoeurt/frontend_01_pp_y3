@@ -1,12 +1,8 @@
-// from installed dependencies
-import React, { useState } from 'react'
+import React, { useState } from 'react'// from installed dependencies
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-
-// method or actions from slices folder 
-import { modifyDynamicStyle } from '../redux/slices/sliceDynamicStyle.js'
+import { modifyDynamicStyle } from '../redux/slices/sliceDynamicStyle.js' // method or actions from slices folder 
 import { firstComponents } from '../redux/slices/sliceFillDetails.js'
-
 import { templates } from '../data/templates.js' // from data folder 
 import Styles from '../styles/home.module.css' // from styles folder 
 import { scrollToTop } from '../utils/controls.js' // from utils folder 

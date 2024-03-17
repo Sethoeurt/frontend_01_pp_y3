@@ -1,4 +1,3 @@
-
 // this will scroll to top 
 export const scrollToTop = () => {
     window.scrollTo({
