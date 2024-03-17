@@ -5,7 +5,6 @@ installation
 -- npm install 
 -- npm run dev 
 
-
 ----------------------------------
 -----------------------------------
 
@@ -85,7 +84,6 @@ Git command points to remember
 -- before merging switch to master 
 
 
-
 ---------------------------------------------------
 ---------------------------------------------------
 
@@ -98,25 +96,14 @@ React hook form
 -- 
 
 
-
 ---------------------------------------------------
 ---------------------------------------------------
-
-Next update
--- delete resume functionality 
--- restrict switching in filldetails component
--- remove hex value of color with name 
-
-
-
 
 
 resources 
 -- https://udithajanadara.medium.com/export-react-component-as-a-pdf-5afba8ba02ee
 -- https://mui.com/material-ui/react-tabs/
 -- https://react-hook-form.com/get-started#ReactNative
-
-
 
 
 Explore 
@@ -127,19 +114,34 @@ Explore
 -- redux vs react-redux vs redux-toolkit 
 -- useLocation() vs useParams() in react-router-dom 
 
-
 Learnings 
 -- Do not higher semantic meaning tag into smaller semantic tag meaning 
 -- like h1 cannot be in h2 tage 
+
+
+
+---------------------------------------------------
+---------------------------------------------------
+
+
+Next update
+-- delete resume functionality 
+-- restrict switching in filldetails component
+-- remove hex value of color with name 
+
+
+
+Error when no image found in localhost 
+-- Text unexpected behavior 
+-- selected === bio (in menu)           
+-- mui paper code in replace of paper props 
+-- blob:http://localhost:5173/0e3c6cdf-2b7b-43b0-ba7f-18843204b5bb net::ERR_FILE_NOT_FOUND
+-- ErrorBoundary code 
+
+
+
 
 Severity Vulnerability 
 -- 1 high due to react-hook-form 
 
 
--- selected === bio (in menu)           
--- mui paper code in replace of paper props 
-
-
-
-Error when no image found in localhost 
--- blob:http://localhost:5173/0e3c6cdf-2b7b-43b0-ba7f-18843204b5bb net::ERR_FILE_NOT_FOUND
