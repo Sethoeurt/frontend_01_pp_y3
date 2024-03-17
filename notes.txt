@@ -101,9 +101,13 @@ React hook form
 
 
 resources 
+-- https://www.npmjs.com/package/react-avatar-edit
+-- https://www.npmjs.com/package/react-avatar-editor
+-- https://github.com/MalharMane/Almabetter-Resume-Builder-Capstone-Project-frontend
 -- https://udithajanadara.medium.com/export-react-component-as-a-pdf-5afba8ba02ee
 -- https://mui.com/material-ui/react-tabs/
 -- https://react-hook-form.com/get-started#ReactNative
+-- https://docs.google.com/document/d/1saPBmnX5tmWocpVVgeRfo1UJ2QIWvGWO/edit?usp=sharing&ouid=106962188718050548981&rtpof=true&sd=true
 
 
 Explore 
