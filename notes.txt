@@ -101,6 +101,7 @@ React hook form
 
 
 resources 
+-- https://blog.probirsarkar.com/fixing-react-router-issues-on-vercel-how-to-handle-client-side-routing-and-404-errors-c4fb78aa1af5
 -- https://www.npmjs.com/package/react-avatar-edit
 -- https://www.npmjs.com/package/react-avatar-editor
 -- https://github.com/MalharMane/Almabetter-Resume-Builder-Capstone-Project-frontend
