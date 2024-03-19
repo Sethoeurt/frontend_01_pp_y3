@@ -20,7 +20,8 @@ function Projects() {
     localStorage.setItem('storeProjects', JSON.stringify(projects));
   }, [projects]);
 
-  const handleAddButtonClick = () => {
+  const handleAddButtonClick = (e) => {
+    e.preventDefault();
     if (projects.length < 4) {
       setProjects([...projects, {
         project_name: "",
@@ -36,7 +37,7 @@ function Projects() {
     const updatedProjects = [...projects];
     updatedProjects.splice(index, 1);
     setProjects(updatedProjects);
-    scrollToTop()
+    scrollToTop();
   }
 
   const handleInputChange = (index, value, fieldType) => {
@@ -90,6 +91,7 @@ function Projects() {
                         className={Styles.inputStyle}
                         type="text"
                         id='project_name'
+                        required
                         placeholder={Details.projects[0].project_name}
                         value={item.project_name}
                         onChange={(e) => handleInputChange(index, e.target.value, "project_name")}
@@ -177,7 +179,7 @@ function Projects() {
             <button
               type='text'
               className={Styles.buttonAdd}
-              onClick={() => handleAddButtonClick()}
+              onClick={(e) => handleAddButtonClick(e)}
             >
               Add Project
             </button>
