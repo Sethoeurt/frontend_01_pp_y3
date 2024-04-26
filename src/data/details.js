@@ -4,8 +4,8 @@ import resume_builder from '../assets/resume_builder.jpg'
 export const Details = {
     bio: {
         profile_image: resume_builder,
-        first_name: "Steve",
-        last_name: "Rogers",
+        first_name: "Anurag",
+        last_name: "Affection",
         role: "Software Developer",
         description: "As Captain America, I aim to leverage my leadership skills and dedication to serve, transitioning into a Full Stack Developer role to contribute to technological advancements.",
     },
@@ -14,7 +14,7 @@ export const Details = {
         city: "Brooklyn",
         state: "New York",
         country: "USA",
-        phone: "+91 9876543210",
+        phone: "+91 9876543xxx",
         email: "steve.rogers@avengers.com",
     },
     experience: [

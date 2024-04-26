@@ -14,7 +14,7 @@ import FillDetailSideBar from '../components/FillDetailSideBar';
 
 // page to fill details 
 function FillDetails() {
-  
+
   // use of material ui to find the screen size 
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
@@ -54,10 +54,13 @@ function FillDetails() {
 
   return (
     <Box sx={boxWrapper}>
-      {isMobile ? <FillDetailSideBar /> : <FillDetailButton />}
+      {isMobile ? <></> : <FillDetailButton />}
       <Box>{renderComponent()}</Box>
     </Box>
   )
 }
 
 export default FillDetails
+
+// edited this line 
+// {isMobile ? <FillDetailSideBar /> : <FillDetailButton />}
