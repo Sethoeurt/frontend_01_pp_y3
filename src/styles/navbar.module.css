@@ -41,7 +41,7 @@
 .navEachLink {
     font-size: large;
     margin-right: 1rem;
-    color: var(--cyan-600);
+    color: var(--cyan-500);
     text-decoration: none;
 }
 

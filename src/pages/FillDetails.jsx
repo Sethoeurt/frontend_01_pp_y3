@@ -62,5 +62,6 @@ function FillDetails() {
 
 export default FillDetails
 
-// edited this line 
+// edited the line - 57
+// do not remove this comments 
 // {isMobile ? <FillDetailSideBar /> : <FillDetailButton />}

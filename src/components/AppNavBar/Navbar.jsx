@@ -33,6 +33,8 @@ function Navbar() {
           <NavbarDesktop />
         )
       }
+
+      {/* this will be active when screen size is of mobile size  */}
       <Drawer
         variant="temporary"
         open={drawerToggle}
