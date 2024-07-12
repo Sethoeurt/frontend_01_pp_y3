@@ -3,7 +3,7 @@ import IconButton from '@mui/material/IconButton';
 import Menu from '@mui/material/Menu'
 import MenuItem from '@mui/material/MenuItem';
 import AppsIcon from '@mui/icons-material/Apps';
-import { Button } from '@mui/material'
+import { Button, Tooltip } from '@mui/material'
 import { Box } from '@mui/system';
 import { colors } from '../../utils/colors.js'
 import resume_builder from '../../assets/resume_builder.jpg'
@@ -21,20 +21,30 @@ function NavbarMenu() {
 
     const items = [
         {
-            name: 'Code Book',
+            name: "Code Book",
+            shortName: 'Code',
             image: resume_builder,
             link: 'https://github.com/anuragaffection/FullStackNotes'
         },
         {
             name: 'Anurag Affection',
+            shortName: "Anurag",
             image: resume_builder,
             link: 'https://anuragaffection.vercel.app/'
         },
         {
             name: 'Entertainment App',
+            shortName: 'Entertain...',
             image: resume_builder,
             link: 'https://entertainment-app-anurag-affection.vercel.app/'
-        }
+        },
+        {
+            name: 'Anurag Affection',
+            shortName: 'Anurag',
+            image: resume_builder,
+            link: 'https://anuragaffection.vercel.app/'
+        },
+
     ];
 
     return (
@@ -73,37 +83,77 @@ function NavbarMenu() {
                     onClose={handleClose}
                     PaperProps={{
                         style: {
-                            width: '30ch',
-                            maxHeight: ITEM_HEIGHT * 7.5,
+                            width: '32ch',
+                            maxHeight: ITEM_HEIGHT * 6.5,
                             backgroundColor: colors.gray950,
                         },
                     }}
+
                 >
-                    {items.map((item, index) => (
-                        <MenuItem
-                            key={index}
-                            onClick={handleClose}
-                        >
-                            <a href={item.link} style={{ textDecoration: 'none', color: 'inherit', width: '100%' }}>
-                                <Button
-                                    variant={'text'}
-                                    sx={{
-                                        width: '100%',
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        justifyContent: 'flex-start'
+                    <Box
+
+
+                        sx={{
+                            display: 'grid',
+                            gridTemplateColumns: 'repeat(2, 1fr)', // Two items per row
+                            gap: '24px', // Spacing between items
+                            padding: '16px', // Padding around the grid
+
+                        }}
+                    >
+
+                        {items.map((item, index) => (
+                            <MenuItem
+                                key={index}
+                                onClick={handleClose}
+                                sx={{
+                                    padding: 0,
+                                    // Remove padding to ensure items align properly
+                                }}
+                            >
+                                <a
+                                    href={item.link}
+                                    style={{
+                                        textDecoration: 'none',
+                                        color: 'inherit',
+                                        width: '100%'
                                     }}
                                 >
-                                    <img
-                                        src={item.image}
-                                        alt={item.name}
-                                        style={{ width: '24px', height: '24px', marginRight: '8px' }}
-                                    />
-                                    {item.name}
-                                </Button>
-                            </a>
-                        </MenuItem>
-                    ))}
+                                    <Tooltip title={item.name} arrow placement='top'>
+                                        <Button
+                                            variant={'text'}
+                                            sx={{
+                                                width: '100%',
+                                                display: 'flex',
+                                                flexDirection: 'column',
+                                                alignItems: 'center',
+                                                // justifyContent: 'flex-start'
+                                            }}
+                                        >
+                                            <img
+                                                src={item.image}
+                                                alt={item.shortName}
+                                                style={{ width: '24px', height: '24px', marginRight: '8px' }}
+                                            />
+                                            {/* {item.name} */}
+                                            <span
+                                                style={{
+                                                    maxWidth: '80px',
+                                                    overflow: 'hidden',
+                                                    whiteSpace: 'nowrap',
+                                                    textOverflow: 'ellipsis',
+                                                }}
+                                            >
+                                                {item.name.length > 5 ? `${item.name.slice(0, 5)}...` : item.name}
+                                            </span>
+
+                                        </Button>
+                                    </Tooltip>
+                                </a>
+                            </MenuItem>
+                        ))}
+
+                    </Box>
                 </Menu>
             </Box>
         </>

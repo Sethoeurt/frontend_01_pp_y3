@@ -22,9 +22,9 @@ function NavbarDesktop() {
                 <NavLink to={"/about"} className={styles.navEachLink}>About </NavLink>
             </div>
 
-            <div>
-                <NavbarMenu />
-            </div>
+
+            <NavbarMenu />
+
         </div>
     )
 }

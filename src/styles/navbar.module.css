@@ -6,7 +6,7 @@
     justify-content: space-between;
     align-items: center;
     background-color: var(--black);
-    font-size: large;
+    font-size: larger;
     padding: 16px 32px;
     position: sticky;
     top: 0;
@@ -39,7 +39,6 @@
 }
 
 .navEachLink {
-    font-size: large;
     margin-right: 1rem;
     color: var(--cyan-500);
     text-decoration: none;
