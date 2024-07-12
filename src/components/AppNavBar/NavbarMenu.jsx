@@ -2,18 +2,15 @@ import React, { useState } from 'react'
 import IconButton from '@mui/material/IconButton';
 import Menu from '@mui/material/Menu'
 import MenuItem from '@mui/material/MenuItem';
-import MoreVertIcon from '@mui/icons-material/MoreVert';
+import AppsIcon from '@mui/icons-material/Apps';
 import { Button } from '@mui/material'
 import { Box } from '@mui/system';
-import { colors } from '../utils/colors.js' // from utils folder 
-
-
+import { colors } from '../../utils/colors.js'
+import resume_builder from '../../assets/resume_builder.jpg'
 
 function NavbarMenu() {
-
     const ITEM_HEIGHT = 48;
     const [anchorEl, setAnchorEl] = useState(null);
-
 
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
@@ -21,27 +18,33 @@ function NavbarMenu() {
     const handleClose = () => {
         setAnchorEl(null);
     }
-    const handleButtonClick = (index) => {
-        console.log(index)
-        handleClose();
-    }
 
-    const buttons = [
-        'Bio',
-        'Address',
-        'Experience',
-        'Projects',
-        'Education',
-        'Key Skills',
-        'Download'
+    const items = [
+        {
+            name: 'Code Book',
+            image: resume_builder,
+            link: 'https://github.com/anuragaffection/FullStackNotes'
+        },
+        {
+            name: 'Anurag Affection',
+            image: resume_builder,
+            link: 'https://anuragaffection.vercel.app/'
+        },
+        {
+            name: 'Entertainment App',
+            image: resume_builder,
+            link: 'https://entertainment-app-anurag-affection.vercel.app/'
+        }
     ];
 
     return (
         <>
-            <Box>
+            <Box
+                sx={{
+                    marginLeft: "32px"
+                }}>
                 <IconButton
                     sx={{
-                        marginTop: '2rem',
                         marginLeft: '0.5rem',
                         position: "sticky",
                         top: 80,
@@ -58,7 +61,7 @@ function NavbarMenu() {
                     aria-haspopup="true"
                     onClick={(e) => handleClick(e)}
                 >
-                    < MoreVertIcon />
+                    <AppsIcon sx={{ fontSize: '36px' }} />
                 </IconButton>
                 <Menu
                     id='long_menu'
@@ -70,22 +73,35 @@ function NavbarMenu() {
                     onClose={handleClose}
                     PaperProps={{
                         style: {
-                            width: '20ch',
+                            width: '30ch',
                             maxHeight: ITEM_HEIGHT * 7.5,
                             backgroundColor: colors.gray950,
                         },
                     }}
                 >
-                    {buttons.map((button, index) => (
+                    {items.map((item, index) => (
                         <MenuItem
                             key={index}
-                            onClick={() => handleButtonClick(index)}
+                            onClick={handleClose}
                         >
-                            <Button
-                                variant={'text'}
-                            >
-                                {button}
-                            </Button>
+                            <a href={item.link} style={{ textDecoration: 'none', color: 'inherit', width: '100%' }}>
+                                <Button
+                                    variant={'text'}
+                                    sx={{
+                                        width: '100%',
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        justifyContent: 'flex-start'
+                                    }}
+                                >
+                                    <img
+                                        src={item.image}
+                                        alt={item.name}
+                                        style={{ width: '24px', height: '24px', marginRight: '8px' }}
+                                    />
+                                    {item.name}
+                                </Button>
+                            </a>
                         </MenuItem>
                     ))}
                 </Menu>

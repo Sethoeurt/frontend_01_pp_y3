@@ -2,7 +2,7 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import resume_builder from '../../assets/resume_builder.jpg'
 import styles from '../../styles/navbar.module.css'
-
+import NavbarMenu from "../AppNavBar/NavbarMenu"
 // navbar for device of screen size greater than mobile size 
 function NavbarDesktop() {
     return (
@@ -16,9 +16,14 @@ function NavbarDesktop() {
                 <div className={styles.logo}>Resume Builder</div>
             </NavLink>
             <div className={styles.navLinksGroup}>
-                <NavLink to={"/"} className={styles.navEachLink} > Resume Template </NavLink>
+                <NavLink to={"/"} className={styles.navEachLink} > Home </NavLink>
+                <NavLink to={"/filldetails"} className={styles.navEachLink} > Fill Details </NavLink>
                 <NavLink to={"/myresume"} className={styles.navEachLink}>My Resume </NavLink>
                 <NavLink to={"/about"} className={styles.navEachLink}>About </NavLink>
+            </div>
+
+            <div>
+                <NavbarMenu />
             </div>
         </div>
     )

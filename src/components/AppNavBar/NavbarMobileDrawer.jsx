@@ -9,7 +9,7 @@ import { colors } from '../../utils/colors.js'
 function NavbarMobileDrawer({ handleDrawerToggle }) {
     const location = useLocation();
     const links = [
-        { text: 'Resume Template', route: '/' },
+        { text: 'Home', route: '/' },
         { text: 'Fill Details', route: '/filldetails' },
         { text: 'My Resume', route: '/myresume' },
         { text: 'About', route: '/about' },
