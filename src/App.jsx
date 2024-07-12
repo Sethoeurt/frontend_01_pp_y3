@@ -1,6 +1,5 @@
 import React from 'react' // from installed dependencies
 import { BrowserRouter, Routes, Route, } from 'react-router-dom'
-
 import Navbar from './components/AppNavBar/Navbar.jsx'
 import About from './pages/About.jsx' // from pages 
 import FillDetails from './pages/FillDetails.jsx'
@@ -19,7 +18,6 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path='*' element={<Home />} />
         </Routes>
-
       </BrowserRouter >
     </>
   )
