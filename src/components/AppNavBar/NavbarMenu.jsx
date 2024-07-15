@@ -38,12 +38,7 @@ function NavbarMenu() {
             image: resume_builder,
             link: 'https://entertainment-app-anurag-affection.vercel.app/'
         },
-        {
-            name: 'Anurag Affection',
-            shortName: 'Anurag',
-            image: resume_builder,
-            link: 'https://anuragaffection.vercel.app/'
-        },
+
 
     ];
 
