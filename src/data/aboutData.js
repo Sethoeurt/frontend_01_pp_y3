@@ -46,7 +46,7 @@ const aboutData = {
       },
       {
         label: "Email Me",
-        url: "mailto:anuragaffection.contact@gmail.com"
+        url: "mailto:contact@gklite.in"
       }
     ]
   }
